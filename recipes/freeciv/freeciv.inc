@@ -12,7 +12,10 @@ SECTION = "games"
 
 DEPENDS = "gtk+ readline"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.gz"
+SRC_URI = "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.gz \
+           file://allow-root.patch \
+"
+
 S = "${WORKDIR}/freeciv-${PV}"
 
 inherit autotools pkgconfig

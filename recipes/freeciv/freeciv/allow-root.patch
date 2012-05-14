@@ -1,0 +1,16 @@
+Allow root to run freeciv
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+
+diff -Nurd -X.diff_ignore freeciv/configure.ac freeciv/configure.ac
+--- freeciv/configure.ac	2012-04-05 02:04:17.000000000 +0300
++++ freeciv/configure.ac	2012-05-14 15:33:05.000000000 +0300
+@@ -447,6 +447,8 @@
+ AMIGA=no
+ HOST_PATH_SEPARATOR=":"
+ 
++AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - OpenEmbedded])
++
+ dnl Settings specific to host OS
+ case "$host_os" in
+ 
