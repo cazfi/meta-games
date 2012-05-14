@@ -14,6 +14,7 @@ DEPENDS = "gtk+ readline"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.gz \
            file://allow-root.patch \
+           file://wait-server-start.patch \
 "
 
 S = "${WORKDIR}/freeciv-${PV}"
