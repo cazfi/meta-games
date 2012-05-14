@@ -10,7 +10,8 @@ inherit core-image
 IMAGE_ROOTFS_SIZE = "8192"
 
 IMAGE_INSTALL = "\
-task-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
+task-core-boot task-core-ssh-openssh \
+${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
 xserver-xorg xserver-xorg-extension-extmod xf86-video-fbdev xf86-video-vmware xf86-input-evdev \
 xinit xterm \
 freeciv \
