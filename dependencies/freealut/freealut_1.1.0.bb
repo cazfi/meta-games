@@ -1,4 +1,4 @@
-DESCRIPTION = ""
+DESCRIPTION = "OpenAL Utility Toolkit"
 SECTION = "libs"
 
 LICENSE = "GPLv2"
