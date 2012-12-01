@@ -1,0 +1,5 @@
+This directory contains recipes for components that games depend on and
+which are not yet available in proper layers. They should be here only
+temporarily, allowing games to be built already when these dependencies
+are not available from proper layers. They should be cleaned up and moved to
+correct repositories.
