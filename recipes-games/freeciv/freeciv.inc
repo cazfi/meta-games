@@ -12,9 +12,9 @@ SECTION = "games"
 
 DEPENDS = "gtk+ readline"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.gz \
-           file://allow-root.patch \
-           file://wait-server-start.patch \
+SRC_URI = "\
+file://allow-root.patch \
+file://wait-server-start.patch \
 "
 
 S = "${WORKDIR}/freeciv-${PV}"
@@ -25,6 +25,8 @@ EXTRA_OECONF = "\
 --enable-shared --without-ggz-dir --enable-client=gtk2 \
 --with-sdl-prefix=${STAGING_BINDIR_CROSS} \
 "
+
+acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
 PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-gtk2"
 
