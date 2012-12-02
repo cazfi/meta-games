@@ -5,7 +5,7 @@ DESCRIPTION = "Freeciv is distributed under the GPL and implemented for X. \
  the ultimate goal: The extinction of all other civilizations. \
  "
 
-LICENSE = "GPL2+"
+LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 SECTION = "games"

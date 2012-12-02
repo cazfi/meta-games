@@ -1,5 +1,4 @@
 require freeciv.inc
-LICENSE = "GPLv2"
 
 PR = "r0"
 
