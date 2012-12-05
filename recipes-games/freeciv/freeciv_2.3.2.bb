@@ -1,6 +1,6 @@
 require freeciv.inc
 
-PR = "r0"
+PR = "r1"
 
 SRC_URI += "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.gz"
 
