@@ -58,7 +58,7 @@ do_install_append() {
 	fi
 }
 
-RDEPENDS_${PN} = "${PN}-data libpng tremor"
+RDEPENDS_${PN} = "${PN}-data tremor"
 
 RDEPENDS_${PN}-editor = "${PN}-data"
 
