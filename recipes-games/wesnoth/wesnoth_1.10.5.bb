@@ -5,7 +5,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://copyright;md5=846b2c52d78ca4f0169b5f048d877508"
 
 DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib boost pango libpng"
-INC_PR = "r0"
+PR = "r0"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-1.10/${P}/${P}.tar.bz2"
 
@@ -175,5 +175,5 @@ FILES_${PN}-utbs = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
 "
 
-SRC_URI[md5sum] = "1a673f12e4521fc66e60ec584fa7c98f"
-SRC_URI[sha256sum] = "97131daf6e52175abe1c84ff55dbbf0f6b102b99f29d32490f5e89ee02cfebc3"
+SRC_URI[md5sum] = "03d9683cd83d17c6536bdf5c4940bbc8"
+SRC_URI[sha256sum] = "f627d246e473dcbad3b928a37e0783a7191a237430b0bfc7680ffe3d18ca74e7"
