@@ -1,0 +1,22 @@
+allegro-config does not give any library path parameters for --libs to
+avoid problems with target paths getting used in build system.
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+diff -Nurd allegro-4.4.2/misc/allegro-config.in allegro-4.4.2/misc/allegro-config.in
+--- allegro-4.4.2/misc/allegro-config.in	2010-03-03 12:22:34.000000000 +0200
++++ allegro-4.4.2/misc/allegro-config.in	2012-12-13 03:59:39.564579024 +0200
+@@ -188,11 +188,11 @@
+ fi
+ 
+ if test "$echo_libs" = "yes"; then
+-   test -z "$addon_form" && libdirs=-L${lib_path}
++   test -z "$addon_form"
+    if test "$static_libs" = "yes"; then
+-      echo $libdirs $allegro_ldflags -l${lib_type} $allegro_libs
++      echo $allegro_ldflags -l${lib_type} $allegro_libs
+    else
+-      echo $libdirs $allegro_ldflags -l${lib_type}
++      echo $allegro_ldflags -l${lib_type}
+    fi
+ fi
+ 
