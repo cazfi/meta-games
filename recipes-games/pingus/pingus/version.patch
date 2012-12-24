@@ -1,0 +1,29 @@
+Upstream Status: Backport: Backported from 1382bfc441147f60bc5bd0f56a9888cfad488be2
+(Applied C++11 patch from Kasper Laudrup <laudrup@stacktrace.dk>)
+---
+Index: pingus-0.7.6/src/pingus/screens/pingus_menu.cpp
+===================================================================
+--- pingus-0.7.6.orig/src/pingus/screens/pingus_menu.cpp	2011-12-24 22:46:47.000000000 +0100
++++ pingus-0.7.6/src/pingus/screens/pingus_menu.cpp	2012-12-24 08:34:20.314308729 +0100
+@@ -153,7 +153,7 @@
+                          gc.get_height()/2 - 280));
+ 
+   gc.print_left(Fonts::pingus_small, Vector2i(gc.get_width()/2 - 400 + 25, gc.get_height()-140),
+-                "Pingus "VERSION" - Copyright (C) 1998-2011 Ingo Ruhnke <grumbel@gmail.com>\n"
++                "Pingus " VERSION " - Copyright (C) 1998-2011 Ingo Ruhnke <grumbel@gmail.com>\n"
+                 "See the file AUTHORS for a complete list of contributors.\n"
+                 "Pingus comes with ABSOLUTELY NO WARRANTY. This is free software, and you are\n"
+                 "welcome to redistribute it under certain conditions; see the file COPYING for details.\n");
+Index: pingus-0.7.6/src/pingus/pingus_main.cpp
+===================================================================
+--- pingus-0.7.6.orig/src/pingus/pingus_main.cpp	2012-12-24 08:38:05.070305763 +0100
++++ pingus-0.7.6/src/pingus/pingus_main.cpp	2012-12-24 08:38:19.370305573 +0100
+@@ -465,7 +465,7 @@
+ void
+ PingusMain::print_greeting_message()
+ {
+-  std::string greeting = "Welcome to Pingus "VERSION;
++  std::string greeting = "Welcome to Pingus " VERSION;
+   greeting += "!";
+   std::cout <<  greeting << std::endl;
+   for (unsigned int i = 0; i < greeting.length(); ++i)
