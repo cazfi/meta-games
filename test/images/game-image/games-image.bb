@@ -16,6 +16,8 @@ task-core-boot gdb \
 ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
 nano \
 freeciv \
+wesnoth \
+pingus \
 "
 
 # remove not needed ipkg informations
