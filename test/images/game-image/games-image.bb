@@ -3,7 +3,7 @@ DESCRIPTION = "meta-games layer test image"
 
 IMAGE_LINGUAS = " "
 
-LICENSE = "GPL2"
+LICENSE = "GPLv2"
 
 inherit core-image
 
