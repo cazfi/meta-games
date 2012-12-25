@@ -12,7 +12,7 @@ IMAGE_ROOTFS_SIZE = "8192"
 IMAGE_FEATURES += "package-management x11-base ssh-server-dropbear"
 
 IMAGE_INSTALL = " \
-task-core-boot task-core-ssh-openssh gdb \
+task-core-boot gdb \
 ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
 nano \
 freeciv \
