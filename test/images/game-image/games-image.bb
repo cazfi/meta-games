@@ -11,13 +11,17 @@ IMAGE_ROOTFS_SIZE = "8192"
 
 IMAGE_FEATURES += "package-management x11-base ssh-server-dropbear"
 
-IMAGE_INSTALL = " \
-task-core-boot gdb \
+GAMELIST = "freeciv \
+            wesnoth \
+            pingus \
+           "
+
+IMAGE_INSTALL += " \
+packagegroup-core-boot \
 ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
+${GAMELIST} \
+gdb \
 nano \
-freeciv \
-wesnoth \
-pingus \
 "
 
 # remove not needed ipkg informations
