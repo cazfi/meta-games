@@ -5,9 +5,9 @@ SECTION = "libs"
 LICENSE = "Allegro4"
 LIC_FILES_CHKSUM = "file://docs/txt/license.txt;md5=55ec083de776f786d0da79bbbb887c50"
 
-PR = "r0"
+PR = "r1"
 
-DEPENDS = "virtual/libgl libglu libx11 libxcursor physfs openal jpeg"
+DEPENDS = "virtual/libgl libglu libx11 libxcursor physfs openal-soft jpeg"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/alleg/allegro/${PV}/allegro-${PV}.tar.gz \
            file://avoid_lib_paths.patch \
