@@ -4,9 +4,9 @@ SECTION = "libs"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7ec51bd663119a90c3d50704d6051fae"
 
-PR = "r0"
+PR = "r1"
 
-DEPENDS = "openal"
+DEPENDS = "openal-soft"
 
 SRC_URI = "http://connect.creativelabs.com/openal/Downloads/ALUT/${PN}-${PV}.tar.gz"
 
