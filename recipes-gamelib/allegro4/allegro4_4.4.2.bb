@@ -10,7 +10,8 @@ PR = "r0"
 DEPENDS = "virtual/libgl libglu libx11 libxcursor physfs openal jpeg"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/alleg/allegro/${PV}/allegro-${PV}.tar.gz \
-file://avoid_lib_paths.patch \
+           file://avoid_lib_paths.patch \
+           file://0001-CMakeLists.txt-don-t-try-to-run-in-cross-environment.patch \
 "
 
 SRC_URI[md5sum] = "4db71b0460fc99926ae91d223199c2e6"
@@ -20,3 +21,5 @@ inherit cmake binconfig
 
 S = "${WORKDIR}/allegro-${PV}"
 
+FILES_${PN} += "${libdir}/allegro"
+FILES_${PN}-dbg += "${libdir}/allegro/*/.debug"
