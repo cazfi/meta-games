@@ -1,0 +1,33 @@
+From 19aab4915c677aaeaa4f45f0a3679f2533ec4c70 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sun, 6 Jan 2013 19:56:45 +0100
+Subject: [PATCH] aisleriot/lib/Makefile.am: fix configure
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| aisleriot/lib/Makefile.am:92: error: 'pkglibdir' is not a legitimate directory for 'PROGRAMS'
+
+Upstream-Status: Backport
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ aisleriot/lib/Makefile.am |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/aisleriot/lib/Makefile.am b/aisleriot/lib/Makefile.am
+index 2df7958..972d24d 100644
+--- a/aisleriot/lib/Makefile.am
++++ b/aisleriot/lib/Makefile.am
+@@ -89,7 +89,7 @@ endif
+ 
+ if HAVE_RSVG
+ 
+-pkglib_PROGRAMS = ar-cards-renderer
++pkglibexec_PROGRAMS = ar-cards-renderer
+ 
+ ar_cards_renderer_SOURCES = \
+ 	render-cards.c
+-- 
+1.7.4.4
+

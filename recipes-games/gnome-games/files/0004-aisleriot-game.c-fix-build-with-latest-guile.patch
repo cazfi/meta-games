@@ -1,0 +1,33 @@
+From 7b29b162281072a065647a4a355bd9fd6bc2d1a8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sun, 20 Jan 2013 01:56:37 +0100
+Subject: [PATCH] aisleriot/game.c: fix build with latest guile
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| game.c:324:26: error: 'scm_the_last_stack_fluid_var' undeclared (first use in this function)
+
+Upstream-Status: Backport
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ aisleriot/game.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/aisleriot/game.c b/aisleriot/game.c
+index e42c88c..cfdb99c 100644
+--- a/aisleriot/game.c
++++ b/aisleriot/game.c
+@@ -321,7 +321,7 @@ cscmi_exception_get_backtrace (SCM tag, SCM throw_args)
+   free (string);
+ 
+   g_string_append (message, "\n\nBacktrace:\n");
+-  stack = scm_fluid_ref (SCM_VARIABLE_REF (scm_the_last_stack_fluid_var));
++  stack = scm_make_stack (SCM_BOOL_T, SCM_EOL);
+   if (!SCM_FALSEP (stack)) {
+     scm_display_backtrace (stack, port, SCM_UNDEFINED, SCM_UNDEFINED);
+     string = scm_to_locale_string (scm_get_output_string (port));
+-- 
+1.7.4.4
+

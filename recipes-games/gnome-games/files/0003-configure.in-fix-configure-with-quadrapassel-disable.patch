@@ -1,0 +1,35 @@
+From 67a9930fe433ffcfee44c7a668dce2d2f01a8a6d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sun, 20 Jan 2013 01:20:47 +0100
+Subject: [PATCH] configure.in: fix configure with quadrapassel disabled
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| configure:22096: error: conditional "am__fastdepCXX" was never defined.
+| Usually this means the macro was only invoked conditionally.
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ configure.in |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index fd60098..07581d6 100644
+--- a/configure.in
++++ b/configure.in
+@@ -205,8 +205,8 @@ AC_PROG_CPP
+ AC_PROG_LN_S
+ AC_PROG_SED
+ 
++AC_PROG_CXX
+ if test "$need_cxx" = "yes"; then
+-  AC_PROG_CXX
+ 
+   # Check whether a C++ was found (AC_PROG_CXX sets $CXX to "g++" even when it
+   # doesn't exist)
+-- 
+1.7.4.4
+
