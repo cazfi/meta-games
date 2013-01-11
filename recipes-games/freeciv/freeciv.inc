@@ -36,6 +36,7 @@ FILES_${PN}-common = "\
 ${libdir}/libfreeciv.so.0.0.0 \
 ${libdir}/libfreeciv.so.0 \
 ${datadir}/po \
+${datadir}/icons/hicolor/*/*/freeciv-client.png \
 "
 
 RDEPENDS_${PN}-server = "freeciv-common"
@@ -44,6 +45,7 @@ ${bindir}/freeciv-server \
 ${datadir}/freeciv/default \
 ${datadir}/freeciv/default.serv \
 ${datadir}/freeciv/nation \
+${datadir}/icons/hicolor/*/*/freeciv-server.png \
 "
 
 FILES_${PN}-client-common = "\
@@ -54,6 +56,7 @@ ${datadir}/freeciv/amplio2.tilespec \
 ${datadir}/freeciv/amplio2 \
 ${datadir}/freeciv/stdsounds.soundspec \
 ${datadir}/freeciv/stdsounds \
+${datadir}/icons/hicolor/*/*/freeciv-modpack.png \
 "
 
 RDEPENDS_${PN}-gtk2 = "freeciv-common freeciv-client-common"
