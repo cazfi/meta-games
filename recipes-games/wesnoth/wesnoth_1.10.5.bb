@@ -5,7 +5,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://copyright;md5=846b2c52d78ca4f0169b5f048d877508"
 
 DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib boost pango libpng"
-PR = "r0"
+PR = "r1"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-1.10/${P}/${P}.tar.bz2"
 
@@ -86,6 +86,7 @@ FILES_${PN}-data = "\
 	${datadir}/wesnoth/data \
 	${datadir}/wesnoth/fonts \
 	${datadir}/wesnoth/translations \
+	${datadir}/wesnoth/l10n-track \
 "
 
 FILES_${PN} = "\
@@ -97,6 +98,7 @@ FILES_${PN} = "\
 
 FILES_${PN}-server = "\
 	${bindir}/wesnothd \
+	${localstatedir}/run/wesnothd \
 "
 
 FILES_${PN}-low ="\

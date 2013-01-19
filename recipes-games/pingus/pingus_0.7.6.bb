@@ -3,11 +3,11 @@ DEPENDS = "virtual/libiconv boost libpng libglu"
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
+PR = "r2"
 
 RDEPENDS += "libmikmod"
 
-inherit scons
-inherit sdl
+inherit scons sdl pythonnative
 
 SRC_URI = "\
   http://${PN}.googlecode.com/files/${P}.tar.bz2 \
