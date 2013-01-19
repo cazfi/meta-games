@@ -8,4 +8,4 @@ Icon=pingus
 Exec=pingus -d /usr/share/pingus/data/ -f -g 640x480 -m
 Terminal=false
 StartupNotify=false
-Categories=Application;Games;ArcadeGame;
+Categories=Application;Game;ArcadeGame;

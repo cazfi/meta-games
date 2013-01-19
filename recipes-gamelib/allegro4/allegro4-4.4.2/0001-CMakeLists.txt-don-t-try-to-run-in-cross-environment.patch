@@ -1,0 +1,37 @@
+From ad105eee25e248e56c87d82fe8c70c44b4676bd9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Wed, 9 Jan 2013 01:31:38 +0100
+Subject: [PATCH] CMakeLists.txt: don't try to run in cross environment
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [Cross-compile specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ CMakeLists.txt |    8 --------
+ 1 files changed, 0 insertions(+), 8 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 245be10..8f4e331 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -189,14 +189,6 @@ if(UNIX)
+         set(MAP_FAILED "((void *) -1)")
+     endif()
+ 
+-    check_c_source_runs("
+-        static int notsupported = 1;
+-        void test_ctor (void) __attribute__((constructor));
+-        void test_ctor (void) { notsupported = 0; }
+-        int main(void) { return (notsupported); }
+-        "
+-        ALLEGRO_USE_CONSTRUCTOR)
+-
+     find_library(RT_LIBRARY rt)
+     check_c_source_compiles("
+         #include <time.h>
+-- 
+1.7.4.4
+
