@@ -3,9 +3,9 @@ DEPENDS = "virtual/libiconv boost libpng libglu"
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
-PR = "r2"
+PR = "r3"
 
-RDEPENDS += "libmikmod"
+RDEPENDS_${PN} += "libmikmod"
 
 inherit scons sdl pythonnative
 
