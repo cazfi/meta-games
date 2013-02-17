@@ -1,3 +1,5 @@
+FREECIV_GUI = "gtk2"
+
 require freeciv.inc
 
 PR = "r0"

@@ -22,7 +22,7 @@ S = "${WORKDIR}/freeciv-${PV}"
 inherit autotools pkgconfig
 
 EXTRA_OECONF = "\
---enable-shared --without-ggz-dir --enable-client=gtk2 \
+--enable-shared --without-ggz-dir --enable-client=${FREECIV_GUI} \
 --with-sdl-prefix=${STAGING_BINDIR_CROSS} \
 "
 
