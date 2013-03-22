@@ -2,10 +2,10 @@ DESCRIPTION = "The Battle for Wesnoth is a turn-based strategy game with a fanta
 HOMEPAGE = "http://www.wesnoth.org/"
 SECTION = "games"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://copyright;md5=846b2c52d78ca4f0169b5f048d877508"
+LIC_FILES_CHKSUM = "file://copyright;md5=3cd35059318048afea9baa2fb45e339b"
 
 DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib boost pango libpng"
-PR = "r1"
+PR = "r0"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-1.10/${P}/${P}.tar.bz2"
 
@@ -177,5 +177,5 @@ FILES_${PN}-utbs = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
 "
 
-SRC_URI[md5sum] = "03d9683cd83d17c6536bdf5c4940bbc8"
-SRC_URI[sha256sum] = "f627d246e473dcbad3b928a37e0783a7191a237430b0bfc7680ffe3d18ca74e7"
+SRC_URI[md5sum] = "547e3489bbfa778912b11dbee612c380"
+SRC_URI[sha256sum] = "05f3b47dcec4d2c3e2aaa05be270bc1505948d0311f2508d2bf8ece5741d2081"
