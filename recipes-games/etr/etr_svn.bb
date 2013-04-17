@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 SECTION = "games"
 
-PR = "r0"
+PR = "r1"
 
 SRCREV = "261"
 SRC_URI = "svn://svn.code.sf.net/p/extremetuxracer/code/;module=trunk"
@@ -18,5 +18,6 @@ SRC_URI[sha256sum] = "b20c0c0d6138e589b359be49546a034ca4f8deeba2c0b99a894333d306
 DEPENDS = "libsdl libglu"
 
 S = "${WORKDIR}/trunk"
+B = "${WORKDIR}/build"
 
 inherit autotools
