@@ -18,6 +18,7 @@ file://wait-server-start.patch \
 "
 
 S = "${WORKDIR}/freeciv-${PV}"
+B = "${WORKDIR}/build-${PV}"
 
 inherit autotools pkgconfig
 
