@@ -10,5 +10,5 @@ DEPENDS += "curl"
 
 SRC_URI += "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2"
 
-SRC_URI[md5sum] = "464553116e71dcafb1e768b5bfffdd39"
-SRC_URI[sha256sum] = "3c8f2b7e29420090ee42c3ea590ec4c52bb1382e4a54c58245d17870eaf11b70"
+SRC_URI[md5sum] = "869d1cee74906bef0710c8f3bc8fa9ed"
+SRC_URI[sha256sum] = "eb37d794d7474b2eb83d290e1a04b2a67864c21155aa17638d750e0143d30379"
