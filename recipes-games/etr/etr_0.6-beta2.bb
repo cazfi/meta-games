@@ -11,7 +11,7 @@ SRC_URI = "http://sourceforge.net/projects/extremetuxracer/files/pre-releases/et
 SRC_URI[md5sum] = "0226cc111a232b412a9dc307fffca0d7"
 SRC_URI[sha256sum] = "5c1c58d93fd9ded6aa79c66b9fc82834aa943606fcf6406215e8af6b5f2ecf2e"
 
-DEPENDS = "libsdl virtual/libgl libglu libsdl-image libsdl-mixer"
+DEPENDS = "libsdl virtual/libgl libglu libsdl-image libsdl-mixer freetype"
 
 B = "${WORKDIR}/build"
 
