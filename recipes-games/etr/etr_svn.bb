@@ -9,7 +9,6 @@ SECTION = "games"
 SRCREV = "401"
 
 SRC_URI = "svn://svn.code.sf.net/p/extremetuxracer/code/;module=trunk \
-           file://sdl_config.patch \
           "
 
 PV = "0.6-beta1+r${SRCREV}"
@@ -23,7 +22,8 @@ S = "${WORKDIR}/trunk"
 B = "${WORKDIR}/build"
 
 EXTRA_OECONF = "\
---with-sdl-config=${STAGING_BINDIR_CROSS}/sdl-config \
+SDL_CONFIG=${STAGING_BINDIR_CROSS}/sdl-config \
+FT2_CONFIG=${STAGING_BINDIR_CROSS}/freetype-config \
 "
 
 inherit autotools
