@@ -9,7 +9,7 @@ inherit core-image
 
 IMAGE_ROOTFS_SIZE = "8192"
 
-IMAGE_FEATURES += "package-management x11-base ssh-server-dropbear"
+IMAGE_FEATURES += "package-management x11-base x11-sato ssh-server-dropbear"
 
 GAMELIST = "freeciv \
             wesnoth \
