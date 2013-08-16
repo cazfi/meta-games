@@ -14,6 +14,7 @@ IMAGE_FEATURES += "package-management x11-base ssh-server-dropbear"
 GAMELIST = "freeciv \
             wesnoth \
             pingus \
+            etr \
            "
 
 IMAGE_INSTALL += " \
