@@ -2,7 +2,7 @@ DESCRIPTION = "Simple DirectMedia Layer networking library."
 SECTION = "libs/network"
 PRIORITY = "optional"
 DEPENDS = "virtual/libsdl"
-LICENSE = "zlib"
+LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9cf3de2d872bf510f88eb20d06d700b5"
 SRC_URI = " \
   http://www.libsdl.org/projects/SDL_net/release/SDL_net-${PV}.tar.gz \
