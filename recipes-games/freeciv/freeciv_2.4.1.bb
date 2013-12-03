@@ -10,5 +10,5 @@ SRC_URI += "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2"
 
 EXTRA_OECONF += "--without-magickwand"
 
-SRC_URI[md5sum] = "10c9cec7a094b991204c82b2dd506298"
-SRC_URI[sha256sum] = "7b2a9e6f777d2ac62bad9378dd7d03e4be07527c89d892b8f12b6b18fd0d80ad"
+SRC_URI[md5sum] = "9f280f320be0d597a29efe040f1b0025"
+SRC_URI[sha256sum] = "e8074e4c14b69fc23d6956084524a5f42dbbe4620196ffa8b612135af35bef80"
