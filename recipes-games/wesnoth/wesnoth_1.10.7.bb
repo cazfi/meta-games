@@ -55,6 +55,9 @@ do_install_append() {
 	if [ -d ${D}${prefix}/man ];then
 		mv ${D}${prefix}/man ${D}${mandir}
 	fi
+
+        rm -Rf ${D}/run
+        rm -Rf ${D}/var
 }
 
 RDEPENDS_${PN} = "${PN}-data tremor"
