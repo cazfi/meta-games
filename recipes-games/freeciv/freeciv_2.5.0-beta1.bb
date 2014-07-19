@@ -1,0 +1,12 @@
+FREECIV_GUI = "gtk2"
+
+require freeciv.inc
+
+DEFAULT_PREFERENCE = "-2"
+
+DEPENDS += "curl"
+
+EXTRA_OECONF += "--disable-mapimg"
+
+SRC_URI[md5sum] = "570e5407ea176767da15c4a616687f86"
+SRC_URI[sha256sum] = "2152736197d8a6aec6437885f3c476c4238ff64a9756727f0e5ee12b81f36654"
