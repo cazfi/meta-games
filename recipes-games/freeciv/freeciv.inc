@@ -13,6 +13,7 @@ SECTION = "games"
 DEPENDS = "gtk+ readline libsdl-mixer"
 
 SRC_URI = "\
+${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 file://allow-root.patch \
 file://wait-server-start.patch \
 "

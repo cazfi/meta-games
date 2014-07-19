@@ -6,8 +6,6 @@ DEFAULT_PREFERENCE = "-1"
 
 DEPENDS += "curl"
 
-SRC_URI += "${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2"
-
 EXTRA_OECONF += "--disable-mapimg"
 
 SRC_URI[md5sum] = "4bf03bbe7084d3e23739f1e5b2ccc529"
