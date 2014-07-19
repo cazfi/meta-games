@@ -31,6 +31,10 @@ acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
 PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-gtk2"
 
+do_install_append() {
+        rm -Rf ${D}/${datadir}/appdata
+}
+
 RDEPENDS_${PN} = "freeciv-server freeciv-client"
 
 FILES_${PN}-common = "\
