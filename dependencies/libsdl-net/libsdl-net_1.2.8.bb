@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9cf3de2d872bf510f88eb20d06d700b5"
 SRC_URI = " \
   http://www.libsdl.org/projects/SDL_net/release/SDL_net-${PV}.tar.gz \
   file://libtool2.patch \
+  file://am_foreign.patch \
 "
 
 S = "${WORKDIR}/SDL_net-${PV}"
