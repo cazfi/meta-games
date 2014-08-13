@@ -4,7 +4,7 @@ require freeciv.inc
 
 DEFAULT_PREFERENCE = "-1"
 
-DEPENDS += "curl"
+DEPENDS += "curl xz"
 
 EXTRA_OECONF += "--disable-mapimg"
 

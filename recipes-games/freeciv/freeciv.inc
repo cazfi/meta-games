@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 SECTION = "games"
 
-DEPENDS = "gtk+ readline libsdl-mixer"
+DEPENDS = "gtk+ readline libsdl-mixer bzip2"
 
 SRC_URI = "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \

@@ -4,7 +4,7 @@ require freeciv.inc
 
 DEFAULT_PREFERENCE = "-2"
 
-DEPENDS += "curl gtk+3"
+DEPENDS += "curl gtk+3 xz"
 
 EXTRA_OECONF += "--disable-mapimg"
 
