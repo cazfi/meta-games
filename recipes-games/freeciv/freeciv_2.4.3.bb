@@ -2,8 +2,6 @@ FREECIV_GUI = "gtk2"
 
 require freeciv.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS += "curl xz"
 
 EXTRA_OECONF += "--disable-mapimg"

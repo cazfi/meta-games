@@ -2,7 +2,7 @@ FREECIV_GUI = "gtk2,gtk3"
 
 require freeciv.inc
 
-DEFAULT_PREFERENCE = "-2"
+DEFAULT_PREFERENCE = "-1"
 
 DEPENDS += "curl gtk+3 xz"
 
