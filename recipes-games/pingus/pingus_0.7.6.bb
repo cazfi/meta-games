@@ -1,9 +1,8 @@
 DESCRIPTION = "Pingus is a free Lemmings clone."
-DEPENDS = "virtual/libiconv boost libpng libglu"
+DEPENDS = "virtual/libiconv boost libpng libglu libsdl-mixer libsdl-image"
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
-PR = "r3"
 
 RDEPENDS_${PN} += "libmikmod"
 
@@ -12,6 +11,7 @@ inherit scons sdl pythonnative
 SRC_URI = "\
   http://${PN}.googlecode.com/files/${P}.tar.bz2 \
   file://version.patch \
+  file://sdl_pkgconfig.patch \
   file://pingus.desktop \
   file://pingus.png \
 "

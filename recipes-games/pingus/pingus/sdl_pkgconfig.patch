@@ -1,0 +1,26 @@
+Use pkg-config instead of sdl-config to find sdl
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+diff -Nurd pingus-0.7.6/SConscript pingus-0.7.6/SConscript
+--- pingus-0.7.6/SConscript	2011-12-24 23:46:47.000000000 +0200
++++ pingus-0.7.6/SConscript	2014-09-06 12:54:54.944135788 +0300
+@@ -199,8 +199,8 @@
+                 self.fatal_error += "  * library 'png' not found\n"
+ 
+     def configure_sdl(self):
+-        if self.conf.CheckMyProgram('sdl-config'):
+-            self.conf.env.ParseConfig("sdl-config  --cflags --libs | sed 's/-I/-isystem/g'")
++        if self.conf.CheckMyProgram('pkg-config'):
++            self.conf.env.ParseConfig("pkg-config  --cflags --libs sdl | sed 's/-I/-isystem/g'")
+             for sdllib in ['image', 'mixer']:
+                 if not self.conf.CheckSDLLib(sdllib):
+                     self.fatal_error += "  * SDL library '%s' not found\n" % sdllib
+@@ -220,7 +220,7 @@
+                                                    '-dylib_file', '@loader_path/Frameworks/smpeg.framework/Versions/A/smpeg:/Library/Frameworks/SDL_mixer.framework/Versions/A/Frameworks/smpeg.framework/Versions/A/smpeg' ],
+                                      CPPPATH = ['/Library/Frameworks/SDL_mixer.framework/Headers/'])
+             else:
+-                self.fatal_error += "  * couldn't find sdl-config, SDL missing\n"
++                self.fatal_error += "  * library 'sdl' not found\n"
+                 
+     def configure_iconv(self):
+         iconv_const = self.conf.CheckIconv()
