@@ -8,8 +8,8 @@ DEPENDS += "curl gtk+3 xz"
 
 EXTRA_OECONF += "--disable-mapimg"
 
-SRC_URI[md5sum] = "570e5407ea176767da15c4a616687f86"
-SRC_URI[sha256sum] = "2152736197d8a6aec6437885f3c476c4238ff64a9756727f0e5ee12b81f36654"
+SRC_URI[md5sum] = "ab652fd019b9ab8081a92016388fe0d0"
+SRC_URI[sha256sum] = "9fa7d78ada7ff675ac249ab347a888dad62e49dbe4e2fc02b40c65a5169900e2"
 
 PACKAGES += "${PN}-gtk3"
 
