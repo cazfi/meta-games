@@ -8,12 +8,8 @@ DEPENDS += "curl gtk+3 xz"
 
 EXTRA_OECONF += "--disable-mapimg"
 
-SRC_URI[md5sum] = "ab652fd019b9ab8081a92016388fe0d0"
-SRC_URI[sha256sum] = "9fa7d78ada7ff675ac249ab347a888dad62e49dbe4e2fc02b40c65a5169900e2"
-
-SRC_URI += "\
-file://IntroScreenDimensionsGtk3-2.patch \
-"
+SRC_URI[md5sum] = "18679f3600b438480ac53c86bcf3ea39"
+SRC_URI[sha256sum] = "11c9c63b746ff83067e0194be49f4075eef0fe099ea9b53053ebe8a96e6d8616"
 
 PACKAGES += "${PN}-gtk3"
 
