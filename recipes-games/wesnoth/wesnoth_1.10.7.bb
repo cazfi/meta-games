@@ -6,7 +6,9 @@ LIC_FILES_CHKSUM = "file://copyright;md5=3cd35059318048afea9baa2fb45e339b"
 
 DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib boost pango libpng"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-1.10/${P}/${P}.tar.bz2"
+SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
+
+SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-${SHRT_VER}/${P}/${P}.tar.bz2"
 
 ARM_INSTRUCTION_SET = "arm"
 
