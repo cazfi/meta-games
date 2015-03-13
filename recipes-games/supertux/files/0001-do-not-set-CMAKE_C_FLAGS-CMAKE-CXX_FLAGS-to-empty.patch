@@ -1,0 +1,36 @@
+From ed6fd52abd39880b7b1b2cd187a4f54a648d9ea0 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Fri, 13 Mar 2015 22:34:56 +0100
+Subject: [PATCH] do not set CMAKE_C_FLAGS / CMAKE CXX_FLAGS to empty
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This causes horrible (many faces) errors in cross environments
+
+Upstrem-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ external/squirrel/CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/external/squirrel/CMakeLists.txt b/external/squirrel/CMakeLists.txt
+index 0c4ef29..cdfa38a 100644
+--- a/external/squirrel/CMakeLists.txt
++++ b/external/squirrel/CMakeLists.txt
+@@ -34,11 +34,6 @@ IF(ENABLE_SQDBG)
+   SET(SQUIRREL_SOURCES ${SQDBG_SOURCES} ${SQUIRREL_SOURCES})
+ ENDIF(ENABLE_SQDBG)
+ 
+-# the squirrel sources are out of our control so don't be too pedantic about
+-# them
+-SET(CMAKE_CXX_FLAGS "")
+-SET(CMAKE_C_FLAGS "")
+-
+ ## define a target for building the library
+ 
+ ADD_LIBRARY(squirrel ${SQUIRREL_SOURCES})
+-- 
+1.9.3
+
