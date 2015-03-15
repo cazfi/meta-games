@@ -5,11 +5,13 @@ PRIORITY = "optional"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=761a03e159b8bb74f377e30458e210e1"
 
-inherit autotools
+inherit autotools-brokensep
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/scummvm/scummvm-${PV}.tar.bz2 \
-           file://scummvm.desktop \
-           file://no-strip.patch \
+SRC_URI = " \
+    ${SOURCEFORGE_MIRROR}/scummvm/scummvm-${PV}.tar.bz2 \
+    file://0001-use-pkg-config-to-gather-sdl-information.patch \
+    file://scummvm.desktop \
+    file://no-strip.patch \
 "
 
 DEPENDS = "virtual/libsdl libvorbis libogg zlib \
