@@ -14,7 +14,7 @@ SRC_URI = " \
     file://no-strip.patch \
 "
 
-DEPENDS = "virtual/libsdl libvorbis libogg zlib \
+DEPENDS = "virtual/libsdl libvorbis libogg zlib flac faad2 \
            ${@base_conditional('ENTERPRISE_DISTRO', '1', '', 'libmad mpeg2dec', d)}"
 
 EXTRA_OECONF = " \
@@ -28,6 +28,7 @@ EXTRA_OECONF = " \
   --enable-plugins \
   --default-dynamic \
   --enable-all-engines \
+  --disable-fluidsynth \
   ${@base_conditional('ENTERPRISE_DISTRO', '1', '--disable-mad', '--with-mad-prefix=${STAGING_LIBDIR}/..', d)} \
 "
 
