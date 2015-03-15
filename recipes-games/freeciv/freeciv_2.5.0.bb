@@ -11,8 +11,8 @@ EXTRA_OECONF += "\
 --with-qt5-libs=${STAGING_LIBDIR}/qt5 \
 --disable-mapimg"
 
-SRC_URI[md5sum] = "5f3df41bdfe17c64f5813b1afbc720fb"
-SRC_URI[sha256sum] = "2308b739d2b9e974c18182f54f8eda2816bb54afcb272fee3efef4d3f725db8c"
+SRC_URI[md5sum] = "8a61ecd986853200326711446c573f1b"
+SRC_URI[sha256sum] = "bd9f7523ea79b8d2806d0c1844a9f48506ccd18276330580319913c43051210b"
 
 PACKAGES =+ "${PN}-gtk3 ${PN}-qt"
 
