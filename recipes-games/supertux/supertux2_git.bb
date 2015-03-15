@@ -14,9 +14,10 @@ SRCREV = "947098af8085388eef4b5352f5c5d0b6edbcd78a"
 PV = "0.3.3+git${SRCPV}"
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://code.google.com/p/supertux;protocol=https"
-SRC_URI[md5sum] = "f3f803e629ee51a9de0b366a036e393d"
-SRC_URI[sha256sum] = "fceaf95251092d5698211ff0f51f1c50237fa5e2a6690464e9835a66e18301d0"
+SRC_URI = " \
+    git://code.google.com/p/supertux;protocol=https \
+    file://0001-do-not-set-CMAKE_C_FLAGS-CMAKE-CXX_FLAGS-to-empty.patch \
+"
 
 EXTRA_OECMAKE = "-DINSTALL_SUBDIR_BIN=bin -DCMAKE_BUILD_TYPE=RELEASE"
 

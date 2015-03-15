@@ -6,9 +6,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 SECTION = "games"
 
-SRC_URI = "http://sourceforge.net/projects/extremetuxracer/files/releases/${PV}/etr-${PV}.tar.xz \
-           file://ftconfigure.patch \
-           file://pkg.m4"
+SRC_URI = " \
+    http://sourceforge.net/projects/extremetuxracer/files/releases/${PV}/etr-${PV}.tar.xz \
+    file://0001-find-libgl-and-libglu-by-pkg-config.patch \
+    file://0002-find-sdl-by-pkg-config.patch \
+    file://ftconfigure.patch \
+    file://pkg.m4"
 
 SRC_URI[md5sum] = "c85690864b14f9d422b73025cb01aa8d"
 SRC_URI[sha256sum] = "44312719a1e9aa33e5aa0c8ad50bb52df702d64fd2d16bf2abda62ee27bf893a"

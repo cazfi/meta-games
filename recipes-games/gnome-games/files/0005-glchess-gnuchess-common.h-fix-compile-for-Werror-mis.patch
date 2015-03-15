@@ -1,0 +1,42 @@
+From 1b9b02c2c592db439cd09078c76007664e77b2ab Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sun, 10 Mar 2013 15:26:00 +0100
+Subject: [PATCH] glchess/gnuchess/common.h: fix compile for
+ -Werror=missing-prototypes
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| input.c:87:6: error: no previous prototype for 'getline_standard' [-Werror=missing-prototypes]
+
+| lexpgn.l:70:7: error: no previous prototype for 'return_append_str' [-Werror=missing-prototypes]
+| lexpgn.l:89:6: error: no previous prototype for 'append_str' [-Werror=missing-prototypes]
+| lexpgn.l:96:6: error: no previous prototype for 'append_comment' [-Werror=missing-prototypes]
+| lexpgn.c:1959:1: error: no previous prototype for 'yylex' [-Werror=missing-prototypes]
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ glchess/gnuchess/common.h |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/glchess/gnuchess/common.h b/glchess/gnuchess/common.h
+index d846d93..7d7f6e3 100644
+--- a/glchess/gnuchess/common.h
++++ b/glchess/gnuchess/common.h
+@@ -718,6 +718,13 @@ void DBTest (void);
+ extern pthread_t input_thread;
+ void *input_func(void *);
+ 
++/* some prototypes required for -Werror=missing-prototypes */
++void getline_standard(char *p);
++char *return_append_str(char *dest, const char *s);
++void append_str(char **dest, const char *s);
++void append_comment(const char *t);
++int yylex(void);
++
+ /*
+  * Status variable used by the input thread to signal
+  * pending input. Thought about using flags for this
+-- 
+1.7.4.4
+
