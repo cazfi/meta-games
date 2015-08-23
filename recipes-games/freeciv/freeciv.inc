@@ -6,7 +6,7 @@ DESCRIPTION = "Freeciv is distributed under the GPL and implemented for X. \
  "
 
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
+LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SECTION = "games"
 
