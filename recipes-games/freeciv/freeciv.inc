@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SECTION = "games"
 
-DEPENDS = "gtk+ readline libsdl-mixer bzip2"
+DEPENDS = "gtk+ readline libsdl-mixer bzip2 curl xz"
 
 SRC_URI = "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
@@ -25,6 +25,7 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF = "\
 --enable-shared --without-ggz-dir --enable-client=${FREECIV_GUI} \
+--disable-mapimg \
 SDL_CONFIG=${STAGING_BINDIR_CROSS}/sdl-config \
 "
 

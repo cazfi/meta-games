@@ -4,12 +4,12 @@ require freeciv.inc
 
 DEFAULT_PREFERENCE = "-1"
 
-DEPENDS += "curl gtk+3 xz qtbase"
+DEPENDS += "gtk+3 qtbase"
 
 EXTRA_OECONF += "\
 --with-qt5-includes=${STAGING_INCDIR}/qt5 \
 --with-qt5-libs=${STAGING_LIBDIR}/qt5 \
---disable-mapimg"
+"
 
 SRC_URI[md5sum] = "b94bf68ce5f3611c71fac9753598b046"
 SRC_URI[sha256sum] = "4e420a9ad91aa7966039ec3b63501725c8261a4ff734d56fe801414fae772696"
