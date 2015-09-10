@@ -2,8 +2,6 @@ FREECIV_GUI = "gtk2,gtk3,qt"
 
 require freeciv.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS += "gtk+3 qtbase"
 
 EXTRA_OECONF += "\
