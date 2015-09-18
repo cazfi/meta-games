@@ -26,7 +26,9 @@ inherit autotools pkgconfig
 EXTRA_OECONF = "\
 --enable-shared --without-ggz-dir --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
-SDL_CONFIG=${STAGING_BINDIR_CROSS}/sdl-config \
+--disable-sdltest \
+--disable-sdl2test \
+SDL_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl' \
 "
 
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
