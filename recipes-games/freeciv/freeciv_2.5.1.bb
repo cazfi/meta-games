@@ -7,6 +7,7 @@ DEPENDS += "gtk+3 qtbase"
 EXTRA_OECONF += "\
 --with-qt5-includes=${STAGING_INCDIR}/qt5 \
 --with-qt5-libs=${STAGING_LIBDIR}/qt5 \
+MOCCMD=${STAGING_BINDIR_NATIVE}/qt5/moc \
 "
 
 SRC_URI[md5sum] = "b94bf68ce5f3611c71fac9753598b046"
