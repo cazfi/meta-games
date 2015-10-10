@@ -17,6 +17,7 @@ SRC_URI = "\
 "
 
 EXTRA_OESCONS = "CC='${CC} -fPIC' CXX='${CXX} -fPIC'"
+CLEANBROKEN = "1"
 
 do_install() {
 	install -d ${D}${bindir}
