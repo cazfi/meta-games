@@ -21,6 +21,7 @@ FREECIV = "\
 GAMELIST = "\
  ${FREECIV} \
  etr \
+ pingus \
 "
 
 IMAGE_INSTALL += " \
