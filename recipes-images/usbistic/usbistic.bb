@@ -11,9 +11,17 @@ IMAGE_ROOTFS_SIZE = "8192"
 
 IMAGE_FEATURES += "package-management x11-base x11-sato ssh-server-dropbear"
 
-GAMELIST = "freeciv \
-            etr \
-           "
+FREECIV = "\
+ freeciv-server \
+ freeciv-gtk2 \
+ freeciv-gtk3 \
+ freeciv-qt \
+"
+
+GAMELIST = "\
+ ${FREECIV} \
+ etr \
+"
 
 IMAGE_INSTALL += " \
 packagegroup-core-boot \
