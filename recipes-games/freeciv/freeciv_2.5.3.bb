@@ -10,8 +10,8 @@ EXTRA_OECONF += "\
 MOCCMD=${STAGING_BINDIR_NATIVE}/qt5/moc \
 "
 
-SRC_URI[md5sum] = "cf71d2fbfdb7238e14ead864e06507d9"
-SRC_URI[sha256sum] = "2b5665da849c8f95b9225857fc02935140de2d44cd1a112f9cf3086a84d0b5be"
+SRC_URI[md5sum] = "6bbdfa23392ca88fdb0b8f7caca66ddd"
+SRC_URI[sha256sum] = "480b0381c64bf1a9423f2507a75d76bda9bf45c3c3badd30b5bad105e75d805c"
 
 PACKAGES =+ "${PN}-gtk3 ${PN}-qt"
 
