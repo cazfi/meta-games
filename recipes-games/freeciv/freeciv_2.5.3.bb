@@ -2,12 +2,14 @@ FREECIV_GUI = "gtk2,gtk3,qt"
 
 require freeciv.inc
 
-DEPENDS += "gtk+3 qtbase"
+DEPENDS += "libsdl2-mixer gtk+3 qtbase"
 
 EXTRA_OECONF += "\
 --with-qt5-includes=${STAGING_INCDIR}/qt5 \
 --with-qt5-libs=${STAGING_LIBDIR}/qt5 \
 MOCCMD=${STAGING_BINDIR_NATIVE}/qt5/moc \
+SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
+-enable-sdl-mixer=sdl2 \
 "
 
 SRC_URI[md5sum] = "6bbdfa23392ca88fdb0b8f7caca66ddd"

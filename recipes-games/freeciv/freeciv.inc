@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SECTION = "games"
 
-DEPENDS = "gtk+ readline libsdl-mixer bzip2 curl xz"
+DEPENDS = "gtk+ readline bzip2 curl xz"
 
 SRC_URI = "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
@@ -28,7 +28,6 @@ EXTRA_OECONF = "\
 --disable-mapimg \
 --disable-sdltest \
 --disable-sdl2test \
-SDL_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl' \
 "
 
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
