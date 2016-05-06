@@ -4,6 +4,10 @@ require freeciv.inc
 
 DEPENDS += "libsdl-mixer"
 
+SRC_URI += "\
+${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
+"
+
 EXTRA_OECONF += "\
 SDL_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl' \
 "

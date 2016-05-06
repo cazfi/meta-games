@@ -13,7 +13,6 @@ SECTION = "games"
 DEPENDS = "gtk+ readline bzip2 curl xz"
 
 SRC_URI = "\
-${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 file://allow-root.patch \
 file://wait-server-start.patch \
 "
