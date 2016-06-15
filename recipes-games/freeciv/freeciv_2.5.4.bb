@@ -9,15 +9,15 @@ EXTRA_OECONF += "\
 --with-qt5-libs=${STAGING_LIBDIR}/qt5 \
 MOCCMD=${STAGING_BINDIR_NATIVE}/qt5/moc \
 SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
--enable-sdl-mixer=sdl2 \
+--enable-sdl-mixer=sdl2 \
 "
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 "
 
-SRC_URI[md5sum] = "6bbdfa23392ca88fdb0b8f7caca66ddd"
-SRC_URI[sha256sum] = "480b0381c64bf1a9423f2507a75d76bda9bf45c3c3badd30b5bad105e75d805c"
+SRC_URI[md5sum] = "f2b2e1f0afc7daecc9050bf6ceadb1d8"
+SRC_URI[sha256sum] = "9e64ef047fd0d2f8e9aa1da01586dea7cfe63a36b15875c168ada555c2e6634b"
 
 PACKAGES =+ "${PN}-gtk3 ${PN}-qt"
 
@@ -29,7 +29,7 @@ ${datadir}/freeciv/themes/gui-gtk-3.0 \
 ${datadir}/freeciv/gtk_menus.xml \
 "
 
-RDEPENDS_${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins qtbase-fonts"
+RDEPENDS_${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins"
 RPROVIDES_${PN}-qt = "freeciv-client"
 FILES_${PN}-qt = "\
 ${bindir}/freeciv-qt \
