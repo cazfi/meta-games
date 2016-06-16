@@ -21,6 +21,7 @@ FREECIV = "\
 "
 
 GAMELIST = "\
+ packagegroup-core-x11-sato-games \
  ${FREECIV} \
  etr \
  pingus \
