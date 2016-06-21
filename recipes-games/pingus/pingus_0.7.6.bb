@@ -4,7 +4,7 @@ LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
 
-RDEPENDS_${PN} += "libmikmod"
+RDEPENDS_${PN} += "libmikmod guile bash"
 
 inherit scons sdl pythonnative
 
@@ -25,7 +25,7 @@ do_install() {
 	install -d ${D}${datadir}/pixmaps
 	install -d ${D}${datadir}/applications
 	install -m 0644 ${WORKDIR}/pingus.png ${D}${datadir}/pixmaps
-	cp -a ${S}/data ${D}/${datadir}/pingus
+	cp -dR ${S}/data ${D}/${datadir}/pingus
 	install -m 0644 ${WORKDIR}/pingus.desktop ${D}${datadir}/applications
 	install -m 0755 ${S}/build/pingus ${D}${bindir}/pingus
 }
