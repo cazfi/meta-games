@@ -20,8 +20,13 @@ FREECIV = "\
  freeciv-qt \
 "
 
+GNOME_GAMES = "\
+ gnome-robots \
+"
+
 GAMELIST = "\
  packagegroup-core-x11-sato-games \
+ ${GNOME_GAMES} \
  ${FREECIV} \
  etr \
  pingus \
