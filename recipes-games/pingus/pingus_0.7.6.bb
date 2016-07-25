@@ -6,7 +6,7 @@ HOMEPAGE = "http://pingus.seul.org/"
 
 RDEPENDS_${PN} += "libmikmod guile bash"
 
-inherit scons sdl pythonnative
+inherit scons pythonnative
 
 SRC_URI = "\
   http://${PN}.googlecode.com/files/${P}.tar.bz2 \
