@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SECTION = "games"
 
-DEPENDS = "gtk+ readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext"
+DEPENDS = "readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext"
 
 SRC_URI = "\
 file://allow-root.patch \
@@ -34,7 +34,7 @@ SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
-PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-gtk2 ${PN}-gtk3 ${PN}-qt"
+PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-gtk3 ${PN}-qt"
 
 do_install_append() {
         rm -Rf ${D}/${datadir}/appdata
@@ -67,14 +67,6 @@ ${datadir}/freeciv/amplio2 \
 ${datadir}/freeciv/stdsounds.soundspec \
 ${datadir}/freeciv/stdsounds \
 ${datadir}/icons/hicolor/*/*/freeciv-modpack.png \
-"
-
-RDEPENDS_${PN}-gtk2 = "freeciv-common freeciv-client-common"
-RPROVIDES_${PN}-gtk2 = "freeciv-client"
-FILES_${PN}-gtk2 = "\
-${bindir}/freeciv-gtk2 \
-${datadir}/freeciv/themes/gui-gtk-2.0 \
-${datadir}/freeciv/gtk_menus.xml \
 "
 
 RDEPENDS_${PN}-gtk3 = "freeciv-common freeciv-client-common"
