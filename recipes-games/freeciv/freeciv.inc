@@ -23,7 +23,7 @@ B = "${WORKDIR}/build-${PV}"
 inherit autotools pkgconfig
 
 EXTRA_OECONF = "\
---enable-shared --without-ggz-dir --enable-client=${FREECIV_GUI} \
+--enable-shared --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
 --disable-sdl2test \
 --with-qt5-includes=${STAGING_INCDIR}/qt5 \

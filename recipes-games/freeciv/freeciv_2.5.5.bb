@@ -5,6 +5,7 @@ require freeciv.inc
 DEPENDS =+ "gtk+"
 
 EXTRA_OECONF += "\
+--without-ggz-dir \
 --enable-sdl-mixer=sdl2 \
 "
 
