@@ -15,7 +15,6 @@ IMAGE_FSTYPES += "vmdk"
 
 FREECIV = "\
  freeciv-server \
- freeciv-gtk2 \
  freeciv-gtk3 \
  freeciv-qt \
 "
