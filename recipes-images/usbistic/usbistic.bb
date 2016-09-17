@@ -20,6 +20,7 @@ FREECIV = "\
 "
 
 GNOME_GAMES = "\
+ gnome-chess \
  gnome-robots \
 "
 
