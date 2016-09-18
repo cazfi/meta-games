@@ -1,0 +1,23 @@
+diff -Nurd SDL2_gfx-1.0.1/autogen.sh SDL2_gfx-1.0.1/autogen.sh
+--- SDL2_gfx-1.0.1/autogen.sh	2012-09-05 04:51:19.000000000 +0300
++++ SDL2_gfx-1.0.1/autogen.sh	2016-09-18 18:21:14.113749811 +0300
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ #
+-aclocal -I acinclude
++aclocal -I m4
+ automake --foreign --include-deps --add-missing --copy
+ autoconf
+ 
+diff -Nurd SDL2_gfx-1.0.1/configure.in SDL2_gfx-1.0.1/configure.in
+--- SDL2_gfx-1.0.1/configure.in	2014-06-19 09:11:23.000000000 +0300
++++ SDL2_gfx-1.0.1/configure.in	2016-09-18 18:21:59.205661379 +0300
+@@ -44,6 +44,8 @@
+ dnl Setup for automake
+ AM_INIT_AUTOMAKE(SDL2_gfx, $VERSION)
+ 
++AC_CONFIG_MACRO_DIRS([m4])
++
+ dnl Check for tools
+ AC_PROG_LIBTOOL
+ AC_PROG_CC
