@@ -16,7 +16,7 @@ SRC_URI = "\
   file://pingus.png \
 "
 
-EXTRA_OESCONS = "CC='${CC} -fPIC' CXX='${CXX} -fPIC'"
+EXTRA_OESCONS = "CC='${CC} -fPIC' CXX='${CXX} -fPIC' LINKFLAGS='${LDFLAGS}'"
 CLEANBROKEN = "1"
 
 do_install() {
