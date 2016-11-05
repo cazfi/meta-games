@@ -1,0 +1,37 @@
+From 2c5a2bb208cc22166c919800fe4e6b1c65f5ff84 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sat, 5 Nov 2016 11:56:03 +0100
+Subject: [PATCH] CMakeLists.txt: force ussage of supertux's version of phyfs
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status:Inappropriate [configuration]
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ CMakeLists.txt | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e184a1e..909c6ae 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -172,13 +172,7 @@ INCLUDE_DIRECTORIES(${VORBIS_INCLUDE_DIR})
+ 
+ INCLUDE(CheckSymbolExists)
+ 
+-FIND_PACKAGE(PhysFS)
+-SET(HAVE_PHYSFS_GETPREFDIR TRUE)
+-IF(HAVE_PHYSFS_GETPREFDIR)
+-	SET(USE_SYSTEM_PHYSFS ON CACHE BOOL "Use preinstalled physfs (must support getPrefDir)")
+-ELSE(HAVE_PHYSFS_GETPREFDIR)
+-	SET(USE_SYSTEM_PHYSFS OFF CACHE BOOL "Use preinstalled physfs (must support getPrefDir)")
+-ENDIF(HAVE_PHYSFS_GETPREFDIR)
++SET(USE_SYSTEM_PHYSFS OFF CACHE BOOL "Use preinstalled physfs (must support getPrefDir)")
+ 
+ IF(NOT USE_SYSTEM_PHYSFS)
+ 	IF(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/external/physfs/CMakeLists.txt)
+-- 
+2.5.5
+
