@@ -3,14 +3,14 @@ HOMEPAGE = "https://www.gnome.org/"
 SECTION = "x11/application"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
-DEPENDS = "libgames-support glib-2.0 gtk+3 librsvg libcanberra intltool-native"
+DEPENDS = "libgnome-games-support glib-2.0 gtk+3 librsvg libcanberra intltool-native"
 
 GNOME_COMPRESS_TYPE="xz"
 
 inherit gnome
 
-SRC_URI[archive.md5sum] = "533b825799360d0e32b218273d7b3972"
-SRC_URI[archive.sha256sum] = "d98f2ba5a7086e2dc3f3754819b557c12a98a0fb2492efd9912d9dd34ad9cfce"
+SRC_URI[archive.md5sum] = "adc8b1ddfff21e344eb461db0785eb08"
+SRC_URI[archive.sha256sum] = "5cd4564d7eb876fe4ef332dc568bcf7b1515d8ec9f66e53c2bae5331e0182dd4"
 
 FILES_${PN} += "${libdir} ${datadir}"
 FILES_${PN}-dbg += "${libdir}/*/*/.debug"
