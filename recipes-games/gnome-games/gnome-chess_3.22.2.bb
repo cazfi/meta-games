@@ -7,10 +7,10 @@ DEPENDS = "libgames-support glib-2.0 gtk+3 librsvg libcanberra intltool-native"
 
 GNOME_COMPRESS_TYPE="xz"
 
-inherit gnome
+inherit gnome gettext
 
-SRC_URI[archive.md5sum] = "2aa5f82ec7073b628b23e3df225dca28"
-SRC_URI[archive.sha256sum] = "4715349339491bd7a1072d5d362b5df76efa2067f4363c4b37d9579201d8c66d"
+SRC_URI[archive.md5sum] = "7c195495503ecdead1384e979beb6ec6"
+SRC_URI[archive.sha256sum] = "dffdf7f5c5f4ea6bba7ff88b457a75ee5e4c5d9d522d27e1ea4a3d4bb3927792"
 
 FILES_${PN} += "${libdir} ${datadir}"
 FILES_${PN}-dbg += "${libdir}/*/*/.debug"
