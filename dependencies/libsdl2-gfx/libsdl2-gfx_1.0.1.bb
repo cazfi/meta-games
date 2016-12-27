@@ -1,7 +1,7 @@
 DESCRIPTION = "SDL2 graphics drawing primitives and other support functions."
 SECTION = "libs"
 
-LICENSE = "zlib"
+LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e04e1feb331457e9da15e0c88d0e8097"
 
 DEPENDS = "virtual/libsdl2"
