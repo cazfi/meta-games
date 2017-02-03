@@ -9,7 +9,7 @@ RDEPENDS_${PN} += "libmikmod guile bash"
 inherit scons pythonnative
 
 SRC_URI = "\
-  http://${PN}.googlecode.com/files/${P}.tar.bz2 \
+  https://github.com/Pingus/${PN}/archive/v${PV}.tar.gz \
   file://version.patch \
   file://sdl_pkgconfig.patch \
   file://pingus.desktop \
@@ -32,5 +32,5 @@ do_install() {
 
 FILES_${PN} += "${datadir}"
 
-SRC_URI[md5sum] = "561798686f34d3fa4e69135d655f47ac"
-SRC_URI[sha256sum] = "759c1253075d1e72691bc1e770b24cdd51917041fd1857c1daf85b65a6686460"
+SRC_URI[md5sum] = "8f366e7ba76c9f3525888efe8b04b1ad"
+SRC_URI[sha256sum] = "c4cd89e1d350d2472f32de5f6266ac9f3658a3620eace3f79efac45db4323b65"
