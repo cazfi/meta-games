@@ -4,12 +4,13 @@ LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
 
-RDEPENDS_${PN} += "libmikmod guile bash"
+RDEPENDS_${PN} += "libmikmod bash"
 
 inherit scons pythonnative
 
 SRC_URI = "\
   https://github.com/Pingus/${PN}/archive/v${PV}.tar.gz \
+  file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
   file://version.patch \
   file://sdl_pkgconfig.patch \
   file://pingus.desktop \
