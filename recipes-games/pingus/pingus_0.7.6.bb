@@ -27,6 +27,9 @@ do_install() {
 	install -d ${D}${datadir}/applications
 	install -m 0644 ${WORKDIR}/pingus.png ${D}${datadir}/pixmaps
 	cp -dR ${S}/data ${D}/${datadir}/pingus
+	rm ${D}/${datadir}/pingus/data/po/*.sh
+	rm ${D}/${datadir}/pingus/data/po/*.guile
+	rm ${D}/${datadir}/pingus/data/po/*.pot
 	install -m 0644 ${WORKDIR}/pingus.desktop ${D}${datadir}/applications
 	install -m 0755 ${S}/build/pingus ${D}${bindir}/pingus
 }
