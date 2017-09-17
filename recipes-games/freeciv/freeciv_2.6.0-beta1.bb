@@ -6,16 +6,13 @@ DEFAULT_PREFERENCE = "-1"
 
 DEPENDS += "libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
-BRANCH = "S2_6"
-SRCREV="34736"
-SRC_URI += "svn://svn.gna.org/svn/freeciv;module=branches/${BRANCH} \
-"
-PV = "2.6.0-beta0+r${SRCREV}"
-
-EXTRA_OECONF += "\
+SRC_URI += "\
+${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
+file://0002-Allow-building-without-tolua.patch \
 "
 
-S = "${WORKDIR}/branches/${BRANCH}"
+SRC_URI[md5sum] = "74dc470ba062eda0c9b0ffbc77582f72"
+SRC_URI[sha256sum] = "2738dc98073eb97c35f47d9b0d3b34decf783766ff7afbe08bded9092730b759"
 
 PACKAGES =+ "${PN}-sdl2 ${PN}-gtk3.22"
 
@@ -24,7 +21,7 @@ RPROVIDES_${PN}-gtk3.22 = "freeciv-client"
 FILES_${PN}-gtk3.22 = "\
 ${bindir}/freeciv-gtk3.22 \
 ${datadir}/freeciv/themes/gui-gtk-3.22 \
-${datadir}/freeciv/gtk3_menus.xml \
+${datadir}/freeciv/gtk3.22_menus.xml \
 "
 
 RDEPENDS_${PN}-sdl2 = "freeciv-common freeciv-client-common"

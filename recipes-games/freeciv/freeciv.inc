@@ -20,7 +20,7 @@ file://wait-server-start.patch \
 S = "${WORKDIR}/freeciv-${PV}"
 B = "${WORKDIR}/build-${PV}"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig gettext
 
 EXTRA_OECONF = "\
 --enable-shared --enable-client=${FREECIV_GUI} \
@@ -34,7 +34,7 @@ SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
-PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-gtk3 ${PN}-qt"
+PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common ${PN}-qt"
 
 do_install_append() {
         rm -Rf ${D}/${datadir}/appdata
@@ -67,14 +67,6 @@ ${datadir}/freeciv/amplio2 \
 ${datadir}/freeciv/stdsounds.soundspec \
 ${datadir}/freeciv/stdsounds \
 ${datadir}/icons/hicolor/*/*/freeciv-modpack.png \
-"
-
-RDEPENDS_${PN}-gtk3 = "freeciv-common freeciv-client-common"
-RPROVIDES_${PN}-gtk3 = "freeciv-client"
-FILES_${PN}-gtk3 = "\
-${bindir}/freeciv-gtk3 \
-${datadir}/freeciv/themes/gui-gtk-3.0 \
-${datadir}/freeciv/gtk_menus.xml \
 "
 
 RDEPENDS_${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins"
