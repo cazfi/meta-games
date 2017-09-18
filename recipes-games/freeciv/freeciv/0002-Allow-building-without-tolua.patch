@@ -1,0 +1,33 @@
+From a90449a9f86f74f1202a113f21a86fbb67495d76 Mon Sep 17 00:00:00 2001
+From: Marko Lindqvist <cazfi74@gmail.com>
+Date: Mon, 18 Sep 2017 00:00:06 +0300
+Subject: [PATCH 2/2] Allow building without tolua
+
+Tolua is not needed when building from tarball.
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+---
+ configure.ac | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 2f77f3edb4..a10f4f42bb 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1541,10 +1541,11 @@ if test "x$sys_tolua_cmd" = "xtrue" || test "x$sys_tolua_cmd" = "xtest" ; then
+   if test "x$TOLUA" = "xnotfound" ; then
+     if test "x$sys_tolua_cmd" = "xtest" ; then
+       TOLUA="\$(top_builddir)/dependencies/tolua-5.2/src/bin/tolua$EXEEXT"
+-      feature_systolua_cmd=missing
+     else
+-      AC_MSG_ERROR([tolua command not found from the system])
++      AC_MSG_WARN([tolua command not found])
++      TOLUA="unavailable"
+     fi
++    feature_systolua_cmd=missing
+   fi
+ elif test "x$sys_tolua_cmd" != "xfalse" ; then
+   TOLUA=$sys_tolua_cmd
+-- 
+2.14.1
+
