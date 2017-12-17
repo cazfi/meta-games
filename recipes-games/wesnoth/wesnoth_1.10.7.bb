@@ -8,11 +8,14 @@ DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib bo
 
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/${PN}/${PN}-${SHRT_VER}/${P}/${P}.tar.bz2"
+SRC_URI = " \
+    ${SOURCEFORGE_MIRROR}/${PN}/${PN}-${SHRT_VER}/${P}/${P}.tar.bz2 \
+    file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
+"
 
 ARM_INSTRUCTION_SET = "arm"
 
-inherit cmake
+inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "\
 	-DENABLE_EDITOR=ON \
@@ -42,6 +45,8 @@ DESCRIPTION_${PN}-music = "Optional music package for The Battle for ${PN}"
 DESCRIPTION_${PN}-data = "Mandatory data package for The Battle for ${PN}"
 DESCRIPTION_${PN}-server = "Optional Battle for Wesnoth server"
 
+ALLOW_EMPTY_${PN}-all-campaigns = "1"
+
 do_configure_prepend(){
 	export HOST_SYS="${HOST_SYS}"
 	export BUILD_SYS="${BUILD_SYS}"
@@ -63,6 +68,8 @@ do_install_append() {
 }
 
 RDEPENDS_${PN} = "${PN}-data tremor"
+
+RDEPENDS_${PN}-data = "bash python"
 
 RDEPENDS_${PN}-editor = "${PN}-data"
 
@@ -147,7 +154,7 @@ FILES_${PN}-nr = "\
 "
 
 FILES_${PN}-sof = "\
-	${datadir}/wesnoth/data/campaigns/Sceptre_Of_Fire \
+	${datadir}/wesnoth/data/campaigns/Sceptre_of_Fire \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sof.mo \
 "
 
@@ -157,7 +164,7 @@ FILES_${PN}-sotbe = "\
 "
 
 FILES_${PN}-thot = "\
-	${datadir}/wesnoth/data/campaigns/The_Hammer_Of_Thursagan \
+	${datadir}/wesnoth/data/campaigns/The_Hammer_of_Thursagan \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-thot.mo \
 "
 
