@@ -13,8 +13,8 @@ SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 "
 
-SRC_URI[md5sum] = "dfae0812bb72b19e366f9d5c72e6c3f1"
-SRC_URI[sha256sum] = "b83c73585ae80898b27379984f936591b51422c9caccb94880fa16030c975928"
+SRC_URI[md5sum] = "b0b0e95f9d04816ade2ecbccd408a4f3"
+SRC_URI[sha256sum] = "c8a14156562dce2f0a7b96390c2d5a35314f1124c448782a6a47b0c51cfcb302"
 
 PACKAGES =+ "${PN}-gtk2 ${PN}-gtk3"
 
