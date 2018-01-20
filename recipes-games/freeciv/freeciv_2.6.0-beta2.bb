@@ -8,11 +8,10 @@ DEPENDS += "libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
-file://0002-Allow-building-without-tolua.patch \
 "
 
-SRC_URI[md5sum] = "74dc470ba062eda0c9b0ffbc77582f72"
-SRC_URI[sha256sum] = "2738dc98073eb97c35f47d9b0d3b34decf783766ff7afbe08bded9092730b759"
+SRC_URI[md5sum] = "4832cede83c2a2a343da9ae9bc1802f8"
+SRC_URI[sha256sum] = "d8f6c58b8f45033bc516f1c95a05d6a1515aa96dd710388b37c3bd47abed68ac"
 
 PACKAGES =+ "${PN}-sdl2 ${PN}-gtk3.22"
 
