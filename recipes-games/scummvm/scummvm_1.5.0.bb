@@ -15,7 +15,7 @@ SRC_URI = " \
 "
 
 DEPENDS = "virtual/libsdl libvorbis libogg zlib flac faad2 \
-           ${@base_conditional('ENTERPRISE_DISTRO', '1', '', 'libmad mpeg2dec', d)}"
+           ${@oe.utils.conditional('ENTERPRISE_DISTRO', '1', '', 'libmad mpeg2dec', d)}"
 
 EXTRA_OECONF = " \
   --host=${HOST_SYS} \
@@ -29,7 +29,7 @@ EXTRA_OECONF = " \
   --default-dynamic \
   --enable-all-engines \
   --disable-fluidsynth \
-  ${@base_conditional('ENTERPRISE_DISTRO', '1', '--disable-mad', '--with-mad-prefix=${STAGING_LIBDIR}/..', d)} \
+  ${@oe.utils.conditional('ENTERPRISE_DISTRO', '1', '--disable-mad', '--with-mad-prefix=${STAGING_LIBDIR}/..', d)} \
 "
 
 EXTRA_OEMAKE = "MANDIR=${mandir}"
