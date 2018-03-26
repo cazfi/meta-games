@@ -79,7 +79,7 @@ RDEPENDS_${PN}-all-campaigns = "${PN} \
 	${PN}-tsg ${PN}-tb ${PN}-utbs ${PN}-low"
 
 # Installing wesnoth-all should pull everything in (like in Debian).
-RDEPENDS_${PN}-all = "${PN} ${PN}-sounds ${PN}-music"
+RDEPENDS_${PN}-all = "${PN} ${PN}-all-campaigns ${PN}-sounds ${PN}-music"
 
 FILES_${PN}-music = "\
 	${datadir}/wesnoth/data/core/music \
