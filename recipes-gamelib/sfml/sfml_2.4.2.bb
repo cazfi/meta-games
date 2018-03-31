@@ -5,12 +5,12 @@ SECTION = "libs"
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://license.txt;md5=00301d7afaf752bdaec51efe06a00c88"
 
-DEPENDS = "openal-soft glibc gcc-runtime freetype mesa xcb-util-image libjpeg-turbo"
+DEPENDS = "openal-soft glibc gcc-runtime freetype mesa xcb-util-image libjpeg-turbo libxrandr"
 
 SRC_URI = "http://www.sfml-dev.org/files/SFML-${PV}-sources.zip"
 
-SRC_URI[md5sum] = "7f152bab6afc8ccbddaf51d6da318201"
-SRC_URI[sha256sum] = "03fe79943c48222037f1126a581b12c95a4dd53168881907964695c5ec3dc395"
+SRC_URI[md5sum] = "0c04d339aee57c08097ba45a66b870ed"
+SRC_URI[sha256sum] = "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
 
 S = "${WORKDIR}/SFML-${PV}"
 
