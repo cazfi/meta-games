@@ -2,11 +2,12 @@ Allow root to run freeciv
 
 Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
 
-diff -Nurd -X.diff_ignore freeciv/configure.ac freeciv/configure.ac
---- freeciv/configure.ac	2012-04-05 02:04:17.000000000 +0300
-+++ freeciv/configure.ac	2012-05-14 15:33:05.000000000 +0300
-@@ -447,6 +447,8 @@
- AMIGA=no
+diff --git a/configure.ac b/configure.ac
+index b65af702c1..e1a47692d1 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -663,6 +663,8 @@ fi
+ dnl Defaults to override with host specific values
  HOST_PATH_SEPARATOR=":"
  
 +AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - OpenEmbedded])
