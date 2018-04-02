@@ -3,7 +3,7 @@ HOMEPAGE = "http://www.sfml-dev.org/index.php"
 SECTION = "libs"
 
 LICENSE = "Zlib"
-LIC_FILES_CHKSUM = "file://license.txt;md5=00301d7afaf752bdaec51efe06a00c88"
+LIC_FILES_CHKSUM = "file://license.txt;md5=718d3cda2de6e8be3c98a12c104820d2"
 
 DEPENDS = "openal-soft glibc gcc-runtime freetype mesa xcb-util-image libjpeg-turbo libxrandr"
 
