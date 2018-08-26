@@ -2,15 +2,16 @@ DESCRIPTION = "The Battle for Wesnoth is a turn-based strategy game with a fanta
 HOMEPAGE = "http://www.wesnoth.org/"
 SECTION = "games"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://copyright;md5=3cd35059318048afea9baa2fb45e339b"
+LIC_FILES_CHKSUM = "file://copyright;md5=794c9526b4086a97155c27908976bbfd"
 
-DEPENDS = "asio freetype libsdl-image libsdl-mixer libsdl-net libsdl-ttf zlib boost pango libpng"
+DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zlib boost pango libpng"
 
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/${PN}/${PN}-${SHRT_VER}/${P}/${P}.tar.bz2 \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
+    file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
 
 ARM_INSTRUCTION_SET = "arm"
@@ -18,7 +19,6 @@ ARM_INSTRUCTION_SET = "arm"
 inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "\
-	-DENABLE_EDITOR=ON \
 	-DENABLE_LOW_MEM=ON \
 	-DENABLE_FRIBIDI=OFF \
 	\
@@ -26,7 +26,7 @@ EXTRA_OECMAKE = "\
 	-DENABLE_STRICT_COMPILATION=OFF \
 	"
 
-PACKAGES = "${PN}-editor ${PN}-doc ${PN}-music ${PN}-sounds \
+PACKAGES = "${PN}-doc ${PN}-music ${PN}-sounds \
 	${PN}-aoi ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l \
 	${PN}-nr ${PN}-sof ${PN}-sotbe ${PN}-thot ${PN}-trow \
 	${PN}-tsg ${PN}-tb ${PN}-utbs ${PN}-low\
@@ -37,7 +37,6 @@ PACKAGES = "${PN}-editor ${PN}-doc ${PN}-music ${PN}-sounds \
 	${PN}-server \
 	"
 
-DESCRIPTION_${PN}-editor = "Map Editor for The Battle for ${PN}"
 DESCRIPTION_${PN}-all = "The Battle for ${PN} with all campaigns, music and sounds"
 DESCRIPTION_${PN}-all-campaigns = "The Battle for ${PN} with all campaigns."
 DESCRIPTION_${PN}-sounds = "Optional sound package for The Battle for ${PN}"
@@ -48,12 +47,16 @@ DESCRIPTION_${PN}-server = "Optional Battle for Wesnoth server"
 ALLOW_EMPTY_${PN}-all-campaigns = "1"
 ALLOW_EMPTY_${PN}-all = "1"
 
-do_configure_prepend(){
+do_configure_prepend() {
 	export HOST_SYS="${HOST_SYS}"
 	export BUILD_SYS="${BUILD_SYS}"
 	export STAGING_LIBDIR="${STAGING_LIBDIR}"
 	export STAGING_INCDIR="${STAGING_INCDIR}"
 	rm -f ${S}/cmake/FindBoost.cmake
+}
+
+do_configure_append() {
+    sed -i "s:isystem:I:g" ${B}/build.ninja
 }
 
 do_install_append() {
@@ -71,8 +74,6 @@ do_install_append() {
 RDEPENDS_${PN} = "${PN}-data tremor"
 
 RDEPENDS_${PN}-data = "bash python"
-
-RDEPENDS_${PN}-editor = "${PN}-data"
 
 RDEPENDS_${PN}-all-campaigns = "${PN} \
 	${PN}-aoi ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l \
@@ -104,6 +105,7 @@ FILES_${PN}-data = "\
 FILES_${PN} = "\
 	${bindir}/wesnoth \
 	${datadir}/icons \
+    ${datadir}/metainfo \
 	${datadir}/applications/wesnoth.desktop \
 	${datadir}/pixmaps/wesnoth-icon.png \
 "
@@ -116,12 +118,6 @@ FILES_${PN}-server = "\
 FILES_${PN}-low ="\
        ${datadir}/wesnoth/data/campaigns/Legend_of_Wesmere \
        ${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-aoi.mo \
-"
-
-FILES_${PN}-editor = "\
-	${bindir}/wesnoth_editor \
-	${datadir}/applications/wesnoth_editor.desktop \
-	${datadir}/pixmaps/wesnoth_editor-icon.png \
 "
 
 FILES_${PN}-aoi = "\
@@ -189,5 +185,5 @@ FILES_${PN}-utbs = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
 "
 
-SRC_URI[md5sum] = "3f460a494530d32aa5d5d0f19c95efbd"
-SRC_URI[sha256sum] = "8a3b5a3409a57b646536e547094e1bb8bcd87797e00cd63184152222e377253e"
+SRC_URI[md5sum] = "b6b775109569c59a7aa8d6a7537b8694"
+SRC_URI[sha256sum] = "312dcd1d5f07eb85fdbe932c0e8727e2985bce0bd521a743f7bcddded15581c3"
