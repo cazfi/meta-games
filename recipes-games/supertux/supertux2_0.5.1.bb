@@ -10,6 +10,10 @@ RDEPENDS_${PN} += "boost"
 
 inherit cmake
 
+# With Ninja it fails with:
+# ninja: error: 'squirrel/lib/libsquirrel_static.a', needed by 'supertux2', missing and no known rule to make it
+OECMAKE_GENERATOR = "Unix Makefiles"
+
 SRC_URI = " \
     https://github.com/SuperTux/supertux/releases/download/v${PV}/SuperTux-v${PV}-Source.tar.gz \
     file://0001-CMakeLists.txt-Pin-PHYSFS_getPrefDir-autodetection-d.patch \
@@ -17,8 +21,8 @@ SRC_URI = " \
     file://0003-pass-compile-flags-to-external-projects.patch \
     file://0004-do-not-set-included-paths-as-system-causes-trouble-w.patch \
 "
-SRC_URI[md5sum] = "3bb7c1f3f622da79ec9fe1ebc521f286"
-SRC_URI[sha256sum] = "cfae0da40c41532fb414c3b17891c98396b59471fe583a8fc756b96aea61a73b"
+SRC_URI[md5sum] = "b8b678362e3c5c9e366fb1fb3550a2e0"
+SRC_URI[sha256sum] = "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
 
 S = "${WORKDIR}/SuperTux-v${PV}-Source"
 
