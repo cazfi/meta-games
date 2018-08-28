@@ -1,6 +1,6 @@
 From 84ab712dfa56afbec12d0d96332d1aa1cc7ea399 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Sun, 17 Dec 2017 16:00:18 +0100
+Date: Sun, 26 Aug 2018 21:39:47 +0200
 Subject: [PATCH] Find sdl CFLAGS with pkg-config - sdl-config is not usable
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -14,20 +14,20 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 3764aad..e08acdb 100644
+index f5c0df9..1026001 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -33,8 +33,8 @@ find_package(X11)
+@@ -71,8 +71,8 @@ find_package(Gettext)
+ find_package(X11)
  
- if(NOT MSVC)
- 	#needed to get some SDL defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
--	set(SDL_CONFIG "sdl-config" CACHE STRING "Path to sdl-config script")
--	exec_program(${SDL_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL_CFLAGS)
-+	set(SDL_CONFIG "pkg-config" CACHE STRING "Path to sdl-config script")
-+	exec_program(${SDL_CONFIG} ARGS "sdl --cflags" OUTPUT_VARIABLE SDL_CFLAGS)
- 	add_definitions(${SDL_CFLAGS})
+ # needed to get some SDL2 defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
+-set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
+-exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
++set(SDL_CONFIG "pkg-config" CACHE STRING "Path to sdl-config script")
++exec_program(${SDL_CONFIG} ARGS "sdl --cflags" OUTPUT_VARIABLE SDL_CFLAGS)
+ add_definitions(${SDL2_CFLAGS})
  
- 	# Use the safer `mkstemp' instead of `tmpnam' on POSIX systems.
+ if(NOT WIN32)
 -- 
-2.9.5
+2.14.4
 
