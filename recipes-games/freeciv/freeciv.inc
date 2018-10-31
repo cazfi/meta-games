@@ -20,15 +20,15 @@ file://wait-server-start.patch \
 S = "${WORKDIR}/freeciv-${PV}"
 B = "${WORKDIR}/build-${PV}"
 
-inherit autotools pkgconfig gettext
+inherit autotools pkgconfig gettext qmake5_paths
 
 EXTRA_OECONF = "\
 --enable-shared --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
 --disable-sdl2test \
---with-qt5-includes=${STAGING_INCDIR}/qt5 \
---with-qt5-libs=${STAGING_LIBDIR}/qt5 \
-MOCCMD=${STAGING_BINDIR_NATIVE}/qt5/moc \
+--with-qt5-includes=${STAGING_INCDIR}${QT_DIR_NAME} \
+--with-qt5-libs=${STAGING_LIBDIR}${QT_DIR_NAME} \
+MOCCMD=${STAGING_BINDIR_NATIVE}${QT_DIR_NAME}/moc \
 SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 "
 
