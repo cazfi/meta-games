@@ -9,7 +9,7 @@ DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zli
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
 SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/${PN}/${PN}-${SHRT_VER}/${P}/${P}.tar.bz2 \
+    ${SOURCEFORGE_MIRROR}/${BPN}/${BPN}-${SHRT_VER}/${BP}/${BP}.tar.bz2 \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
