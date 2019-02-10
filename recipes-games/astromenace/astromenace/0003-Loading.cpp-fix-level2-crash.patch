@@ -1,0 +1,36 @@
+From a2a2f7fdee581b2d8d7619ddb9c1db35bbe63cfb Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Mon, 2 Nov 2015 21:54:13 +0100
+Subject: [PATCH 4/4] Loading.cpp: fix level2 crash
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Taken from [1]
+
+[1] http://pkgs.fedoraproject.org/cgit/astromenace.git/tree/astromenace-level2-crash.patch
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ AstroMenaceSource/Loading.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/AstroMenaceSource/Loading.cpp b/AstroMenaceSource/Loading.cpp
+index dafdd8c..c95946c 100755
+--- a/AstroMenaceSource/Loading.cpp
++++ b/AstroMenaceSource/Loading.cpp
+@@ -1541,6 +1541,9 @@ void LoadGameData(int LoadType)
+ 
+ 	for (int i=0; i<CurrentListCount; i++)
+ 	{
++		if (!strlen(CurrentList[i].FileName))
++			continue;
++
+ 		switch (CurrentList[i].FileType)
+ 		{
+ 			// 2d текстуры
+-- 
+2.1.0
+
