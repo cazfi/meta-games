@@ -1,0 +1,35 @@
+From 41383de9b117a1af0f0ef642a6fe21dda1b75186 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+Date: Sun, 1 Nov 2015 22:52:27 +0100
+Subject: [PATCH 2/3] CMakeLists.txt: use pkg-config to find sdl
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+---
+ CMakeLists.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a9fbe43..f3c5b6b 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,10 +26,9 @@ ENDIF(DEFINED FS2VFS)
+ 
+ 
+ # depends
+-set(SDL_CONFIG "sdl-config" CACHE STRING "Path to sdl-config script")
+-EXEC_PROGRAM(${SDL_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL_CFLAGS)
++EXEC_PROGRAM("pkg-config" ARGS "--cflags sdl" OUTPUT_VARIABLE SDL_CFLAGS)
+ ADD_DEFINITIONS(${SDL_CFLAGS})
+-EXEC_PROGRAM(${SDL_CONFIG} ARGS "--libs" OUTPUT_VARIABLE SDL_LIBS)
++EXEC_PROGRAM("pkg-config" ARGS "--libs sdl" OUTPUT_VARIABLE SDL_LIBS)
+ 
+ 
+ IF (NOT APPLE)
+-- 
+2.1.0
+
