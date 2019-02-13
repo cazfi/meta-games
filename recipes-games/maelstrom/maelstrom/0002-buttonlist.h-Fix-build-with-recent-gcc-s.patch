@@ -1,0 +1,87 @@
+From 7d79950348bda1ad4c1282d3316bc25838047569 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 8 Feb 2019 19:25:04 +0100
+Subject: [PATCH] buttonlist.h: Fix build with recent gcc's
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Stolen from [1]
+
+[1] https://src.fedoraproject.org/cgit/rpms/Maelstrom.git/plain/Maelstrom-3.0.6-gcc34.patch
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ buttonlist.h | 27 ++++++++++++++-------------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
+
+diff --git a/buttonlist.h b/buttonlist.h
+index 7bb37b3..39427f5 100644
+--- a/buttonlist.h
++++ b/buttonlist.h
+@@ -6,7 +6,17 @@
+ 
+ class ButtonList {
+ 
++
+ public:
++	typedef struct button {
++		/* Sensitive area */
++		Uint16 x1, y1;
++		Uint16 x2, y2;
++		void (*callback)(void);
++		struct button *next;
++	} button;
++	button button_list;
++
+ 	ButtonList() {
+ 		button_list.next = NULL;
+ 	}
+@@ -16,7 +26,7 @@ public:
+ 
+ 	void Add_Button(Uint16 x, Uint16 y, Uint16 width, Uint16 height, 
+ 						void (*callback)(void)) {
+-		struct button *belem;
++		button *belem;
+ 		
+ 		for ( belem=&button_list; belem->next; belem=belem->next );
+ 		belem->next = new button;
+@@ -30,7 +40,7 @@ public:
+ 	}
+ 
+ 	void Activate_Button(Uint16 x, Uint16 y) {
+-		struct button *belem;
++		button *belem;
+ 
+ 		for ( belem=button_list.next; belem; belem=belem->next ) {
+ 			if ( (x >= belem->x1) && (x <= belem->x2) &&
+@@ -42,7 +52,7 @@ public:
+ 	}
+ 
+ 	void Delete_Buttons(void) {
+-		struct button *belem, *btemp;
++		button *belem, *btemp;
+ 
+ 		for ( belem=button_list.next; belem; ) {
+ 			btemp = belem;
+@@ -51,14 +61,5 @@ public:
+ 		};
+ 		button_list.next = NULL;
+ 	}
+-	
+-private:
+-	typedef struct button {
+-		/* Sensitive area */
+-		Uint16 x1, y1;
+-		Uint16 x2, y2;
+-		void (*callback)(void);
+-		struct button *next;
+-	} button;
+-	button button_list;
++
+ };
+-- 
+2.20.1
+

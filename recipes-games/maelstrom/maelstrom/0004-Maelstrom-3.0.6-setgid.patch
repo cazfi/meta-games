@@ -1,0 +1,201 @@
+From 94ac23023f12b540fb36d2a96a424387cf35339c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 13 Feb 2019 15:59:36 +0100
+Subject: [PATCH] Rework score file handling
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Stolen from [1]
+
+Upstream-Status: Pending
+
+[1] https://src.fedoraproject.org/cgit/rpms/Maelstrom.git/tree/Maelstrom-3.0.6-setgid.patch
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ main.cpp   |  8 +++++
+ scores.cpp | 87 ++++++++++++++++++++++++++++++++++--------------------
+ scores.h   |  1 +
+ 3 files changed, 64 insertions(+), 32 deletions(-)
+
+diff --git a/main.cpp b/main.cpp
+index 7728c0b..851cf01 100644
+--- a/main.cpp
++++ b/main.cpp
+@@ -170,12 +170,20 @@ int main(int argc, char *argv[])
+ 	/* Command line flags */
+ 	int doprinthigh = 0;
+ 	int speedtest = 0;
++	gid_t gid;
+ 	Uint32 video_flags = SDL_SWSURFACE;
+ 
+ 	/* Normal variables */
+ 	SDL_Event event;
+ 	LibPath::SetExePath(argv[0]);
+ 
++	GetScoreFile();
++	gid = getgid();
++	if (setresgid(-1,gid,gid) != 0) {
++		error("Could not drop privleges. -- Exiting.\n");
++		exit(1);
++	}
++
+ #ifndef __WIN95__
+ 	/* The first thing we do is calculate our checksum */
+ 	(void) checksum();
+diff --git a/scores.cpp b/scores.cpp
+index 1633e8f..c8b53b5 100644
+--- a/scores.cpp
++++ b/scores.cpp
+@@ -4,6 +4,8 @@
+ */
+ 
+ #ifdef unix
++#include <arpa/inet.h>
++#include <fcntl.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #endif
+@@ -15,11 +17,11 @@
+ #include "load.h"
+ #include "dialog.h"
+ 
+-#define MAELSTROM_SCORES	"Maelstrom-Scores"
++#define MAELSTROM_SCORES	"/var/lib/games/Maelstrom-Scores"
+ #define NUM_SCORES		10		// Do not change this!
+ 
+ /* Everyone can write to scores file if defined to 0 */
+-#define SCORES_PERMMASK		0
++#define SCORES_PERMMASK		002
+ 
+ #define CLR_DIALOG_WIDTH	281
+ #define CLR_DIALOG_HEIGHT	111
+@@ -27,10 +29,31 @@
+ Bool gNetScores = 0;
+ Scores hScores[NUM_SCORES];
+ 
++int gScoreFile = -1;
++
++void GetScoreFile(void)
++{
++#ifdef unix
++	int omask;
++#endif
++	int f;
++
++#ifdef unix
++	omask=umask(SCORES_PERMMASK);
++#endif
++	f = open(MAELSTROM_SCORES,O_RDWR|O_CREAT);
++	if (f == -1)
++		f = open(MAELSTROM_SCORES,O_RDONLY);
++	if (f == -1)
++		error("Couldn't open score file %s.\n",MAELSTROM_SCORES);
++	gScoreFile = f;
++#ifdef unix
++	umask(omask);
++#endif
++}
++
+ void LoadScores(void)
+ {
+-	LibPath path;
+-	SDL_RWops *scores_src;
+ 	int i;
+ 
+ 	/* Try to load network scores, if we can */
+@@ -44,50 +67,50 @@ void LoadScores(void)
+ 	}
+ 	memset(&hScores, 0, sizeof(hScores));
+ 
+-	scores_src = SDL_RWFromFile(path.Path(MAELSTROM_SCORES), "rb");
+-	if ( scores_src != NULL ) {
++	if (gScoreFile != -1) {
++		lseek(gScoreFile,0,SEEK_SET);
+ 		for ( i=0; i<NUM_SCORES; ++i ) {
+-			SDL_RWread(scores_src, hScores[i].name,
+-			           sizeof(hScores[i].name), 1);
+-			hScores[i].wave = SDL_ReadBE32(scores_src);
+-			hScores[i].score = SDL_ReadBE32(scores_src);
++			Uint32 tmp;
++
++			if (read(gScoreFile,hScores[i].name,sizeof(hScores[i].name)) != sizeof(hScores[i].name))
++				break;
++			if (read(gScoreFile,&tmp,sizeof(Uint32)) != sizeof(Uint32))
++				break;
++			hScores[i].wave = ntohl(tmp);
++			if (read(gScoreFile,&tmp,sizeof(Uint32)) != sizeof(Uint32))
++				break;
++			hScores[i].score = ntohl(tmp);
+ 		}
+-		SDL_RWclose(scores_src);
+ 	}
+ }
+ 
+ void SaveScores(void)
+ {
+-	LibPath path;
+-	SDL_RWops *scores_src;
+ 	int i;
+-#ifdef unix
+-	int omask;
+-#endif
+ 
+ 	/* Don't save network scores */
+ 	if ( gNetScores )
+ 		return;
+ 
+-#ifdef unix
+-	omask=umask(SCORES_PERMMASK);
+-#endif
+-	scores_src = SDL_RWFromFile(path.Path(MAELSTROM_SCORES), "wb");
+-	if ( scores_src != NULL ) {
++	if (gScoreFile != -1) {
++		lseek(gScoreFile,0,SEEK_SET);
+ 		for ( i=0; i<NUM_SCORES; ++i ) {
+-			SDL_RWwrite(scores_src, hScores[i].name,
+-			            sizeof(hScores[i].name), 1);
+-			SDL_WriteBE32(scores_src, hScores[i].wave);
+-			SDL_WriteBE32(scores_src, hScores[i].score);
++			Uint32 tmp;
++
++			if (write(gScoreFile, hScores[i].name, sizeof(hScores[i].name)) != sizeof(hScores[i].name))
++				goto out_err;
++			tmp = htonl(hScores[i].wave);
++			if (write(gScoreFile, &tmp,sizeof(Uint32)) != sizeof(Uint32))
++				goto out_err;
++			tmp = htonl(hScores[i].score);
++			if (write(gScoreFile, &tmp,sizeof(Uint32)) != sizeof(Uint32))
++				goto out_err;
+ 		}
+-		SDL_RWclose(scores_src);
+-	} else {
+-		error("Warning: Couldn't save scores to %s\n",
+-						path.Path(MAELSTROM_SCORES));
++		fsync(gScoreFile);
++		return;
+ 	}
+-#ifdef unix
+-	umask(omask);
+-#endif
++out_err:
++	error("Warning: Couldn't save scores to %s\n", MAELSTROM_SCORES);
+ }
+ 
+ /* Just show the high scores */
+diff --git a/scores.h b/scores.h
+index 4126260..4716751 100644
+--- a/scores.h
++++ b/scores.h
+@@ -2,6 +2,7 @@
+ // Functions from scores.cc
+ extern void	LoadScores(void);
+ extern void	SaveScores(void);
++extern void	GetScoreFile(void);
+ extern int	ZapHighScores(void);
+ extern int	GetStartLevel(void);
+ extern void	PrintHighScores(void);
+-- 
+2.20.1
+

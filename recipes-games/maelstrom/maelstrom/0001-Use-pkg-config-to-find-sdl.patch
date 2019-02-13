@@ -1,0 +1,34 @@
+From 6276f1388819e6f03e61133494e7c9d35c785e17 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 8 Feb 2019 19:11:19 +0100
+Subject: [PATCH] Use pkg-config to find sdl
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ configure.in | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index 0170f4b..a6f76ac 100644
+--- a/configure.in
++++ b/configure.in
+@@ -47,10 +47,7 @@ AC_SUBST(INETLIB)
+ 
+ dnl Check for SDL
+ SDL_VERSION=1.2.0
+-AM_PATH_SDL($SDL_VERSION,
+-            :,
+-            AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
+-)
++PKG_CHECK_MODULES([SDL], [sdl >= $SDL_VERSION], [HAVE_SDL=yes], [AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])])
+ CFLAGS="$CFLAGS $SDL_CFLAGS"
+ LIBS="$LIBS $SDL_LIBS"
+ 
+-- 
+2.20.1
+
