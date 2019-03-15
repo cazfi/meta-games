@@ -13,6 +13,8 @@ SRC_URI = " \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
+SRC_URI[md5sum] = "4038b0d223dc03ebe0581a802cc41c0d"
+SRC_URI[sha256sum] = "45d2a05320e145b0b1bc9d16d68391945a98375c910a0ea7720e613bf867832b"
 
 ARM_INSTRUCTION_SET = "arm"
 
@@ -184,6 +186,3 @@ FILES_${PN}-utbs = "\
 	${datadir}/wesnoth/data/campaigns/Under_the_Burning_Suns \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
 "
-
-SRC_URI[md5sum] = "b6b775109569c59a7aa8d6a7537b8694"
-SRC_URI[sha256sum] = "312dcd1d5f07eb85fdbe932c0e8727e2985bce0bd521a743f7bcddded15581c3"
