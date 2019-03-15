@@ -11,6 +11,7 @@ inherit scons pythonnative
 SRC_URI = "\
   https://github.com/Pingus/${PN}/archive/v${PV}.tar.gz \
   file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
+  file://0002-Fix-build-with-boost-1.69.0.patch \
   file://version.patch \
   file://sdl_pkgconfig.patch \
   file://pingus.desktop \
