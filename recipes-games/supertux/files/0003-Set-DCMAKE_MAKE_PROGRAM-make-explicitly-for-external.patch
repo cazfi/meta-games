@@ -1,0 +1,59 @@
+From 2c3eba355933b0b190ed2e44e9a256224fd32b13 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 20 Mar 2019 17:26:28 +0100
+Subject: [PATCH] Set DCMAKE_MAKE_PROGRAM=make explicitly for external sources
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Seems current version of cmake is forgetful on this:
+
+| CMake Error: CMake was unable to find a build program corresponding to "Unix Makefiles".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
+
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cf70210..ac223ca 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -241,6 +241,7 @@ if(NOT USE_SYSTEM_PHYSFS)
+   ExternalProject_Add(physfs
+     SOURCE_DIR "${CMAKE_SOURCE_DIR}/external/physfs/"
+     CMAKE_ARGS
++    -DCMAKE_MAKE_PROGRAM=make
+     -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+     -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+     -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+@@ -386,6 +387,7 @@ set(SQUIRREL_PREFIX ${CMAKE_BINARY_DIR}/squirrel/ex)
+ ExternalProject_Add(squirrel
+   SOURCE_DIR "${CMAKE_SOURCE_DIR}/external/squirrel/"
+   CMAKE_ARGS
++  -DCMAKE_MAKE_PROGRAM=make
+   -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+   -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+   -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+@@ -423,6 +425,7 @@ set(TINYGETTEXT_PREFIX ${CMAKE_BINARY_DIR}/tinygettext/)
+ ExternalProject_Add(tinygettext
+   SOURCE_DIR "${CMAKE_SOURCE_DIR}/external/tinygettext/"
+   CMAKE_ARGS
++  -DCMAKE_MAKE_PROGRAM=make
+   -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+   -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+   -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+@@ -454,6 +457,7 @@ set(SDL_TTF_PREFIX ${CMAKE_BINARY_DIR}/SDL_ttf/)
+ ExternalProject_Add(SDL_ttf
+   SOURCE_DIR "${CMAKE_SOURCE_DIR}/external/SDL_ttf/"
+   CMAKE_ARGS
++  -DCMAKE_MAKE_PROGRAM=make
+   -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+   -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+   -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+-- 
+2.20.1
+

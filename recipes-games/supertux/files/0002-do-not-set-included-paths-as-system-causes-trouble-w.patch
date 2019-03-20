@@ -1,0 +1,163 @@
+From a8d486d174dfbc25abbe69ed14a502692bffcb5d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 20 Mar 2019 20:05:34 +0100
+Subject: [PATCH] do not set included paths as system - causes trouble with >=
+ gcc-6
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+fixes errors as:
+| /home/superandy/tmp/oe-core-glibc/sysroots/raspberrypi2/usr/include/c++/6.2.0/cstdlib:75:25: fatal error: stdlib.h: No such file or directory
+| #include_next <stdlib.h>
+                         ^
+further information at [1]
+
+[1] https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70129
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt | 40 ++++++++++++++++++++--------------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9e50b57..cf70210 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,7 +134,7 @@ else(ENABLE_BOOST_STATIC_LIBS)
+   set(Boost_USE_STATIC_LIBS FALSE)
+ endif(ENABLE_BOOST_STATIC_LIBS)
+ find_package(Boost REQUIRED COMPONENTS filesystem system date_time locale)
+-include_directories(SYSTEM ${Boost_INCLUDE_DIR})
++include_directories(${Boost_INCLUDE_DIR})
+ link_directories(${Boost_LIBRARY_DIRS})
+ 
+ find_package(PNG REQUIRED)
+@@ -182,14 +182,14 @@ if(ENABLE_OPENGL)
+     set(OpenGL_GL_PREFERENCE "LEGACY")
+     find_package(OpenGL)
+     if(OPENGL_FOUND)
+-      include_directories(SYSTEM ${OPENGL_INCLUDE_DIR})
++      include_directories(${OPENGL_INCLUDE_DIR})
+       set(HAVE_OPENGL TRUE)
+     endif(OPENGL_FOUND)
+ 
+     if(GLBINDING_ENABLED)
+       find_package(GLBINDING REQUIRED)
+       if(GLBINDING_FOUND)
+-        include_directories(SYSTEM ${GLBINDING_INCLUDES})
++        include_directories(${GLBINDING_INCLUDES})
+         add_definitions(-DUSE_GLBINDING)
+         IF (GLBINDING_DEBUG_OUTPUT)
+           add_definitions(-DUSE_GLBINDING_DEBUG_OUTPUT)
+@@ -198,7 +198,7 @@ if(ENABLE_OPENGL)
+     else()
+       find_package(GLEW REQUIRED)
+       if(GLEW_FOUND)
+-        include_directories(SYSTEM ${GLEW_INCLUDE_DIR})
++        include_directories(${GLEW_INCLUDE_DIR})
+       endif(GLEW_FOUND)
+     endif()
+   endif()
+@@ -209,10 +209,10 @@ if(VCPKG_BUILD)
+ else()
+   find_package(OpenAL REQUIRED)
+ endif()
+-include_directories(SYSTEM ${OPENAL_INCLUDE_DIR})
++include_directories(${OPENAL_INCLUDE_DIR})
+ 
+ find_package(OggVorbis REQUIRED)
+-include_directories(SYSTEM ${VORBIS_INCLUDE_DIR})
++include_directories(${VORBIS_INCLUDE_DIR})
+ 
+ include(CheckSymbolExists)
+ 
+@@ -262,7 +262,7 @@ if(NOT USE_SYSTEM_PHYSFS)
+   set(PHYSFS_INCLUDE_DIR "${PHYSFS_PREFIX}/include/")
+ endif()
+ 
+-include_directories(BEFORE SYSTEM ${PHYSFS_INCLUDE_DIR})
++include_directories(BEFORE ${PHYSFS_INCLUDE_DIR})
+ 
+ 
+ ## The curl headers are in the standard include path in dependencies
+@@ -283,12 +283,12 @@ if(WIN32 AND VCPKG_BUILD)
+   endif()
+ endif()
+ if(CURL_FOUND)
+-  include_directories(SYSTEM ${CURL_INCLUDE_DIR})
++  include_directories(${CURL_INCLUDE_DIR})
+   set(HAVE_LIBCURL TRUE)
+ endif(CURL_FOUND)
+ 
+ #find_package(ICONV REQUIRED)
+-#include_directories(SYSTEM ${ICONV_INCLUDE_DIR})
++#include_directories(${ICONV_INCLUDE_DIR})
+ #link_libraries(${ICONV_LIBRARY})
+ 
+ if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
+@@ -411,7 +411,7 @@ else()
+   set_target_properties(sqstdlib_lib PROPERTIES IMPORTED_LOCATION "${SQUIRREL_PREFIX}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}sqstdlib_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
+ endif()
+ 
+-include_directories(SYSTEM ${SQUIRREL_PREFIX}/include)
++include_directories(${SQUIRREL_PREFIX}/include)
+ 
+ ## Also build external/tinygettext
+ 
+@@ -440,7 +440,7 @@ ExternalProject_Add(tinygettext
+ add_library(tinygettext_lib STATIC IMPORTED)
+ set_target_properties(tinygettext_lib PROPERTIES IMPORTED_LOCATION "${TINYGETTEXT_PREFIX}/lib${LIB_SUFFIX}/${CMAKE_STATIC_LIBRARY_PREFIX}tinygettext${CMAKE_STATIC_LIBRARY_SUFFIX}")
+ 
+-include_directories(SYSTEM ${TINYGETTEXT_PREFIX}/include)
++include_directories(${TINYGETTEXT_PREFIX}/include)
+ 
+ ## external/SDL_ttf with patches
+ find_package(Freetype REQUIRED)
+@@ -463,16 +463,16 @@ ExternalProject_Add(SDL_ttf
+ add_library(SDL_ttf_lib STATIC IMPORTED)
+ set_target_properties(SDL_ttf_lib PROPERTIES IMPORTED_LOCATION "${SDL_TTF_PREFIX}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SDL2_ttf${CMAKE_STATIC_LIBRARY_SUFFIX}")
+ link_directories(${SDL_TTF_PREFIX}/lib)
+-include_directories(SYSTEM ${SDL_TTF_PREFIX}/include/SDL2)
++include_directories(${SDL_TTF_PREFIX}/include/SDL2)
+ 
+ ## Some additional include paths
+ 
+ include_directories(${CMAKE_BINARY_DIR}/)
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/)
+-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/findlocale/)
+-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/obstack/)
+-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/sexp-cpp/include/)
+-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/SDL_SavePNG/)
++include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/findlocale/)
++include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/obstack/)
++include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/sexp-cpp/include/)
++include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/SDL_SavePNG/)
+ 
+ if(WIN32)
+   add_definitions(-D_USE_MATH_DEFINES -DNOMINMAX)
+@@ -494,7 +494,7 @@ add_library(sexp STATIC ${SEXP_SOURCES_CXX})
+ 
+ file(GLOB SAVEPNG_SOURCES_CXX RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} external/SDL_SavePNG/savepng.c)
+ add_library(savepng STATIC ${SAVEPNG_SOURCES_CXX})
+-target_include_directories(savepng SYSTEM PUBLIC ${SDL2_INCLUDE_DIRS} ${PNG_INCLUDE_DIRS})
++target_include_directories(savepng PUBLIC ${SDL2_INCLUDE_DIRS} ${PNG_INCLUDE_DIRS})
+ target_link_libraries(savepng PUBLIC ${PNG_LIBRARIES})
+ 
+ if(HAVE_OPENGL)
+@@ -746,9 +746,9 @@ if(VCPKG_BUILD)
+   target_include_directories(supertux2_lib PUBLIC ${CURL_INCLUDE_DIRS})
+ endif()
+ 
+-target_include_directories(supertux2_lib SYSTEM PUBLIC ${SDL2_INCLUDE_DIRS})
+-target_include_directories(supertux2_lib SYSTEM PUBLIC ${SDL2IMAGE_INCLUDE_DIRS})
+-target_include_directories(supertux2_lib SYSTEM PUBLIC ${SDL_TTF_PREFIX}/include/SDL2)
++target_include_directories(supertux2_lib PUBLIC ${SDL2_INCLUDE_DIRS})
++target_include_directories(supertux2_lib PUBLIC ${SDL2IMAGE_INCLUDE_DIRS})
++target_include_directories(supertux2_lib PUBLIC ${SDL_TTF_PREFIX}/include/SDL2)
+ if(VCPKG_BUILD)
+   target_link_libraries(supertux2_lib PRIVATE SDL2::SDL2main SDL2::SDL2 SDL2_image)
+ else()
+-- 
+2.20.1
+
