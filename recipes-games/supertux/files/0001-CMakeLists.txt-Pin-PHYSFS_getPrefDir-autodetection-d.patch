@@ -1,6 +1,6 @@
 From 4256cd336e766f545516151dda924d65423e0b50 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
-Date: Mon, 26 Sep 2016 00:04:33 +0200
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 20 Mar 2019 20:10:52 +0100
 Subject: [PATCH] CMakeLists.txt: Pin PHYSFS_getPrefDir - autodetection does
  not work
 MIME-Version: 1.0
@@ -9,24 +9,24 @@ Content-Transfer-Encoding: 8bit
 
 Upstream-Status: Inappropriate [embedded specific]
 
-Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
  CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index cf97246..28ebada 100644
+index 9dd3877..9e50b57 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -173,7 +173,7 @@ INCLUDE_DIRECTORIES(SYSTEM ${VORBIS_INCLUDE_DIR})
- INCLUDE(CheckSymbolExists)
+@@ -217,7 +217,7 @@ include_directories(SYSTEM ${VORBIS_INCLUDE_DIR})
+ include(CheckSymbolExists)
  
- FIND_PACKAGE(PhysFS)
--CHECK_SYMBOL_EXISTS("PHYSFS_getPrefDir" "${PHYSFS_INCLUDE_DIR}/physfs.h" HAVE_PHYSFS_GETPREFDIR)
-+SET(HAVE_PHYSFS_GETPREFDIR TRUE)
- IF(HAVE_PHYSFS_GETPREFDIR)
- 	SET(USE_SYSTEM_PHYSFS ON CACHE BOOL "Use preinstalled physfs (must support getPrefDir)")
- ELSE(HAVE_PHYSFS_GETPREFDIR)
+ find_package(PhysFS)
+-check_symbol_exists("PHYSFS_getPrefDir" "${PHYSFS_INCLUDE_DIR}/physfs.h" HAVE_PHYSFS_GETPREFDIR)
++set(HAVE_PHYSFS_GETPREFDIR TRUE)
+ if(HAVE_PHYSFS_GETPREFDIR)
+   set(USE_SYSTEM_PHYSFS ON CACHE BOOL "Use preinstalled physfs (must support getPrefDir)")
+ else(HAVE_PHYSFS_GETPREFDIR)
 -- 
-2.5.5
+2.20.1
 
