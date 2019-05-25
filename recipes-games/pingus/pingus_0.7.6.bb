@@ -9,14 +9,16 @@ RDEPENDS_${PN} += "libmikmod bash"
 inherit scons pythonnative
 
 SRC_URI = "\
-  https://github.com/Pingus/${PN}/archive/v${PV}.tar.gz \
-  file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
-  file://0002-Fix-build-with-boost-1.69.0.patch \
-  file://version.patch \
-  file://sdl_pkgconfig.patch \
-  file://pingus.desktop \
-  file://pingus.png \
+    git://github.com/Pingus/pingus.git \
+    file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
+    file://0002-Fix-build-with-boost-1.69.0.patch \
+    file://version.patch \
+    file://sdl_pkgconfig.patch \
+    file://pingus.desktop \
+    file://pingus.png \
 "
+SRCREV = "a147274b76509ae543db2286a8710afe2d426666"
+S = "${WORKDIR}/git"
 
 EXTRA_OESCONS = "CC='${CC} -fPIC' CXX='${CXX} -fPIC' LINKFLAGS='${LDFLAGS}'"
 CLEANBROKEN = "1"
