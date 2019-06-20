@@ -1,0 +1,39 @@
+From 35d6a3026b7696384f5c84ec07354dd44e43c428 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 20 Jun 2019 21:41:12 +0200
+Subject: [PATCH] SConscript: Fix for python3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ SConscript | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/SConscript b/SConscript
+index cd80dafaf..a01374d72 100644
+--- a/SConscript
++++ b/SConscript
+@@ -126,12 +126,12 @@ class Project:
+     def configure_end(self):
+         self.env = self.conf.Finish()
+ 
+-        print "Reports:"
+-        print self.reports
++        print("Reports:")
++        print(self.reports)
+ 
+         if not self.fatal_error == "":
+-            print "Fatal Errors:"
+-            print self.fatal_error
++            print("Fatal Errors:")
++            print(self.fatal_error)
+             Exit(1)
+ 
+     def configure_gxx(self): 
+-- 
+2.21.0
+
