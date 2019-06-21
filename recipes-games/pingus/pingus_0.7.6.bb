@@ -12,6 +12,7 @@ SRC_URI = "\
     git://github.com/Pingus/pingus.git \
     file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
     file://0002-Fix-build-with-boost-1.69.0.patch \
+    file://0003-SConscript-Fix-for-python3.patch \
     file://version.patch \
     file://sdl_pkgconfig.patch \
     file://pingus.desktop \
