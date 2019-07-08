@@ -2,8 +2,6 @@ FREECIV_GUI = "gtk3.22,qt,sdl2"
 
 require freeciv.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS += "libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
 SRC_URI += "\
