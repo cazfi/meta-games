@@ -15,7 +15,8 @@ IMAGE_FSTYPES += "wic.vmdk"
 
 FREECIV = "\
  freeciv-server \
- freeciv-gtk3 \
+ freeciv-gtk3.22 \
+ freeciv-sdl2 \
  freeciv-qt \
 "
 
