@@ -31,6 +31,11 @@ GAMELIST = "\
  ${FREECIV} \
  etr \
  pingus \
+ wesnoth \
+ supertuxkart \
+ supertux2 \
+ astromenace \
+ maelstrom \
 "
 
 IMAGE_INSTALL += " \
