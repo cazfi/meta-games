@@ -9,8 +9,8 @@ GNOME_COMPRESS_TYPE="xz"
 
 inherit gnome gettext
 
-SRC_URI[archive.md5sum] = "7c195495503ecdead1384e979beb6ec6"
-SRC_URI[archive.sha256sum] = "dffdf7f5c5f4ea6bba7ff88b457a75ee5e4c5d9d522d27e1ea4a3d4bb3927792"
+SRC_URI[archive.md5sum] = "56eaa655a7989fd04ce0de3c66c2d8f8"
+SRC_URI[archive.sha256sum] = "6c9647beb7579b0a8de4e73698d931b1d9ac2efab4e7d3649f482d2c68ebf8a3"
 
 FILES_${PN} += "${libdir} ${datadir}"
 FILES_${PN}-dbg += "${libdir}/*/*/.debug"
