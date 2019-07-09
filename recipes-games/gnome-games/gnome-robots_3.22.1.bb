@@ -3,7 +3,7 @@ HOMEPAGE = "https://www.gnome.org/"
 SECTION = "x11/application"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
-DEPENDS = "libgnome-games-support glib-2.0 gtk+3 librsvg libcanberra intltool-native"
+DEPENDS = "libgnome-games-support glib-2.0 gtk+3 librsvg libcanberra intltool-native itstool-native"
 
 GNOME_COMPRESS_TYPE="xz"
 
