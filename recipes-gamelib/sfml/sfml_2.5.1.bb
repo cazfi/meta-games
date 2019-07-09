@@ -2,15 +2,15 @@ DESCRIPTION = "Simple and Fast Multimedia Library"
 HOMEPAGE = "http://www.sfml-dev.org/index.php"
 SECTION = "libs"
 
-LICENSE = "Zlib"
-LIC_FILES_CHKSUM = "file://license.txt;md5=718d3cda2de6e8be3c98a12c104820d2"
+LICENSE = "SFML"
+LIC_FILES_CHKSUM = "file://license.md;md5=7019c1b3f42a8b324fe092a4967cbb31"
 
 DEPENDS = "openal-soft glibc gcc-runtime freetype mesa xcb-util-image libjpeg-turbo libxrandr"
 
 SRC_URI = "http://www.sfml-dev.org/files/SFML-${PV}-sources.zip"
 
-SRC_URI[md5sum] = "0c04d339aee57c08097ba45a66b870ed"
-SRC_URI[sha256sum] = "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
+SRC_URI[md5sum] = "8533b22888102b4f0883311385fb1c71"
+SRC_URI[sha256sum] = "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
 
 S = "${WORKDIR}/SFML-${PV}"
 
