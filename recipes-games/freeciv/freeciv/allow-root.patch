@@ -3,12 +3,12 @@ Allow root to run freeciv
 Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
 
 diff --git a/configure.ac b/configure.ac
-index b65af702c1..e1a47692d1 100644
+index f2ca1f093d..555f23e0b6 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -663,6 +663,8 @@ fi
- dnl Defaults to override with host specific values
+@@ -678,6 +678,8 @@ dnl Defaults to override with host specific values
  HOST_PATH_SEPARATOR=":"
+ HOST_DIR_SEPARATOR="/"
  
 +AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - OpenEmbedded])
 +
