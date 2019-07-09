@@ -15,6 +15,7 @@ DEPENDS = " \
     libpng \
     libjpeg-turbo \
     freetype \
+    bluez5 \
 "
 
 inherit cmake gtk-icon-cache distro_features_check
