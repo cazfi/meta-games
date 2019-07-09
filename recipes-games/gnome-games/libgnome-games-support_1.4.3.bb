@@ -10,7 +10,7 @@ DEPENDS = "gtk+3 libgee"
 
 inherit gnomebase gettext
 
-SRC_URI[archive.md5sum] = "1bbbee6eee2f03c4649e32fa90c802f9"
-SRC_URI[archive.sha256sum] = "a626396c72603add6bae1ab0b5bee1d58657cc7e232b1fe6fda746b960715ee7"
+SRC_URI[archive.md5sum] = "a18acdf1a5398507a12fc6f408b5c541"
+SRC_URI[archive.sha256sum] = "704a7a93aa5066f84738b60d696cf393dfbbf1a3e339f9adbb40af0cf70eca3c"
 
 FILES_${PN} += "${libdir} ${datadir}"
