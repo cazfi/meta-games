@@ -37,6 +37,7 @@ GAMELIST = "\
  astromenace \
  maelstrom \
  chromium-bsu \
+ atanks \
 "
 
 IMAGE_INSTALL += " \
