@@ -10,6 +10,7 @@ DEPENDS = "virtual/libgl libglu libx11 libxcursor physfs openal-soft jpeg"
 # This uses uploaded asset from github.com, not one automatically regenerated
 # from time to time
 SRC_URI = "https://github.com/liballeg/allegro5/releases/download/${PV}/allegro-${PV}.tar.gz \
+           file://avoid_include_paths.patch \
            file://avoid_lib_paths.patch \
            file://0001-CMakeLists.txt-don-t-try-to-run-in-cross-environment.patch \
 "

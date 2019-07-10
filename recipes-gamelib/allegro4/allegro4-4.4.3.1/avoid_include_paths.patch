@@ -1,0 +1,25 @@
+allegro-config does not give any include path parameters for --cflags to
+avoid problems with target paths getting used in build system.
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+diff -Nurd allegro-4.4.3.1/misc/allegro-config.in allegro-4.4.3.1/misc/allegro-config.in
+--- allegro-4.4.3.1/misc/allegro-config.in	2019-03-04 03:30:11.000000000 +0200
++++ allegro-4.4.3.1/misc/allegro-config.in	2019-07-10 18:26:36.680737493 +0300
+@@ -173,7 +173,7 @@
+ 
+ if test "$echo_cflags" = "yes"; then
+    if test -n "$include_prefix" -a -z "$addon_form"; then
+-      echo -I${include_path} $allegro_cflags
++      echo $allegro_cflags
+    else
+       echo $allegro_cflags
+    fi
+@@ -181,7 +181,7 @@
+ 
+ if test "$echo_cppflags" = "yes"; then
+    if test -n "$include_prefix" -a -z "$addon_form"; then
+-      echo -I${include_path} $allegro_cppflags
++      echo $allegro_cppflags
+    else
+       echo $allegro_cppflags
+    fi
