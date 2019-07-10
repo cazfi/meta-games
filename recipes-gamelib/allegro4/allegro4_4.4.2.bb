@@ -1,15 +1,15 @@
 DESCRIPTION = "Allegro4 is cross-platform, open source, game programming library"
-HOMEPAGE = "http://alleg.sourceforge.net/"
+HOMEPAGE = "https://liballeg.org/"
 SECTION = "libs"
 
 LICENSE = "Allegro4"
 LIC_FILES_CHKSUM = "file://docs/txt/license.txt;md5=55ec083de776f786d0da79bbbb887c50"
 
-PR = "r1"
-
 DEPENDS = "virtual/libgl libglu libx11 libxcursor physfs openal-soft jpeg"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/alleg/allegro/${PV}/allegro-${PV}.tar.gz \
+# This uses uploaded asset from github.com, not one automatically regenerated
+# from time to time
+SRC_URI = "https://github.com/liballeg/allegro5/releases/download/${PV}/allegro-${PV}.tar.gz \
            file://avoid_lib_paths.patch \
            file://0001-CMakeLists.txt-don-t-try-to-run-in-cross-environment.patch \
 "
