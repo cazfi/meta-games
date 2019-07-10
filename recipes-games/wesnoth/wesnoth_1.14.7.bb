@@ -13,8 +13,9 @@ SRC_URI = " \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
-SRC_URI[md5sum] = "4038b0d223dc03ebe0581a802cc41c0d"
-SRC_URI[sha256sum] = "45d2a05320e145b0b1bc9d16d68391945a98375c910a0ea7720e613bf867832b"
+
+SRC_URI[md5sum] = "40ea96af963c1817f3b62e687031fa18"
+SRC_URI[sha256sum] = "475e6ce3720edf76cfc3a9b9ac015067d473a46d164dcc4406b3c8f7d8dc5e48"
 
 ARM_INSTRUCTION_SET = "arm"
 
