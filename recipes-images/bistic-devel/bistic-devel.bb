@@ -15,7 +15,8 @@ IMAGE_FSTYPES += "wic.vmdk"
 
 FREECIV = "\
  freeciv-server \
- freeciv-gtk3 \
+ freeciv-gtk3.22 \
+ freeciv-sdl2 \
  freeciv-qt \
 "
 
@@ -30,6 +31,12 @@ GAMELIST = "\
  ${FREECIV} \
  etr \
  pingus \
+ wesnoth \
+ supertuxkart \
+ supertux2 \
+ astromenace \
+ maelstrom \
+ chromium-bsu \
 "
 
 TOOLS = "\
@@ -40,8 +47,7 @@ TOOLS = "\
 
 IMAGE_INSTALL += " \
 packagegroup-core-boot \
-${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
+${CORE_IMAGE_EXTRA_INSTALL} \
 ${GAMELIST} \
 ${TOOLS} \
-packagegroup-core-x11-sato-games \
 "
