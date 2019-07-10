@@ -14,8 +14,8 @@ SRC_URI = "https://github.com/liballeg/allegro5/releases/download/${PV}/allegro-
            file://0001-CMakeLists.txt-don-t-try-to-run-in-cross-environment.patch \
 "
 
-SRC_URI[md5sum] = "4db71b0460fc99926ae91d223199c2e6"
-SRC_URI[sha256sum] = "1b21e7577dbfada02d85ca4510bd22fedaa6ce76fde7f4838c7c1276eb840fdc"
+SRC_URI[md5sum] = "d0435da87d4c157ad3620e1cc58b807e"
+SRC_URI[sha256sum] = "ec19dbc9a021244582b4819b3583ee594b50141f9fcf6944a4ed8069cbf8d4d4"
 
 inherit cmake binconfig
 
