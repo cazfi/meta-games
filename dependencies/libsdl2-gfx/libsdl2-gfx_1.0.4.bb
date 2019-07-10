@@ -20,6 +20,11 @@ inherit autotools pkgconfig
 
 EXTRA_OECONF += "SDL_CONFIG=${STAGING_BINDIR_CROSS}/pkg-config sdl2"
 
+# Disable by default, override by enabling after
+EXTRA_OECONF += "--disable-mmx"
+EXTRA_OECONF += "${@bb.utils.contains("TUNE_FEATURES", "m32", "--enable-mmx", "", d)}"
+EXTRA_OECONF += "${@bb.utils.contains("TUNE_FEATURES", "m64", "--enable-mmx", "", d)}"
+
 do_unpack_append() {
     os.rename("SDL2_gfx-1.0.4/acinclude", "SDL2_gfx-1.0.4/m4")
 }
