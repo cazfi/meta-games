@@ -9,13 +9,13 @@ DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zli
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
 SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/${BPN}/${BPN}-${SHRT_VER}/${BP}/${BP}.tar.bz2 \
+    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BP}/${BP}.tar.bz2 \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
 
-SRC_URI[md5sum] = "40ea96af963c1817f3b62e687031fa18"
-SRC_URI[sha256sum] = "475e6ce3720edf76cfc3a9b9ac015067d473a46d164dcc4406b3c8f7d8dc5e48"
+SRC_URI[md5sum] = "4d4a7ee12a97b774b6636b4856947938"
+SRC_URI[sha256sum] = "854726ec68dcb26f78f65b01a90b3bc51fd985598e59c7cc2ef72999ff2366e8"
 
 ARM_INSTRUCTION_SET = "arm"
 
@@ -25,7 +25,7 @@ EXTRA_OECMAKE = "\
 	-DENABLE_LOW_MEM=ON \
 	-DENABLE_FRIBIDI=OFF \
 	\
-	-DCMAKE_BUILD_TYPE=Debug \
+	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 	-DENABLE_STRICT_COMPILATION=OFF \
 	"
 
@@ -58,10 +58,6 @@ do_configure_prepend() {
 	rm -f ${S}/cmake/FindBoost.cmake
 }
 
-do_configure_append() {
-    sed -i "s:isystem:I:g" ${B}/build.ninja
-}
-
 do_install_append() {
 	#ugly hack but otherwise it would have required to
 	#have MANDIR:STRING=share/man that would require a
@@ -70,8 +66,8 @@ do_install_append() {
 		mv ${D}${prefix}/man ${D}${mandir}
 	fi
 
-        rm -Rf ${D}/run
-        rm -Rf ${D}/var
+    rm -Rf ${D}/run
+    rm -Rf ${D}/var
 }
 
 RDEPENDS_${PN} = "${PN}-data tremor"
@@ -109,7 +105,7 @@ FILES_${PN} = "\
 	${bindir}/wesnoth \
 	${datadir}/icons \
     ${datadir}/metainfo \
-	${datadir}/applications/wesnoth.desktop \
+	${datadir}/applications/org.wesnoth.Wesnoth.desktop \
 	${datadir}/pixmaps/wesnoth-icon.png \
 "
 
