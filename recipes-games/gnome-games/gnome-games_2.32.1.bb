@@ -7,7 +7,7 @@ DEPENDS = "glib-2.0 gtk+ cairo gstreamer librsvg python-pygtk libcanberra guile 
 
 GNOME_COMPRESS_TYPE="bz2"
 
-inherit gnome python-dir
+inherit gnomebase python-dir
 
 SRC_URI += " \
     file://0001-In-cross-environment-we-have-to-prepend-the-sysroot-.patch \

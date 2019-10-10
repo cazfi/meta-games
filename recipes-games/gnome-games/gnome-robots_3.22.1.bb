@@ -7,7 +7,7 @@ DEPENDS = "libgnome-games-support glib-2.0 gtk+3 librsvg libcanberra intltool-na
 
 GNOME_COMPRESS_TYPE="xz"
 
-inherit gnome
+inherit gnomebase
 
 SRC_URI[archive.md5sum] = "adc8b1ddfff21e344eb461db0785eb08"
 SRC_URI[archive.sha256sum] = "5cd4564d7eb876fe4ef332dc568bcf7b1515d8ec9f66e53c2bae5331e0182dd4"
