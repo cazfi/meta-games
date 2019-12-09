@@ -10,7 +10,7 @@ DEPENDS = "libsdl freealut openal-soft libogg libvorbis freetype libglu libxiner
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-inherit cmake qemu gtk-icon-cache distro_features_check
+inherit cmake qemu gtk-icon-cache features_check
 
 SRC_URI = " \
     git://github.com/viewizard/astromenace.git \
