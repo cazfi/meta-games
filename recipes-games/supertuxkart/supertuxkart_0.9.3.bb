@@ -18,7 +18,7 @@ DEPENDS = " \
     bluez5 \
 "
 
-inherit cmake gtk-icon-cache distro_features_check
+inherit cmake gtk-icon-cache features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
