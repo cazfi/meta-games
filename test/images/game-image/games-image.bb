@@ -11,19 +11,35 @@ IMAGE_ROOTFS_SIZE = "8192"
 
 IMAGE_FEATURES += "package-management x11-base x11-sato ssh-server-dropbear"
 
-GAMELIST = "freeciv \
-            wesnoth \
-            pingus \
-            etr \
-           "
+IMAGE_FSTYPES += "wic.vmdk"
+
+FREECIV = "\
+ freeciv-server \
+ freeciv-gtk3.22 \
+ freeciv-sdl2 \
+ freeciv-qt \
+"
+
+# Left out:
+# - gnome games - build failures
+# - maelstrom - build failure on 64bit systems
+
+GAMELIST = "\
+ packagegroup-core-x11-sato-games \
+ ${FREECIV} \
+ etr \
+ pingus \
+ wesnoth \
+ supertuxkart \
+ supertux2 \
+ astromenace \
+ chromium-bsu \
+ atanks \
+"
 
 IMAGE_INSTALL += " \
 packagegroup-core-boot \
-${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL} \
+${CORE_IMAGE_EXTRA_INSTALL} \
 ${GAMELIST} \
-gdb \
-nano \
 "
 
-# remove not needed ipkg informations
-ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; "
