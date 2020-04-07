@@ -6,6 +6,7 @@ DEPENDS += "libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
+file://QPainterPathInc.patch \
 "
 
 SRC_URI[md5sum] = "2c8b388ff8b814487477793d72462cbb"
