@@ -1,8 +1,8 @@
 DESCRIPTION = "SuperTuxKart is a kart racing game featuring Tux and his friends"
 HOMEPAGE = "http://supertuxkart.sourceforge.net"
 SECTION = "x11/application"
-LICENSE = "GPLv2 & GPLv3+ & CC-BY-SA-3.0 & PD"
-LIC_FILES_CHKSUM = "file://COPYING;md5=b0e65d539fc395f6c95b79063eab9bb3"
+LICENSE = "GPLv2 & GPLv3+ & CC-BY-SA-3.0 & CC-BY-SA-4.0 & PD"
+LIC_FILES_CHKSUM = "file://COPYING;md5=bcfdeb69518cfe348a07845ebba5c295"
 
 DEPENDS = " \
     libogg \
@@ -16,6 +16,7 @@ DEPENDS = " \
     libjpeg-turbo \
     freetype \
     bluez5 \
+    harfbuzz \
 "
 
 inherit cmake gtk-icon-cache features_check
@@ -26,14 +27,16 @@ SRC_URI = " \
     https://sourceforge.net/projects/supertuxkart/files/SuperTuxKart/${PV}/supertuxkart-${PV}-src.tar.xz \
 "
 
-SRC_URI[md5sum] = "8de5455b8fdbb92679e302b76c9041cf"
-SRC_URI[sha256sum] = "d8014e7106ba84f98b5ec5f146249dcffc284fc4083f8f237ff420b9e2219cb0"
+SRC_URI[sha256sum] = "e9b02b0b11ab68aacaec38306903feffe59a501224805cd3645cebf10e880ae8"
+
+S = "${WORKDIR}/supertuxkart-${PV}-src"
 
 # Give BSP the chance to override GL
 SELECTGL ??= "-DUSE_GLES2=ON"
 
 EXTRA_OECMAKE = " \
     ${SELECTGL} \
+    -DBUILD_RECORDER=0 \
 "
 PACKAGECONFIG ??= " \
     ${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)} \
@@ -42,5 +45,5 @@ PACKAGECONFIG[wayland] = "-DENABLE_WAYLAND_DEVICE=ON,-DENABLE_WAYLAND_DEVICE=OFF
 
 FILES_${PN} += " \
     ${datadir}/icons \
-    ${datadir}/appdata \
+    ${datadir}/metainfo \
 "
