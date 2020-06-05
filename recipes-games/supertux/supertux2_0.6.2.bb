@@ -21,12 +21,16 @@ SRC_URI = " \
     file://0002-do-not-set-included-paths-as-system-causes-trouble-w.patch \
     file://0003-Set-DCMAKE_MAKE_PROGRAM-make-explicitly-for-external.patch \
 "
-SRC_URI[md5sum] = "00514b8042d26a4ff7806b8d282c9a6b"
-SRC_URI[sha256sum] = "c4c3e5fa6f90e87b8c5ad6b22a179e9a9839bf997e7f219e22bbcd1c97223ac0"
+SRC_URI[md5sum] = "f05fb2f83e63cb099340668cfe314c2b"
+SRC_URI[sha256sum] = "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
 
 S = "${WORKDIR}/SuperTux-v${PV}-Source"
 
-EXTRA_OECMAKE = "-DINSTALL_SUBDIR_BIN=bin -DCMAKE_BUILD_TYPE=RELEASE"
+EXTRA_OECMAKE = " \
+    -DINSTALL_SUBDIR_BIN=bin \
+    -DCMAKE_BUILD_TYPE=RELEASE \
+    -DUSE_SYSTEM_PHYSFS=ON \
+"
 
 FILES_${PN} += " \
     ${datadir}/metainfo \

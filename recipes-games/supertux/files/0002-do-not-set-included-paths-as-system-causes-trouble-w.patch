@@ -17,14 +17,14 @@ further information at [1]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- CMakeLists.txt | 40 ++++++++++++++++++++--------------------
- 1 file changed, 20 insertions(+), 20 deletions(-)
+ CMakeLists.txt | 46 +++++++++++++++++++++++-----------------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 9e50b57..cf70210 100644
+index 126eb95..19f8224 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -134,7 +134,7 @@ else(ENABLE_BOOST_STATIC_LIBS)
+@@ -137,7 +137,7 @@ else(ENABLE_BOOST_STATIC_LIBS)
    set(Boost_USE_STATIC_LIBS FALSE)
  endif(ENABLE_BOOST_STATIC_LIBS)
  find_package(Boost REQUIRED COMPONENTS filesystem system date_time locale)
@@ -33,7 +33,7 @@ index 9e50b57..cf70210 100644
  link_directories(${Boost_LIBRARY_DIRS})
  
  find_package(PNG REQUIRED)
-@@ -182,14 +182,14 @@ if(ENABLE_OPENGL)
+@@ -186,14 +186,14 @@ if(ENABLE_OPENGL)
      set(OpenGL_GL_PREFERENCE "LEGACY")
      find_package(OpenGL)
      if(OPENGL_FOUND)
@@ -50,7 +50,7 @@ index 9e50b57..cf70210 100644
          add_definitions(-DUSE_GLBINDING)
          IF (GLBINDING_DEBUG_OUTPUT)
            add_definitions(-DUSE_GLBINDING_DEBUG_OUTPUT)
-@@ -198,7 +198,7 @@ if(ENABLE_OPENGL)
+@@ -202,7 +202,7 @@ if(ENABLE_OPENGL)
      else()
        find_package(GLEW REQUIRED)
        if(GLEW_FOUND)
@@ -59,7 +59,7 @@ index 9e50b57..cf70210 100644
        endif(GLEW_FOUND)
      endif()
    endif()
-@@ -209,10 +209,10 @@ if(VCPKG_BUILD)
+@@ -213,10 +213,10 @@ if(VCPKG_BUILD)
  else()
    find_package(OpenAL REQUIRED)
  endif()
@@ -72,7 +72,7 @@ index 9e50b57..cf70210 100644
  
  include(CheckSymbolExists)
  
-@@ -262,7 +262,7 @@ if(NOT USE_SYSTEM_PHYSFS)
+@@ -269,7 +269,7 @@ if(NOT USE_SYSTEM_PHYSFS)
    set(PHYSFS_INCLUDE_DIR "${PHYSFS_PREFIX}/include/")
  endif()
  
@@ -81,7 +81,7 @@ index 9e50b57..cf70210 100644
  
  
  ## The curl headers are in the standard include path in dependencies
-@@ -283,12 +283,12 @@ if(WIN32 AND VCPKG_BUILD)
+@@ -290,12 +290,12 @@ if(WIN32 AND VCPKG_BUILD)
    endif()
  endif()
  if(CURL_FOUND)
@@ -96,7 +96,7 @@ index 9e50b57..cf70210 100644
  #link_libraries(${ICONV_LIBRARY})
  
  if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
-@@ -411,7 +411,7 @@ else()
+@@ -423,7 +423,7 @@ else()
    set_target_properties(sqstdlib_lib PROPERTIES IMPORTED_LOCATION "${SQUIRREL_PREFIX}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}sqstdlib_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
  endif()
  
@@ -105,23 +105,25 @@ index 9e50b57..cf70210 100644
  
  ## Also build external/tinygettext
  
-@@ -440,7 +440,7 @@ ExternalProject_Add(tinygettext
+@@ -459,7 +459,7 @@ ExternalProject_Add(tinygettext
  add_library(tinygettext_lib STATIC IMPORTED)
  set_target_properties(tinygettext_lib PROPERTIES IMPORTED_LOCATION "${TINYGETTEXT_PREFIX}/lib${LIB_SUFFIX}/${CMAKE_STATIC_LIBRARY_PREFIX}tinygettext${CMAKE_STATIC_LIBRARY_SUFFIX}")
  
 -include_directories(SYSTEM ${TINYGETTEXT_PREFIX}/include)
 +include_directories(${TINYGETTEXT_PREFIX}/include)
  
+ 
  ## external/SDL_ttf with patches
- find_package(Freetype REQUIRED)
-@@ -463,16 +463,16 @@ ExternalProject_Add(SDL_ttf
+@@ -481,7 +481,7 @@ ExternalProject_Add(SDL_ttf
  add_library(SDL_ttf_lib STATIC IMPORTED)
  set_target_properties(SDL_ttf_lib PROPERTIES IMPORTED_LOCATION "${SDL_TTF_PREFIX}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SDL2_ttf${CMAKE_STATIC_LIBRARY_SUFFIX}")
  link_directories(${SDL_TTF_PREFIX}/lib)
 -include_directories(SYSTEM ${SDL_TTF_PREFIX}/include/SDL2)
 +include_directories(${SDL_TTF_PREFIX}/include/SDL2)
- 
- ## Some additional include paths
+ if(RAQM_FOUND)
+   find_package(Fribidi REQUIRED)
+   find_package(Harfbuzz REQUIRED)
+@@ -492,10 +492,10 @@ endif()
  
  include_directories(${CMAKE_BINARY_DIR}/)
  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/)
@@ -136,7 +138,7 @@ index 9e50b57..cf70210 100644
  
  if(WIN32)
    add_definitions(-D_USE_MATH_DEFINES -DNOMINMAX)
-@@ -494,7 +494,7 @@ add_library(sexp STATIC ${SEXP_SOURCES_CXX})
+@@ -537,7 +537,7 @@ target_compile_definitions(sexp PRIVATE -DSEXP_USE_LOCALE)
  
  file(GLOB SAVEPNG_SOURCES_CXX RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} external/SDL_SavePNG/savepng.c)
  add_library(savepng STATIC ${SAVEPNG_SOURCES_CXX})
@@ -145,7 +147,7 @@ index 9e50b57..cf70210 100644
  target_link_libraries(savepng PUBLIC ${PNG_LIBRARIES})
  
  if(HAVE_OPENGL)
-@@ -746,9 +746,9 @@ if(VCPKG_BUILD)
+@@ -794,9 +794,9 @@ if(VCPKG_BUILD)
    target_include_directories(supertux2_lib PUBLIC ${CURL_INCLUDE_DIRS})
  endif()
  
@@ -158,6 +160,20 @@ index 9e50b57..cf70210 100644
  if(VCPKG_BUILD)
    target_link_libraries(supertux2_lib PRIVATE SDL2::SDL2main SDL2::SDL2 SDL2_image)
  else()
+@@ -859,10 +859,10 @@ if(BUILD_TESTS)
+   # build gtest
+   # ${CMAKE_CURRENT_SOURCE_DIR} in include_directories is needed to generate -isystem instead of -I flags
+   add_library(gtest_main STATIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/src/gtest_main.cc)
+-  target_include_directories(gtest_main SYSTEM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/include/)
++  target_include_directories(gtest_main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/include/)
+   add_library(gtest STATIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/src/gtest-all.cc)
+-  target_include_directories(gtest SYSTEM PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/)
+-  target_include_directories(gtest SYSTEM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/include/)
++  target_include_directories(gtest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/)
++  target_include_directories(gtest PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/googletest/googletest/include/)
+ 
+   # build SuperTux tests
+   file(GLOB TEST_SUPERTUX_SOURCES tests/*.cpp)
 -- 
-2.20.1
+2.21.1
 
