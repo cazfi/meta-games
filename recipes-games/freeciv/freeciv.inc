@@ -26,6 +26,7 @@ EXTRA_OECONF = "\
 --enable-shared --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
 --disable-sdl2test \
+--with-sqlite3-prefix=${STAGING_DIR} \
 --with-qt5-includes=${STAGING_INCDIR}${QT_DIR_NAME} \
 --with-qt5-libs=${STAGING_LIBDIR}${QT_DIR_NAME} \
 MOCCMD=${STAGING_BINDIR_NATIVE}${QT_DIR_NAME}/moc \
