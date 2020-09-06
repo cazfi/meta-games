@@ -17,6 +17,7 @@ DEPENDS = " \
     freetype \
     bluez5 \
     harfbuzz \
+    libsdl2 \
 "
 
 inherit cmake gtk-icon-cache features_check
@@ -24,12 +25,12 @@ inherit cmake gtk-icon-cache features_check
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
-    https://sourceforge.net/projects/supertuxkart/files/SuperTuxKart/${PV}/supertuxkart-${PV}-src.tar.xz \
+    https://github.com/supertuxkart/stk-code/releases/download/${PV}/SuperTuxKart-${PV}-src.tar.xz \
 "
 
-SRC_URI[sha256sum] = "e9b02b0b11ab68aacaec38306903feffe59a501224805cd3645cebf10e880ae8"
+SRC_URI[sha256sum] = "052edf0afdbeb99583fe8676fb0ab80ecb6103fb88b7540f858d1b5fa1297d37"
 
-S = "${WORKDIR}/supertuxkart-${PV}-src"
+S = "${WORKDIR}/SuperTuxKart-${PV}-src"
 
 # Give BSP the chance to override GL
 SELECTGL ??= "-DUSE_GLES2=ON"
