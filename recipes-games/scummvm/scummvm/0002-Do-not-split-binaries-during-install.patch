@@ -1,0 +1,40 @@
+From 230f20ed7a97c3a4f4f2fb38bdd5b6157ef2c318 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 25 Oct 2020 18:13:58 +0100
+Subject: [PATCH] Do not split binaries during install
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ ports.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/ports.mk b/ports.mk
+index b562799..fdca3df 100644
+--- a/ports.mk
++++ b/ports.mk
+@@ -29,7 +29,7 @@ endif
+ 
+ install-strip:
+ 	$(INSTALL) -d "$(DESTDIR)$(bindir)"
+-	$(INSTALL) -c -s -m 755 "./$(EXECUTABLE)" "$(DESTDIR)$(bindir)/$(EXECUTABLE)"
++	$(INSTALL) -c -m 755 "./$(EXECUTABLE)" "$(DESTDIR)$(bindir)/$(EXECUTABLE)"
+ 	$(INSTALL) -d "$(DESTDIR)$(mandir)/man6/"
+ 	$(INSTALL) -c -m 644 "$(srcdir)/dists/scummvm.6" "$(DESTDIR)$(mandir)/man6/scummvm.6"
+ 	$(INSTALL) -d "$(DESTDIR)$(datarootdir)/pixmaps/"
+@@ -46,7 +46,7 @@ install-strip:
+ 	$(INSTALL) -c -m 644 "$(srcdir)/dists/scummvm.appdata.xml" "$(DESTDIR)$(datarootdir)/metainfo/scummvm.appdata.xml"
+ ifdef DYNAMIC_MODULES
+ 	$(INSTALL) -d "$(DESTDIR)$(libdir)/scummvm/"
+-	$(INSTALL) -c -s -m 644 $(PLUGINS) "$(DESTDIR)$(libdir)/scummvm/"
++	$(INSTALL) -c -m 644 $(PLUGINS) "$(DESTDIR)$(libdir)/scummvm/"
+ endif
+ 
+ uninstall:
+-- 
+2.26.2
+
