@@ -15,6 +15,7 @@ SRC_URI = " \
     file://0002-buttonlist.h-Fix-build-with-recent-gcc-s.patch \
     file://0003-Fix-install-dir.patch \
     file://0004-Maelstrom-3.0.6-setgid.patch \
+    file://0005-SDL_FrameBuf.cpp-Fix-build-for-64Bit-targets.patch \
     file://maelstrom.png \
     file://Maelstrom.desktop \
 "
