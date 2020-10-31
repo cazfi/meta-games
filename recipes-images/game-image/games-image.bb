@@ -22,7 +22,6 @@ FREECIV = "\
 
 # Left out:
 # - gnome games - build failures
-# - maelstrom - build failure on 64bit systems
 
 GAMELIST = "\
  packagegroup-core-x11-sato-games \
@@ -34,6 +33,7 @@ GAMELIST = "\
  supertux2 \
  astromenace \
  chromium-bsu \
+ maelstrom \
  atanks \
 "
 
