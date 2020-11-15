@@ -16,6 +16,7 @@ SRC_URI = " \
     file://0003-Fix-install-dir.patch \
     file://0004-Maelstrom-3.0.6-setgid.patch \
     file://0005-SDL_FrameBuf.cpp-Fix-build-for-64Bit-targets.patch \
+    file://0006-scores.cpp-Fix-build-with-hardened-security-flags.patch \
     file://maelstrom.png \
     file://Maelstrom.desktop \
 "

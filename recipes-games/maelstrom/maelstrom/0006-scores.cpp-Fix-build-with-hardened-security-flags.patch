@@ -1,0 +1,43 @@
+From 53b3b2081c38c882f5aefcd5e630bdd0591283e1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 15 Nov 2020 21:18:59 +0100
+Subject: [PATCH] scores.cpp: Fix build with hardened security flags
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Fixes:
+| In function 'int open(const char*, int, ...)',
+|     inlined from 'void GetScoreFile()' at scores.cpp:44:10:
+| <...>/recipe-sysroot/usr/include/bits/fcntl2.h:50:24: error: call to '__open_missing_mode' declared with attribute error: open with O_CREAT or O_TMPFILE in second argument needs 3 arguments
+|    50 |    __open_missing_mode ();
+|       |    ~~~~~~~~~~~~~~~~~~~~^~
+| make[1]: *** [Makefile:561: scores.o] Error 1
+
+Stolen from [1]
+
+[1] https://src.fedoraproject.org/rpms/Maelstrom/blob/master/f/Maelstrom-open.patch
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ scores.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scores.cpp b/scores.cpp
+index c8b53b5..f42c40f 100644
+--- a/scores.cpp
++++ b/scores.cpp
+@@ -41,7 +41,7 @@ void GetScoreFile(void)
+ #ifdef unix
+ 	omask=umask(SCORES_PERMMASK);
+ #endif
+-	f = open(MAELSTROM_SCORES,O_RDWR|O_CREAT);
++	f = open(MAELSTROM_SCORES,O_RDWR|O_CREAT,S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP);
+ 	if (f == -1)
+ 		f = open(MAELSTROM_SCORES,O_RDONLY);
+ 	if (f == -1)
+-- 
+2.26.2
+
