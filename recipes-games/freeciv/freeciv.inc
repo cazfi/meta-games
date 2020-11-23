@@ -16,7 +16,7 @@ DEPENDS = "readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext qtt
 
 SRC_URI = "\
 file://allow-root.patch \
-file://wait-server-start.patch \
+file://0013-Add-enable-patient-connect-configure-option.patch \
 "
 
 S = "${WORKDIR}/freeciv-${PV}"
@@ -25,6 +25,7 @@ B = "${WORKDIR}/build-${PV}"
 inherit autotools pkgconfig gettext qmake5_paths
 
 EXTRA_OECONF = "\
+--enable-patient-connect \
 --enable-shared --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
 --disable-sdl2test \

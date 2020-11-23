@@ -1,0 +1,61 @@
+From d9d5479d1537640ce8cba36fac7464bb55077af1 Mon Sep 17 00:00:00 2001
+From: Marko Lindqvist <cazfi74@gmail.com>
+Date: Mon, 23 Nov 2020 04:30:04 +0200
+Subject: [PATCH 13/13] Add --enable-patient-connect configure option
+
+When the option is enabled, client gives spawned server much
+more time to get up. This is needed in some underpowered embedded
+systems. This option is meant to replace custom patch that
+OpenEmbedded meta-games is carrying to increase the time.
+
+See hrm Feature #899259
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+---
+ client/connectdlg_common.c |  7 ++++++-
+ configure.ac               | 10 ++++++++++
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/client/connectdlg_common.c b/client/connectdlg_common.c
+index 2ec9b13861..da0b533ff6 100644
+--- a/client/connectdlg_common.c
++++ b/client/connectdlg_common.c
+@@ -64,8 +64,13 @@ Freeciv - Copyright (C) 2004 - The Freeciv Project
+ #include "connectdlg_common.h"
+ #include "tilespec.h"
+ 
+-#define WAIT_BETWEEN_TRIES 100000 /* usecs */ 
++#define WAIT_BETWEEN_TRIES 100000 /* usecs */
++
++#ifdef FREECIV_PATIENT_CONNECT
++#define NUMBER_OF_TRIES 10000
++#else  /* FREECIV_PATIENT_CONNECT */
+ #define NUMBER_OF_TRIES 500
++#endif /* FREECIV_PATIENT_CONNECT */
+ 
+ #if defined(HAVE_WORKING_FORK) && !defined(WIN32_NATIVE)
+ /* We are yet to see WIN32_NATIVE setup where even HAVE_WORKING_FORK would
+diff --git a/configure.ac b/configure.ac
+index 881d9d33cc..87b7d14c62 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -308,6 +308,16 @@ AC_ARG_WITH([appdatadir],
+ [ APPDATADIR=${withval} ], [ APPDATADIR="\$(prefix)/share/appdata" ])
+ AC_SUBST([APPDATADIR])
+ 
++AC_ARG_ENABLE([patient-connect],
++  AS_HELP_STRING([--enable-patient-connect=yes/no],
++                 [enable client to be very patient in connecting spawned server]),
++  [case "${enableval}" in
++    yes) AC_DEFINE([FREECIV_PATIENT_CONNECT], [1],
++                   [Client is very patient when connecting to spawned server]) ;;
++    no) ;;
++    *) AC_MSG_ERROR([bad value ${enableval} for --enable-patient-connect]) ;;
++  esac])
++
+ dnl set default values
+ mapimg_all=auto
+ mapimg_magickwand=no
+-- 
+2.29.2
+
