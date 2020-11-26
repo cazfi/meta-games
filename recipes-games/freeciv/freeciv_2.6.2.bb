@@ -4,6 +4,7 @@ require freeciv.inc
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 file://QPainterPathInc.patch \
+file://0013-Add-enable-patient-connect-configure-option.patch \
 "
 
 SRC_URI[md5sum] = "2c8b388ff8b814487477793d72462cbb"

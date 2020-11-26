@@ -16,7 +16,6 @@ DEPENDS = "readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext qtt
 
 SRC_URI = "\
 file://allow-root.patch \
-file://0013-Add-enable-patient-connect-configure-option.patch \
 "
 
 S = "${WORKDIR}/freeciv-${PV}"
