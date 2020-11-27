@@ -1,7 +1,7 @@
 
 require freeciv.inc
 
-DEFAULT_PREFERENCE = "2"
+DEFAULT_PREFERENCE = "-2"
 
 DEPENDS += "tolua-native"
 
