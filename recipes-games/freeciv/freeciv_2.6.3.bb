@@ -6,4 +6,4 @@ ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 file://0013-Add-enable-patient-connect-configure-option.patch \
 "
 
-SRC_URI[sha256sum] = "bd04ac03c1505582309dd62bcc4710002a3cfb4b2b38c28af33047dd2fb7585e"
+SRC_URI[sha256sum] = "77432e027557a9eb407dac730ae9810ee172abe37111deb017fe72b8183ff8d1"
