@@ -26,6 +26,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     https://github.com/supertuxkart/stk-code/releases/download/${PV}/SuperTuxKart-${PV}-src.tar.xz \
+    file://0001-Fix-compilation-with-latest-SDL.patch \
 "
 
 SRC_URI[sha256sum] = "052edf0afdbeb99583fe8676fb0ab80ecb6103fb88b7540f858d1b5fa1297d37"
