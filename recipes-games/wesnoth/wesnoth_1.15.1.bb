@@ -72,7 +72,7 @@ do_install_append() {
 
 RDEPENDS_${PN} = "${PN}-data tremor"
 
-RDEPENDS_${PN}-data = "bash python"
+RDEPENDS_${PN}-data = "bash python3"
 
 RDEPENDS_${PN}-all-campaigns = "${PN} \
 	${PN}-aoi ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l \
