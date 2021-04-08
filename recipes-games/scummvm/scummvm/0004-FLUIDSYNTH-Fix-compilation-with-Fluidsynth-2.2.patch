@@ -4,6 +4,8 @@ Date: Mon, 5 Apr 2021 12:23:26 +0200
 Subject: [PATCH 2/2] FLUIDSYNTH: Fix compilation with Fluidsynth 2.2
 
 We replace deprecated functions as well
+
+Upstream-Status: Pending [https://github.com/scummvm/scummvm/pull/2915]
 ---
  audio/softsynth/fluidsynth.cpp | 43 ++++++++++++++++++++++++++++++++++
  1 file changed, 43 insertions(+)
