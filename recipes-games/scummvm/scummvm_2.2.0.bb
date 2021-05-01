@@ -11,7 +11,7 @@ inherit autotools-brokensep pkgconfig gtk-icon-cache manpages features_check
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 SRC_URI = " \
-    https://www.scummvm.org/frs/scummvm/${PV}/${BPN}-${PV}.tar.xz \
+    https://downloads.scummvm.org/frs/scummvm/${PV}/${BPN}-${PV}.tar.xz \
     file://0001-use-pkg-config-to-gather-sdl-information.patch \
     file://0002-Do-not-split-binaries-during-install.patch \
     file://0003-FLUIDSYNTH-Simplify-FluidSynth-version-check.patch \
