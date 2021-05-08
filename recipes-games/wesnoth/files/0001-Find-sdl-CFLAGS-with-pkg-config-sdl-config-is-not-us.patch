@@ -14,20 +14,20 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index f5c0df9..1026001 100644
+index becfff5..c1f477e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -71,8 +71,8 @@ find_package(Gettext)
- find_package(X11)
+@@ -88,8 +88,8 @@ find_package(X11)
  
  # needed to get some SDL2 defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
--set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
--exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
-+set(SDL_CONFIG "pkg-config" CACHE STRING "Path to sdl-config script")
-+exec_program(${SDL_CONFIG} ARGS "sdl --cflags" OUTPUT_VARIABLE SDL_CFLAGS)
- add_definitions(${SDL2_CFLAGS})
- 
- if(NOT WIN32)
+ if(NOT MINGW)
+-	set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
+-	exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
++	set(SDL2_CONFIG "pkg-config" CACHE STRING "Path to sdl-config script")
++	exec_program(${SDL2_CONFIG} ARGS "sdl2 --cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
+ 	add_definitions(${SDL2_CFLAGS})
+ else()
+ 	# equivalent to sdl2-config --cflags --libs
 -- 
-2.14.4
+2.30.2
 
