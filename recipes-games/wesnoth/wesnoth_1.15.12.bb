@@ -29,9 +29,9 @@ EXTRA_OECMAKE = "\
 	"
 
 PACKAGES = "${PN}-doc ${PN}-music ${PN}-sounds \
-	${PN}-aoi ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l \
-	${PN}-nr ${PN}-sof ${PN}-sotbe ${PN}-thot ${PN}-trow \
-	${PN}-tsg ${PN}-tb ${PN}-utbs ${PN}-low\
+	${PN}-dw ${PN}-dm ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l ${PN}-low \
+	${PN}-nr ${PN}-sof ${PN}-sota ${PN}-sotbe ${PN}-thot ${PN}-trow \
+	${PN}-tsg ${PN}-tb ${PN}-utbs ${PN}-wc \
 	${PN}-data \
 	${PN}-all-campaigns \
 	${PN}-all \
@@ -74,9 +74,9 @@ RDEPENDS_${PN} = "${PN}-data tremor"
 RDEPENDS_${PN}-data = "bash python3"
 
 RDEPENDS_${PN}-all-campaigns = "${PN} \
-	${PN}-aoi ${PN}-did ${PN}-ei ${PN}-httt ${PN}-l \
-	${PN}-nr ${PN}-sof ${PN}-sotbe ${PN}-thot ${PN}-trow \
-	${PN}-tsg ${PN}-tb ${PN}-utbs ${PN}-low"
+	${PN}-did ${PN}-dm ${PN}-dw ${PN}-ei ${PN}-httt \
+	${PN}-l ${PN}-low ${PN}-nr ${PN}-sof ${PN}-sota ${PN}-sotbe \
+	${PN}-tb ${PN}-thot ${PN}-trow ${PN}-tsg ${PN}-utbs ${PN}-wc"
 
 # Installing wesnoth-all should pull everything in (like in Debian).
 RDEPENDS_${PN}-all = "${PN} ${PN}-all-campaigns ${PN}-sounds ${PN}-music"
@@ -113,19 +113,19 @@ FILES_${PN}-server = "\
 	${localstatedir}/run/wesnothd \
 "
 
-FILES_${PN}-low ="\
-       ${datadir}/wesnoth/data/campaigns/Legend_of_Wesmere \
-       ${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-aoi.mo \
-"
-
-FILES_${PN}-aoi = "\
-	${datadir}/wesnoth/data/campaigns/An_Orcish_Incursion \
-	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-aoi.mo \
-"
-
 FILES_${PN}-did = "\
 	${datadir}/wesnoth/data/campaigns/Descent_Into_Darkness \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-did.mo \
+"
+
+FILES_${PN}-dm = "\
+	${datadir}/wesnoth/data/campaigns/Delfadors_Memoirs \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-dm.mo \
+"
+
+FILES_${PN}-dw = "\
+	${datadir}/wesnoth/data/campaigns/Dead_Water \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-dw.mo \
 "
 
 FILES_${PN}-ei = "\
@@ -143,6 +143,11 @@ FILES_${PN}-l = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-l.mo \
 "
 
+FILES_${PN}-low ="\
+	${datadir}/wesnoth/data/campaigns/Legend_of_Wesmere \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-low.mo \
+"
+
 FILES_${PN}-nr = "\
 	${datadir}/wesnoth/data/campaigns/Northern_Rebirth \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-nr.mo \
@@ -153,9 +158,19 @@ FILES_${PN}-sof = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sof.mo \
 "
 
+FILES_${PN}-sota = "\
+	${datadir}/wesnoth/data/campaigns/Secrets_of_the_Ancients \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sota.mo \
+"
+
 FILES_${PN}-sotbe = "\
 	${datadir}/wesnoth/data/campaigns/Son_Of_The_Black_Eye \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sotbe.mo \
+"
+
+FILES_${PN}-tb = "\
+	${datadir}/wesnoth/data/campaigns/Two_Brothers \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-tb.mo \
 "
 
 FILES_${PN}-thot = "\
@@ -173,12 +188,12 @@ FILES_${PN}-tsg = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-tsg.mo \
 "
 
-FILES_${PN}-tb = "\
-	${datadir}/wesnoth/data/campaigns/Two_Brothers \
-	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-tb.mo \
-"
-
 FILES_${PN}-utbs = "\
 	${datadir}/wesnoth/data/campaigns/Under_the_Burning_Suns \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
+"
+
+FILES_${PN}-wc = "\
+	${datadir}/wesnoth/data/campaigns/World_Conquest \
+	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-wc.mo \
 "
