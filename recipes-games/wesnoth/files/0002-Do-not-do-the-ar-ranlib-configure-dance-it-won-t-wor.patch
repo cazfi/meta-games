@@ -11,14 +11,14 @@ Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- CMakeLists.txt | 19 -------------------
- 1 file changed, 19 deletions(-)
+ CMakeLists.txt | 9 ---------
+ 1 file changed, 9 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1026001..15ad0bb 100644
+index c1f477e..a8c5320 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -372,25 +372,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+@@ -407,15 +407,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
  	endif(ENABLE_LTO)
  endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
  
@@ -29,21 +29,11 @@ index 1026001..15ad0bb 100644
 -	find_program(LTO_RANLIB NAMES gcc-ranlib)
 -	set(CMAKE_AR "${LTO_AR}" CACHE STRING "Supports LTO" FORCE)
 -	set(CMAKE_RANLIB "${LTO_RANLIB}" CACHE STRING "Supports LTO" FORCE)
--else()
--	MESSAGE("Using ar, ranlib, and default linker")
--	find_program(NON_LTO_AR NAMES ar)
--	find_program(NON_LTO_RANLIB NAMES ranlib)
--	set(CMAKE_AR "${NON_LTO_AR}" CACHE STRING "Does not support LTO" FORCE)
--	set(CMAKE_RANLIB "${NON_LTO_RANLIB}" CACHE STRING "Does not support LTO" FORCE)
 -endif()
 -MARK_AS_ADVANCED(LTO_AR LTO_RANLIB NON_LTO_AR NON_LTO_RANLIB)
--
--# add in extra flags
--set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} ${LINK_EXTRA_FLAGS_CONFIG} ${LINK_EXTRA_FLAGS_RELEASE}")
--
- # clean the pgo data
- set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${CMAKE_SOURCE_DIR}/pgo_data/")
  
+ # add in extra flags
+ set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} ${LINK_EXTRA_FLAGS_CONFIG} ${LINK_EXTRA_FLAGS_RELEASE}")
 -- 
-2.14.4
+2.30.2
 

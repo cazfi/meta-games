@@ -14,8 +14,7 @@ SRC_URI = " \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
 "
 
-SRC_URI[md5sum] = "4d4a7ee12a97b774b6636b4856947938"
-SRC_URI[sha256sum] = "854726ec68dcb26f78f65b01a90b3bc51fd985598e59c7cc2ef72999ff2366e8"
+SRC_URI[sha256sum] = "bc591dda4b0f8ff013bb44baadfc622e81548ab6a8fa98d844908e435ccfb618"
 
 ARM_INSTRUCTION_SET = "arm"
 
