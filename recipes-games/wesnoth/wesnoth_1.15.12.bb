@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "bc591dda4b0f8ff013bb44baadfc622e81548ab6a8fa98d844908e435c
 
 ARM_INSTRUCTION_SET = "arm"
 
-inherit cmake pkgconfig
+inherit cmake pkgconfig gettext
 
 EXTRA_OECMAKE = "\
 	-DENABLE_LOW_MEM=ON \
