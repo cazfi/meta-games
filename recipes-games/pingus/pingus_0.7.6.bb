@@ -4,7 +4,7 @@ LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 HOMEPAGE = "http://pingus.seul.org/"
 
-RDEPENDS_${PN} += "libmikmod bash"
+RDEPENDS:${PN} += "libmikmod bash"
 
 inherit scons python3native
 
@@ -38,7 +38,7 @@ do_install() {
 	install -m 0755 ${S}/build/pingus ${D}${bindir}/pingus
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 
 SRC_URI[md5sum] = "8f366e7ba76c9f3525888efe8b04b1ad"
 SRC_URI[sha256sum] = "c4cd89e1d350d2472f32de5f6266ac9f3658a3620eace3f79efac45db4323b65"

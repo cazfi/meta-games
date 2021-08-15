@@ -19,6 +19,6 @@ B = "${WORKDIR}/build"
 
 inherit autotools
 
-do_install_append() {
+do_install:append() {
         rm -Rf ${D}/${datadir}/appdata
 }

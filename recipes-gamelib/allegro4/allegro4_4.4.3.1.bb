@@ -22,5 +22,5 @@ inherit cmake binconfig
 
 S = "${WORKDIR}/allegro-${PV}"
 
-FILES_${PN} += "${libdir}/allegro"
-FILES_${PN}-dbg += "${libdir}/allegro/*/.debug"
+FILES:${PN} += "${libdir}/allegro"
+FILES:${PN}-dbg += "${libdir}/allegro/*/.debug"

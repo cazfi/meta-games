@@ -38,35 +38,35 @@ PACKAGES += "${PN}-data"
 
 REMOVE_LIBTOOL_LA = "0"
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
     sed -e "s|libtool --version|-libtool --version|g"  -i helper.mk
     ./bootstrap
 }
 
-FILES_${PN}-dev = "\
+FILES:${PN}-dev = "\
 ${includedir}/${PN}/* \
 ${bindir}/${PN}-config \
 "
 
-FILES_${PN}-staticdev = "\
+FILES:${PN}-staticdev = "\
 ${libdir}/${PN}/lib*.a \
 "
 
-FILES_${PN}-dbg = "\
+FILES:${PN}-dbg = "\
 ${libdir}/${PN}/.debug/libModule*.so* \
 "
 
-FILES_${PN} = "\
+FILES:${PN} = "\
 ${libdir}/${PN}/libModule*.so* \
 ${libdir}/${PN}/libModule*.la* \
 ${bindir}/${PN} \
 "
 
-FILES_${PN}-data = "\
+FILES:${PN}-data = "\
 ${datadir}/${PN}/* \
 ${localstatedir}/games/${PN}/*/highscores \
 "
 
-RDEPENDS_${PN} += " ${PN}-data"
-INSANE_SKIP_${PN} = "dev-so"
+RDEPENDS:${PN} += " ${PN}-data"
+INSANE_SKIP:${PN} = "dev-so"

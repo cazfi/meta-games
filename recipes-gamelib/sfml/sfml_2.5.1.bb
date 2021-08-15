@@ -16,4 +16,4 @@ S = "${WORKDIR}/SFML-${PV}"
 
 inherit cmake
 
-FILES_${PN} =+ "${datadir}/SFML"
+FILES:${PN} =+ "${datadir}/SFML"

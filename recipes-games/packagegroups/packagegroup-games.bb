@@ -6,9 +6,9 @@ inherit packagegroup
 
 PACKAGES = "packagegroup-games"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
 astromenace \
 atanks \
 chromium-bsu \

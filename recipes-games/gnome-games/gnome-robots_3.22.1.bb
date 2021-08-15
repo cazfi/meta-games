@@ -12,5 +12,5 @@ inherit gnomebase
 SRC_URI[archive.md5sum] = "adc8b1ddfff21e344eb461db0785eb08"
 SRC_URI[archive.sha256sum] = "5cd4564d7eb876fe4ef332dc568bcf7b1515d8ec9f66e53c2bae5331e0182dd4"
 
-FILES_${PN} += "${libdir} ${datadir}"
-FILES_${PN}-dbg += "${libdir}/*/*/.debug"
+FILES:${PN} += "${libdir} ${datadir}"
+FILES:${PN}-dbg += "${libdir}/*/*/.debug"

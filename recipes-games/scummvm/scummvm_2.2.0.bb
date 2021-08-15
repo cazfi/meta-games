@@ -62,4 +62,4 @@ do_configure() {
         sed -i "s/RANLIB := ranlib/RANLIB := ${RANLIB}/" ${S}/config.mk
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

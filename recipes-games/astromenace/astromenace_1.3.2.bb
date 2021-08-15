@@ -44,7 +44,7 @@ EXTRA_OECMAKE = " \
     -DDATADIR=${datadir}/${BPN} \
 "
 
-do_compile_append() {
+do_compile:append() {
     # building native has dependencies which cannot be fullfilled - so run
     # AstroMenace in qemu to build game data
     ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${B}/AstroMenace')} --pack --rawdata=${S}/RAW_VFS_DATA --dir=${B}

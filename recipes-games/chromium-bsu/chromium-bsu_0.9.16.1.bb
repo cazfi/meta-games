@@ -21,6 +21,6 @@ PACKAGECONFIG[sdl] = "--enable-sdl,--disable-sdl,libsdl libsdl-image"
 PACKAGECONFIG[sdl2] = "--enable-sdl2,--disable-sdl2,libsdl2 libsdl2-image"
 
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datatdir}/icons \
 "

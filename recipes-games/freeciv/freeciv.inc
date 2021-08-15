@@ -40,21 +40,21 @@ acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common \
 ${PN}-gtk3.22 ${PN}-qt ${PN}-sdl2"
 
-do_install_append() {
+do_install:append() {
         rm -Rf ${D}/${datadir}/appdata
 }
 
-RDEPENDS_${PN} = "freeciv-server freeciv-client"
+RDEPENDS:${PN} = "freeciv-server freeciv-client"
 
-FILES_${PN}-common = "\
+FILES:${PN}-common = "\
 ${libdir}/libfreeciv.so.0.0.0 \
 ${libdir}/libfreeciv.so.0 \
 ${datadir}/po \
 ${datadir}/icons/hicolor/*/*/freeciv-client.png \
 "
 
-RDEPENDS_${PN}-server = "freeciv-common"
-FILES_${PN}-server = "\
+RDEPENDS:${PN}-server = "freeciv-common"
+FILES:${PN}-server = "\
 ${bindir}/freeciv-server \
 ${datadir}/freeciv/default \
 ${datadir}/freeciv/default.serv \
@@ -62,7 +62,7 @@ ${datadir}/freeciv/nation \
 ${datadir}/icons/hicolor/*/*/freeciv-server.png \
 "
 
-FILES_${PN}-client-common = "\
+FILES:${PN}-client-common = "\
 ${datadir}/freeciv/helpdata.txt \
 ${datadir}/freeciv/flags \
 ${datadir}/freeciv/misc \
@@ -73,24 +73,24 @@ ${datadir}/freeciv/stdsounds \
 ${datadir}/icons/hicolor/*/*/freeciv-modpack.png \
 "
 
-RDEPENDS_${PN}-gtk3.22 = "freeciv-common freeciv-client-common"
-RPROVIDES_${PN}-gtk3.22 = "freeciv-client"
-FILES_${PN}-gtk3.22 = "\
+RDEPENDS:${PN}-gtk3.22 = "freeciv-common freeciv-client-common"
+RPROVIDES:${PN}-gtk3.22 = "freeciv-client"
+FILES:${PN}-gtk3.22 = "\
 ${bindir}/freeciv-gtk3.22 \
 ${datadir}/freeciv/themes/gui-gtk-3.22 \
 ${datadir}/freeciv/gtk3.22_menus.xml \
 "
 
-RDEPENDS_${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins"
-RPROVIDES_${PN}-qt = "freeciv-client"
-FILES_${PN}-qt = "\
+RDEPENDS:${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins"
+RPROVIDES:${PN}-qt = "freeciv-client"
+FILES:${PN}-qt = "\
 ${bindir}/freeciv-qt \
 ${datadir}/freeciv/themes/gui-qt \
 "
 
-RDEPENDS_${PN}-sdl2 = "freeciv-common freeciv-client-common"
-RPROVIDES_${PN}-sdl2 = "freeciv-client"
-FILES_${PN}-sdl2 = "\
+RDEPENDS:${PN}-sdl2 = "freeciv-common freeciv-client-common"
+RPROVIDES:${PN}-sdl2 = "freeciv-client"
+FILES:${PN}-sdl2 = "\
 ${bindir}/freeciv-sdl2 \
 ${datadir}/freeciv/themes/gui-sdl2 \
 "
