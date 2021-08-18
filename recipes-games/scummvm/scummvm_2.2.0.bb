@@ -11,14 +11,14 @@ inherit autotools-brokensep pkgconfig gtk-icon-cache manpages features_check
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 SRC_URI = " \
-    https://downloads.scummvm.org/frs/scummvm/${PV}/${BPN}-${PV}.tar.xz \
+    git://github.com/scummvm/scummvm.git;protocol=https \
     file://0001-use-pkg-config-to-gather-sdl-information.patch \
     file://0002-Do-not-split-binaries-during-install.patch \
-    file://0003-FLUIDSYNTH-Simplify-FluidSynth-version-check.patch \
-    file://0004-FLUIDSYNTH-Fix-compilation-with-Fluidsynth-2.2.patch \
     file://scummvm.desktop \
 "
-SRC_URI[sha256sum] = "1469657e593bd8acbcfac0b839b086f640ebf120633e93f116cab652b5b27387"
+SRCREV = "f45e3184ba6d90612c7a97a4ae17dbb61c063cc8"
+S = "${WORKDIR}/git"
+PV = "2.2.0+git${SRCPV}"
 
 DEPENDS = " \
     virtual/libgl \
