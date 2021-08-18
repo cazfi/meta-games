@@ -29,33 +29,33 @@ PACKAGES += "${PN}-data"
 
 REMOVE_LIBTOOL_LA = "0"
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
     ./bootstrap
 }
 
-FILES_${PN}-dev = "\
+FILES:${PN}-dev = "\
 ${includedir}/${PN}/* \
 "
 
-FILES_${PN}-staticdev = "\
+FILES:${PN}-staticdev = "\
 ${libdir}/pinball/lib*.a \
 "
 
-FILES_${PN}-dbg = "\
+FILES:${PN}-dbg = "\
 ${libdir}/pinball/.debug/libModule*.so* \
 "
 
-FILES_${PN} = "\
+FILES:${PN} = "\
 ${libdir}/pinball/libModule*.so* \
 ${libdir}/pinball/libModule*.la \
 "
 
-FILES_${PN}-data = "\
+FILES:${PN}-data = "\
 ${datadir}/pinball/*/* \
 ${localstatedir}/games/pinball/*/highscores \
 "
 
-RDEPENDS_${PN} += " pinball"
-RDEPENDS_${PN} += " ${PN}-data"
-INSANE_SKIP_${PN} = "dev-so"
+RDEPENDS:${PN} += " pinball"
+RDEPENDS:${PN} += " ${PN}-data"
+INSANE_SKIP:${PN} = "dev-so"

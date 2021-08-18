@@ -14,4 +14,4 @@ inherit autotools-brokensep
 SRC_URI[md5sum] = "3182d080ea71c3837af57f3651b55025"
 SRC_URI[sha256sum] = "32182b2752a77ff362c378fc04b7c51fc15345caa4c8deaad59cc850dad2322e"
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"

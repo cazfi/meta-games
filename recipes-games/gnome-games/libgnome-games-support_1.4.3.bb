@@ -13,4 +13,4 @@ inherit gnomebase gettext
 SRC_URI[archive.md5sum] = "a18acdf1a5398507a12fc6f408b5c541"
 SRC_URI[archive.sha256sum] = "704a7a93aa5066f84738b60d696cf393dfbbf1a3e339f9adbb40af0cf70eca3c"
 
-FILES_${PN} += "${libdir} ${datadir}"
+FILES:${PN} += "${libdir} ${datadir}"

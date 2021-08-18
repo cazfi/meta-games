@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 DEPENDS = "boost libsdl2 libsdl2-image libvorbis curl openal-soft physfs glew freetype"
 
 # somehow boost is not dragged in
-RDEPENDS_${PN} += "boost"
+RDEPENDS:${PN} += "boost"
 
 inherit cmake pkgconfig gtk-icon-cache
 
@@ -32,7 +32,7 @@ EXTRA_OECMAKE = " \
     -DUSE_SYSTEM_PHYSFS=ON \
 "
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/metainfo \
     ${datadir}/games/supertux2 \
 "

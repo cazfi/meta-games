@@ -6,9 +6,9 @@ inherit packagegroup
 
 PACKAGES = "packagegroup-games-pinball"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
-RDEPENDS_${PN} += " pinball"
-RDEPENDS_${PN} += " pinball-table-gnu"
-RDEPENDS_${PN} += " pinball-table-hurd"
+RDEPENDS:${PN} += " pinball"
+RDEPENDS:${PN} += " pinball-table-gnu"
+RDEPENDS:${PN} += " pinball-table-hurd"
 

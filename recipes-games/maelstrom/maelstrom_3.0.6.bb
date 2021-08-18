@@ -25,7 +25,7 @@ SRC_URI[sha256sum] = "e7983c2c7376cdcca1944db1706d92aedd529638cf13358c88a60df982
 
 S = "${WORKDIR}/Maelstrom-${PV}"
 
-do_configure_prepend() {
+do_configure:prepend() {
     touch ${S}/NEWS ${S}/AUTHORS ${S}/ChangeLog
 }
 
@@ -42,4 +42,4 @@ do_install() {
     mv ${D}${datadir}/Maelstrom/*Scores ${D}/${localstatedir}/lib/games
 }
 
-FILES_${PN} += "${datadir}/Maelstrom"
+FILES:${PN} += "${datadir}/Maelstrom"

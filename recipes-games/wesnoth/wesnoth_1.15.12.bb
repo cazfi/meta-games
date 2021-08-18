@@ -39,17 +39,17 @@ PACKAGES = "${PN}-doc ${PN}-music ${PN}-sounds \
 	${PN}-server \
 	"
 
-DESCRIPTION_${PN}-all = "The Battle for ${PN} with all campaigns, music and sounds"
-DESCRIPTION_${PN}-all-campaigns = "The Battle for ${PN} with all campaigns."
-DESCRIPTION_${PN}-sounds = "Optional sound package for The Battle for ${PN}"
-DESCRIPTION_${PN}-music = "Optional music package for The Battle for ${PN}"
-DESCRIPTION_${PN}-data = "Mandatory data package for The Battle for ${PN}"
-DESCRIPTION_${PN}-server = "Optional Battle for Wesnoth server"
+DESCRIPTION:${PN}-all = "The Battle for ${PN} with all campaigns, music and sounds"
+DESCRIPTION:${PN}-all-campaigns = "The Battle for ${PN} with all campaigns."
+DESCRIPTION:${PN}-sounds = "Optional sound package for The Battle for ${PN}"
+DESCRIPTION:${PN}-music = "Optional music package for The Battle for ${PN}"
+DESCRIPTION:${PN}-data = "Mandatory data package for The Battle for ${PN}"
+DESCRIPTION:${PN}-server = "Optional Battle for Wesnoth server"
 
-ALLOW_EMPTY_${PN}-all-campaigns = "1"
-ALLOW_EMPTY_${PN}-all = "1"
+ALLOW_EMPTY:${PN}-all-campaigns = "1"
+ALLOW_EMPTY:${PN}-all = "1"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	export HOST_SYS="${HOST_SYS}"
 	export BUILD_SYS="${BUILD_SYS}"
 	export STAGING_LIBDIR="${STAGING_LIBDIR}"
@@ -57,7 +57,7 @@ do_configure_prepend() {
 	rm -f ${S}/cmake/FindBoost.cmake
 }
 
-do_install_append() {
+do_install:append() {
 	#ugly hack but otherwise it would have required to
 	#have MANDIR:STRING=share/man that would require a
 	#second python function
@@ -69,29 +69,29 @@ do_install_append() {
     rm -Rf ${D}/var
 }
 
-RDEPENDS_${PN} = "${PN}-data tremor"
+RDEPENDS:${PN} = "${PN}-data tremor"
 
-RDEPENDS_${PN}-data = "bash python3"
+RDEPENDS:${PN}-data = "bash python3"
 
-RDEPENDS_${PN}-all-campaigns = "${PN} \
+RDEPENDS:${PN}-all-campaigns = "${PN} \
 	${PN}-did ${PN}-dm ${PN}-dw ${PN}-ei ${PN}-httt \
 	${PN}-l ${PN}-low ${PN}-nr ${PN}-sof ${PN}-sota ${PN}-sotbe \
 	${PN}-tb ${PN}-thot ${PN}-trow ${PN}-tsg ${PN}-utbs ${PN}-wc"
 
 # Installing wesnoth-all should pull everything in (like in Debian).
-RDEPENDS_${PN}-all = "${PN} ${PN}-all-campaigns ${PN}-sounds ${PN}-music"
+RDEPENDS:${PN}-all = "${PN} ${PN}-all-campaigns ${PN}-sounds ${PN}-music"
 
-FILES_${PN}-music = "\
+FILES:${PN}-music = "\
 	${datadir}/wesnoth/data/core/music \
 "
 
-FILES_${PN}-sounds = "\
+FILES:${PN}-sounds = "\
 	${datadir}/wesnoth/data/core/sounds \
 "
 
 # Picks up remaining translations and data. Must be packaged after
 # wesnoth-music, wesnoth-sounds and all campaigns.
-FILES_${PN}-data = "\
+FILES:${PN}-data = "\
 	${datadir}/wesnoth/sounds \
 	${datadir}/wesnoth/images \
 	${datadir}/wesnoth/data \
@@ -100,7 +100,7 @@ FILES_${PN}-data = "\
 	${datadir}/wesnoth/l10n-track \
 "
 
-FILES_${PN} = "\
+FILES:${PN} = "\
 	${bindir}/wesnoth \
 	${datadir}/icons \
     ${datadir}/metainfo \
@@ -108,92 +108,92 @@ FILES_${PN} = "\
 	${datadir}/pixmaps/wesnoth-icon.png \
 "
 
-FILES_${PN}-server = "\
+FILES:${PN}-server = "\
 	${bindir}/wesnothd \
 	${localstatedir}/run/wesnothd \
 "
 
-FILES_${PN}-did = "\
+FILES:${PN}-did = "\
 	${datadir}/wesnoth/data/campaigns/Descent_Into_Darkness \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-did.mo \
 "
 
-FILES_${PN}-dm = "\
+FILES:${PN}-dm = "\
 	${datadir}/wesnoth/data/campaigns/Delfadors_Memoirs \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-dm.mo \
 "
 
-FILES_${PN}-dw = "\
+FILES:${PN}-dw = "\
 	${datadir}/wesnoth/data/campaigns/Dead_Water \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-dw.mo \
 "
 
-FILES_${PN}-ei = "\
+FILES:${PN}-ei = "\
 	${datadir}/wesnoth/data/campaigns/Eastern_Invasion \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-ei.mo \
 "
 
-FILES_${PN}-httt = "\
+FILES:${PN}-httt = "\
 	${datadir}/wesnoth/data/campaigns/Heir_To_The_Throne \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-httt.mo \
 "
 
-FILES_${PN}-l = "\
+FILES:${PN}-l = "\
 	${datadir}/wesnoth/data/campaigns/Liberty \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-l.mo \
 "
 
-FILES_${PN}-low ="\
+FILES:${PN}-low ="\
 	${datadir}/wesnoth/data/campaigns/Legend_of_Wesmere \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-low.mo \
 "
 
-FILES_${PN}-nr = "\
+FILES:${PN}-nr = "\
 	${datadir}/wesnoth/data/campaigns/Northern_Rebirth \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-nr.mo \
 "
 
-FILES_${PN}-sof = "\
+FILES:${PN}-sof = "\
 	${datadir}/wesnoth/data/campaigns/Sceptre_of_Fire \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sof.mo \
 "
 
-FILES_${PN}-sota = "\
+FILES:${PN}-sota = "\
 	${datadir}/wesnoth/data/campaigns/Secrets_of_the_Ancients \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sota.mo \
 "
 
-FILES_${PN}-sotbe = "\
+FILES:${PN}-sotbe = "\
 	${datadir}/wesnoth/data/campaigns/Son_Of_The_Black_Eye \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-sotbe.mo \
 "
 
-FILES_${PN}-tb = "\
+FILES:${PN}-tb = "\
 	${datadir}/wesnoth/data/campaigns/Two_Brothers \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-tb.mo \
 "
 
-FILES_${PN}-thot = "\
+FILES:${PN}-thot = "\
 	${datadir}/wesnoth/data/campaigns/The_Hammer_of_Thursagan \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-thot.mo \
 "
 
-FILES_${PN}-trow = "\
+FILES:${PN}-trow = "\
 	${datadir}/wesnoth/data/campaigns/The_Rise_Of_Wesnoth \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-trow.mo \
 "
 
-FILES_${PN}-tsg = "\
+FILES:${PN}-tsg = "\
 	${datadir}/wesnoth/data/campaigns/The_South_Guard \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-tsg.mo \
 "
 
-FILES_${PN}-utbs = "\
+FILES:${PN}-utbs = "\
 	${datadir}/wesnoth/data/campaigns/Under_the_Burning_Suns \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-utbs.mo \
 "
 
-FILES_${PN}-wc = "\
+FILES:${PN}-wc = "\
 	${datadir}/wesnoth/data/campaigns/World_Conquest \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-wc.mo \
 "
