@@ -9,25 +9,20 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
----
+----
  ports.mk | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/ports.mk b/ports.mk
-index b562799..fdca3df 100644
+index 27b00768b21..3a97938d6da 100644
 --- a/ports.mk
 +++ b/ports.mk
-@@ -29,7 +29,7 @@ endif
+@@ -35,10 +35,10 @@ endif
  
- install-strip:
+ install-strip: install-data
  	$(INSTALL) -d "$(DESTDIR)$(bindir)"
 -	$(INSTALL) -c -s -m 755 "./$(EXECUTABLE)" "$(DESTDIR)$(bindir)/$(EXECUTABLE)"
 +	$(INSTALL) -c -m 755 "./$(EXECUTABLE)" "$(DESTDIR)$(bindir)/$(EXECUTABLE)"
- 	$(INSTALL) -d "$(DESTDIR)$(mandir)/man6/"
- 	$(INSTALL) -c -m 644 "$(srcdir)/dists/scummvm.6" "$(DESTDIR)$(mandir)/man6/scummvm.6"
- 	$(INSTALL) -d "$(DESTDIR)$(datarootdir)/pixmaps/"
-@@ -46,7 +46,7 @@ install-strip:
- 	$(INSTALL) -c -m 644 "$(srcdir)/dists/scummvm.appdata.xml" "$(DESTDIR)$(datarootdir)/metainfo/scummvm.appdata.xml"
  ifdef DYNAMIC_MODULES
  	$(INSTALL) -d "$(DESTDIR)$(libdir)/scummvm/"
 -	$(INSTALL) -c -s -m 644 $(PLUGINS) "$(DESTDIR)$(libdir)/scummvm/"
@@ -36,5 +31,5 @@ index b562799..fdca3df 100644
  
  uninstall:
 -- 
-2.26.2
+2.31.1
 
