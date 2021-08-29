@@ -1,6 +1,6 @@
-diff -Nurd etr-0.8.0/configure.ac etr-0.8.0/configure.ac
---- etr-0.8.0/configure.ac	2020-03-07 11:14:34.000000000 +0200
-+++ etr-0.8.0/configure.ac	2020-04-08 07:51:25.585431938 +0300
+diff -Nurd etr-0.8.1/configure.ac etr-0.8.1/configure.ac
+--- etr-0.8.1/configure.ac	2021-08-29 05:50:51.338244147 +0300
++++ etr-0.8.1/configure.ac	2021-08-29 05:51:03.434363966 +0300
 @@ -42,33 +42,7 @@
  AC_FUNC_MALLOC
  AC_CHECK_FUNCS([floor getcwd memmove memset mkdir pow sqrt strchr strdup])
@@ -34,5 +34,5 @@ diff -Nurd etr-0.8.0/configure.ac etr-0.8.0/configure.ac
 -[AC_MSG_ERROR([sfml-graphics not found])])
 +LIBS="${LIBS} -lsfml-system -lsfml-audio -lsfml-window -lsfml-graphics"
  
- AC_CHECK_LIB([GL], [glBegin],
+ AC_CHECK_LIB([GLU], [gluBeginCurve],
  [
