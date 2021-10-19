@@ -6,7 +6,7 @@ HOMEPAGE = "http://pingus.seul.org/"
 
 RDEPENDS:${PN} += "libmikmod bash"
 
-inherit scons python3native
+inherit scons pkgconfig python3native
 
 SRC_URI = "\
     git://github.com/Pingus/pingus.git \
