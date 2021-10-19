@@ -20,7 +20,7 @@ DEPENDS = " \
     libsdl2 \
 "
 
-inherit cmake gtk-icon-cache features_check
+inherit cmake pkgconfig gtk-icon-cache features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
