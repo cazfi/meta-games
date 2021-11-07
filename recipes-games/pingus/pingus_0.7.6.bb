@@ -9,7 +9,7 @@ RDEPENDS:${PN} += "libmikmod bash"
 inherit scons pkgconfig python3native
 
 SRC_URI = "\
-    git://github.com/Pingus/pingus.git \
+    git://github.com/Pingus/pingus.git;branch=master;protocol=https \
     file://0001-Add-missing-header-for-std-function-and-std-bind.patch \
     file://0002-Fix-build-with-boost-1.69.0.patch \
     file://0003-SConscript-Fix-for-python3.patch \

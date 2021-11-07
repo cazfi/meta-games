@@ -11,7 +11,7 @@ inherit autotools-brokensep pkgconfig gtk-icon-cache manpages features_check
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 SRC_URI = " \
-    git://github.com/scummvm/scummvm.git;protocol=https \
+    git://github.com/scummvm/scummvm.git;protocol=https;branch=master \
     file://0001-use-pkg-config-to-gather-sdl-information.patch \
     file://0002-Do-not-split-binaries-during-install.patch \
     file://scummvm.desktop \
