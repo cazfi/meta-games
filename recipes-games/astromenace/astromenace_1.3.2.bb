@@ -13,7 +13,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 inherit cmake pkgconfig qemu gtk-icon-cache features_check
 
 SRC_URI = " \
-    git://github.com/viewizard/astromenace.git \
+    git://github.com/viewizard/astromenace.git;branch=master;protocol=https \
     file://0001-CMakeLists.txt-use-pkg-config-to-find-freetype.patch \
     file://0002-CMakeLists.txt-use-pkg-config-to-find-sdl.patch \
     file://0003-Loading.cpp-fix-level2-crash.patch \

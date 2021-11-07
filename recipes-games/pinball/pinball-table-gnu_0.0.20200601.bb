@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
     file://debian/copyright;md5=7d2f80a6e11a2648d4657afdb89d05a8 \
 "
 
-SRC_URI = "git://github.com/rzr/pinball-table-gnu.git;protocol=https"
+SRC_URI = "git://github.com/rzr/pinball-table-gnu.git;protocol=https;branch=master"
 SRCREV = "0.0.20200601"
 
 S = "${WORKDIR}/git"
