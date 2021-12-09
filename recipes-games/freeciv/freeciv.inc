@@ -58,6 +58,10 @@ FILES:${PN}-server = "\
 ${bindir}/freeciv-server \
 ${datadir}/freeciv/default \
 ${datadir}/freeciv/default.serv \
+${datadir}/freeciv/classic \
+${datadir}/freeciv/classic.serv \
+${datadir}/freeciv/civ2civ3 \
+${datadir}/freeciv/civ2civ3.serv \
 ${datadir}/freeciv/nation \
 ${datadir}/icons/hicolor/*/*/freeciv-server.png \
 "
@@ -68,8 +72,12 @@ ${datadir}/freeciv/flags \
 ${datadir}/freeciv/misc \
 ${datadir}/freeciv/amplio2.tilespec \
 ${datadir}/freeciv/amplio2 \
+${datadir}/freeciv/hexemplio.tilespec \
+${datadir}/freeciv/hexemplio \
 ${datadir}/freeciv/stdsounds.soundspec \
 ${datadir}/freeciv/stdsounds \
+${datadir}/freeciv/stdmusic.musicspec \
+${datadir}/freeciv/stdmusic \
 ${datadir}/icons/hicolor/*/*/freeciv-modpack.png \
 "
 
