@@ -26,10 +26,10 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     https://github.com/supertuxkart/stk-code/releases/download/${PV}/SuperTuxKart-${PV}-src.tar.xz \
-    file://0001-Fix-compilation-with-latest-SDL.patch \
+    file://0001-Fix-MIPS-compilation.patch \
 "
 
-SRC_URI[sha256sum] = "052edf0afdbeb99583fe8676fb0ab80ecb6103fb88b7540f858d1b5fa1297d37"
+SRC_URI[sha256sum] = "eeabeb0d9801688a218f6f0a76ea3546a46a322ccaca9a258148ecacfe083ffd"
 
 S = "${WORKDIR}/SuperTuxKart-${PV}-src"
 
