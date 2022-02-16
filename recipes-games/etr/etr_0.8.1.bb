@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 SECTION = "games"
 
 SRC_URI = " \
-    http://sourceforge.net/projects/extremetuxracer/files/releases/${PV}/etr-${PV}.tar.xz \
+    ${SOURCEFORGE_MIRROR}/project/extremetuxracer/releases/${PV}/etr-${PV}.tar.xz \
     file://simple-configure.patch \
 "
 
