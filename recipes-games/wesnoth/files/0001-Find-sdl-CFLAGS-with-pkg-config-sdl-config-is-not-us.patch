@@ -9,25 +9,18 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
----
- CMakeLists.txt | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index becfff5..c1f477e 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -88,8 +88,8 @@ find_package(X11)
- 
- # needed to get some SDL2 defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
- if(NOT MINGW)
--	set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
--	exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
-+	set(SDL2_CONFIG "pkg-config" CACHE STRING "Path to sdl-config script")
-+	exec_program(${SDL2_CONFIG} ARGS "sdl2 --cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
- 	add_definitions(${SDL2_CFLAGS})
- else()
- 	# equivalent to sdl2-config --cflags --libs
--- 
-2.30.2
-
+diff -Nurd wesnoth-1.16.2/CMakeLists.txt wesnoth-1.16.2/CMakeLists.txt
+--- wesnoth-1.16.2/CMakeLists.txt	2022-01-16 20:10:36.000000000 +0200
++++ wesnoth-1.16.2/CMakeLists.txt	2022-02-15 20:53:25.921752194 +0200
+@@ -81,8 +81,8 @@
+ if(NOT WIN32)
+ 	# needed to get some SDL2 defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
+ 	if(NOT MINGW)
+-		set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
+-		exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
++                set(SDL2_CONFIG "pkg-config" CACHE STRING "Path to sdl2-config script")
++                exec_program(${SDL2_CONFIG} ARGS "sdl2 --cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
+ 		add_definitions(${SDL2_CFLAGS})
+ 	else()
+ 		# equivalent to sdl2-config --cflags --libs

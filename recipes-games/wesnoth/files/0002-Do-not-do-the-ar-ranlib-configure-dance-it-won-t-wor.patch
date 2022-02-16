@@ -10,30 +10,24 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
----
- CMakeLists.txt | 9 ---------
- 1 file changed, 9 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c1f477e..a8c5320 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -407,15 +407,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
- 	endif(ENABLE_LTO)
- endif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+diff -Nurd wesnoth-1.16.2/CMakeLists.txt wesnoth-1.16.2/CMakeLists.txt
+--- wesnoth-1.16.2/CMakeLists.txt	2022-02-15 20:58:36.302540566 +0200
++++ wesnoth-1.16.2/CMakeLists.txt	2022-02-15 21:00:50.488654972 +0200
+@@ -360,16 +360,6 @@
+ 		endif()
+ 	endif()
  
 -# set CMAKE_AR and CMAKE_RANLIB to use LTO-enabled variants if LTO is enabled
--if(ENABLE_LTO)
--	MESSAGE("Using gcc-ar and gcc-ranlib")
--	find_program(LTO_AR NAMES gcc-ar)
--	find_program(LTO_RANLIB NAMES gcc-ranlib)
--	set(CMAKE_AR "${LTO_AR}" CACHE STRING "Supports LTO" FORCE)
--	set(CMAKE_RANLIB "${LTO_RANLIB}" CACHE STRING "Supports LTO" FORCE)
--endif()
--MARK_AS_ADVANCED(LTO_AR LTO_RANLIB NON_LTO_AR NON_LTO_RANLIB)
- 
+-	if(ENABLE_LTO)
+-		MESSAGE("Using gcc-ar and gcc-ranlib")
+-		find_program(LTO_AR NAMES gcc-ar)
+-		find_program(LTO_RANLIB NAMES gcc-ranlib)
+-		set(CMAKE_AR "${LTO_AR}" CACHE STRING "Supports LTO" FORCE)
+-		set(CMAKE_RANLIB "${LTO_RANLIB}" CACHE STRING "Supports LTO" FORCE)
+-	endif()
+-	MARK_AS_ADVANCED(LTO_AR LTO_RANLIB NON_LTO_AR NON_LTO_RANLIB)
+-
  # add in extra flags
- set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} ${LINK_EXTRA_FLAGS_CONFIG} ${LINK_EXTRA_FLAGS_RELEASE}")
--- 
-2.30.2
-
+ 	set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} ${LINK_EXTRA_FLAGS_CONFIG} ${LINK_EXTRA_FLAGS_RELEASE}")
+ 
