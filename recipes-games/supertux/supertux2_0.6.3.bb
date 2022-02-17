@@ -4,7 +4,7 @@ HOMEAPAGE = "http://supertux.lethargik.org"
 SECTION = "x11/application"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
-DEPENDS = "boost libsdl2 libsdl2-image libvorbis curl openal-soft physfs glew freetype"
+DEPENDS = "boost libsdl2 libsdl2-image libvorbis curl openal-soft physfs glew freetype glm"
 
 # somehow boost is not dragged in
 RDEPENDS:${PN} += "boost"
@@ -21,8 +21,8 @@ SRC_URI = " \
     file://0002-do-not-set-included-paths-as-system-causes-trouble-w.patch \
     file://0003-Set-DCMAKE_MAKE_PROGRAM-make-explicitly-for-external.patch \
 "
-SRC_URI[md5sum] = "f05fb2f83e63cb099340668cfe314c2b"
-SRC_URI[sha256sum] = "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
+
+SRC_URI[sha256sum] = "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
 
 S = "${WORKDIR}/SuperTux-v${PV}-Source"
 
