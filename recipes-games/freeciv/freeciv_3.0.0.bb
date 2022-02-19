@@ -7,4 +7,4 @@ SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 "
 
-SRC_URI[sha256sum] = "53bd26480126ed4ea0bf62af0af522eba13d592e29e430f50fd5e52819196464"
+SRC_URI[sha256sum] = "ea2a8782d4fdfef2471e05b74569b4a69cc60a41ab279427860dafdac128a0b2"
