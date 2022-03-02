@@ -1,5 +1,5 @@
 
-require freeciv.inc
+require freeciv-qt5.inc
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \

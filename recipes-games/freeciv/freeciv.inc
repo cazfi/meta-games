@@ -21,7 +21,7 @@ file://allow-root.patch \
 S = "${WORKDIR}/freeciv-${PV}"
 B = "${WORKDIR}/build-${PV}"
 
-inherit autotools pkgconfig gettext qmake5_paths
+inherit autotools pkgconfig gettext
 
 EXTRA_OECONF = "\
 --enable-patient-connect \
@@ -29,9 +29,6 @@ EXTRA_OECONF = "\
 --disable-mapimg \
 --disable-sdl2test \
 --with-sqlite3-prefix=${STAGING_DIR} \
---with-qt5-includes=${STAGING_INCDIR}${QT_DIR_NAME} \
---with-qt5-libs=${STAGING_LIBDIR}${QT_DIR_NAME} \
-MOCCMD=${STAGING_BINDIR_NATIVE}${QT_DIR_NAME}/moc \
 SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 "
 

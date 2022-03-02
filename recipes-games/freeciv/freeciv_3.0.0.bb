@@ -1,5 +1,5 @@
 
-require freeciv.inc
+require freeciv-qt5.inc
 
 DEFAULT_PREFERENCE = "-1"
 
