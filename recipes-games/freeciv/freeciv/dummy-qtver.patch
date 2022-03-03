@@ -1,0 +1,20 @@
+diff --git a/configure.ac b/configure.ac
+index d26b8fdf28..8daa054344 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -612,6 +612,15 @@ PKG_CHECK_MODULES([ICU], [icu-uc],,
+ UTILITY_CFLAGS="${UTILITY_CFLAGS} ${ICU_CFLAGS}"
+ UTILITY_LIBS="${UTILITY_LIBS} ${ICU_LIBS}"
+ 
++dnl Dummy configure option for OpenEmbedded build of older branches
++dnl to avoid unrecognised option error
++AC_ARG_WITH([qtver],
++  AS_HELP_STRING([--with-qtver], [which Qt version to build against [qt5]]),
++[case "${withval}" in
++ qt5|Qt5) ;;
++ *) AC_MSG_ERROR([bad value ${enableval} for --with-qtver]) ;;
++esac])
++
+ dnl Set debug flags supported by compiler
+ EXTRA_DEBUG_CFLAGS=""
+ EXTRA_DEBUG_CXXFLAGS=""
