@@ -1,4 +1,5 @@
 SUMMARY = "Chromium B.S.U. is a fast paced, arcade-style, top-scrolling shooter"
+HOMEPAGE = "https://chromium-bsu.sourceforge.io/"
 LICENSE = "ClArtistic"
 LIC_FILES_CHKSUM = "file://COPYING;md5=641fe79d00b9ef7c22fc782fd98cd651"
 
