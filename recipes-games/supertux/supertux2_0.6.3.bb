@@ -2,7 +2,7 @@ SUMMARY = "SuperTux is a classic 2D jump'n run sidescroller game"
 DESCRIPTION = "SuperTux is a classic 2D jump'n run sidescroller game in a style similar to the original Super Mario games covered under the GPL"
 HOMEAPAGE = "http://supertux.lethargik.org"
 SECTION = "x11/application"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 DEPENDS = "boost libsdl2 libsdl2-image libvorbis curl openal-soft physfs glew freetype glm"
 

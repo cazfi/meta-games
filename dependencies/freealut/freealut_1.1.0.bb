@@ -1,7 +1,7 @@
 DESCRIPTION = "OpenAL Utility Toolkit"
 SECTION = "libs"
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7ec51bd663119a90c3d50704d6051fae"
 
 PR = "r1"

@@ -1,7 +1,7 @@
 DESCRIPTION = "gnome-robots is a small game"
 HOMEPAGE = "https://www.gnome.org/"
 SECTION = "x11/application"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 DEPENDS = "libgnome-games-support glib-2.0 gtk+3 librsvg libcanberra intltool-native itstool-native"
 

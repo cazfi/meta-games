@@ -1,7 +1,7 @@
 DESCRIPTION = "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme."
 HOMEPAGE = "http://www.wesnoth.org/"
 SECTION = "games"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://copyright;md5=794c9526b4086a97155c27908976bbfd"
 
 DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zlib boost pango libpng"

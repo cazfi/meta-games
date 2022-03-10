@@ -2,7 +2,7 @@ SUMMARY = "Tilt the floor to roll a ball through an obstacle course before time 
 SECTION = "graphics"
 HOMEPAGE = "https://neverball.org/"
 
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=200ddba3b50e856bfb681a2b13dfb523"
 
 SRC_URI = "git://github.com/Neverball/neverball.git;branch=master;protocol=https"

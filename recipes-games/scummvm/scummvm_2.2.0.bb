@@ -3,7 +3,7 @@ DESCRIPTION = "Virtual Machine for several classic graphical point-and-click adv
 HOMEPAGE = "https://www.scummvm.org"
 SECTION = "games"
 PRIORITY = "optional"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 inherit autotools-brokensep pkgconfig gtk-icon-cache manpages features_check

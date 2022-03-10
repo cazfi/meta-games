@@ -1,7 +1,7 @@
 DESCRIPTION = "Emilia Pinball Simulator"
 HOMEPAGE = "http://pinball.sf.net/"
 SECTION = "games"
-LICENSE = "GPLv2 & CC0-1.0"
+LICENSE = "GPL-2.0-only & CC0-1.0"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
     file://debian/copyright;md5=ef0d1a481815636a22c1d73b1233d9c0 \
