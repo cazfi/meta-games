@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = "git://github.com/rzr/pinball-table-gnu.git;protocol=https;branch=master"
-SRCREV = "0.0.20200601"
+SRCREV = "7b738e40fd22fce62c6a317e70922ac0eb39f794"
 
 S = "${WORKDIR}/git"
 

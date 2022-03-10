@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = "git://github.com/rzr/pinball-table-hurd.git;protocol=https;branch=master"
-SRCREV = "0.0.20201119"
+SRCREV = "10e6c04a159209db5b9c19374f632edc5752abbf"
 
 S = "${WORKDIR}/git"
 
