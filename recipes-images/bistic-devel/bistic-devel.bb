@@ -3,7 +3,7 @@ DESCRIPTION = "Games image to be used on USB stick (development image)"
 
 IMAGE_LINGUAS = " "
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 
 inherit core-image
 

@@ -1,14 +1,14 @@
 DESCRIPTION = "HURD Pinball table for Emilia Pinball Simulator"
 HOMEPAGE = "https://github.com/rzr/pinball-table-hurd"
 SECTION = "games"
-LICENSE = "GPLv2 & LAL-1.3 & CC-BY-SA-3.0"
+LICENSE = "GPL-2.0-only & LAL-1.3 & CC-BY-SA-3.0"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
     file://debian/copyright;md5=894ad8c75ec3bbd77c06d637d85dbb63 \
 "
 
 SRC_URI = "git://github.com/rzr/pinball-table-hurd.git;protocol=https;branch=master"
-SRCREV = "0.0.20201119"
+SRCREV = "10e6c04a159209db5b9c19374f632edc5752abbf"
 
 S = "${WORKDIR}/git"
 

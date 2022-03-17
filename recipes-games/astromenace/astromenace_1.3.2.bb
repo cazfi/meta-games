@@ -1,6 +1,6 @@
 DESCRIPTION = "AstroMenace is an astonishing hardcore scroll-shooter"
 HOMEPAGE = "http://www.viewizard.com/"
-LICENSE = "GPLv3 & OFL-1.1 & CC-BY-SA-3.0"
+LICENSE = "GPL-3.0-only & OFL-1.1 & CC-BY-SA-3.0"
 LIC_FILES_CHKSUM = " \
     file://gpl-3.0.txt;md5=3c34afdc3adf82d2448f12715a255122 \
     file://License.txt;md5=022aa28c3afa9de245970d5aa93bcb89 \

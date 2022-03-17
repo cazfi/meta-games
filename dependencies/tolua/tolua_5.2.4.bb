@@ -10,7 +10,7 @@ SECTION = "console/utils"
 DEPENDS= "lua-native"
 BBCLASSEXTEND = "native"
 
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://include/tolua.h;beginline=9;endline=12;md5=4a3fbc0759a4b8318d99f3d71a773105"
 
 SRC_URI = "\

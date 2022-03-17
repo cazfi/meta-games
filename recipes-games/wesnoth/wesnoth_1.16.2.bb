@@ -1,7 +1,7 @@
 DESCRIPTION = "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme."
 HOMEPAGE = "http://www.wesnoth.org/"
 SECTION = "games"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://copyright;md5=794c9526b4086a97155c27908976bbfd"
 
 DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zlib boost pango libpng"
@@ -12,6 +12,7 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}-${SHRT_VER}/${BP}/${BP}.tar.bz2 \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
+    file://0003-Do-not-adjust-compiler-flags.patch \
 "
 
 SRC_URI[sha256sum] = "729fd0903a28af502240d08c0a27b9ff50e534677644b639d8fd33823a7a9799"
@@ -50,10 +51,6 @@ ALLOW_EMPTY:${PN}-all-campaigns = "1"
 ALLOW_EMPTY:${PN}-all = "1"
 
 do_configure:prepend() {
-	export HOST_SYS="${HOST_SYS}"
-	export BUILD_SYS="${BUILD_SYS}"
-	export STAGING_LIBDIR="${STAGING_LIBDIR}"
-	export STAGING_INCDIR="${STAGING_INCDIR}"
 	rm -f ${S}/cmake/FindBoost.cmake
 }
 

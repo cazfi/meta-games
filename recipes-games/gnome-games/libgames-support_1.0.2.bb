@@ -3,7 +3,7 @@ but it may be used by others."
 HOMEPAGE = "https://live.gnome.org/GnomeGames"
 SECTION = "x11/application"
 
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS = "glib-2.0 gtk+3 libgee intltool-native"
