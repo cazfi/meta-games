@@ -40,6 +40,7 @@ ${PN}-gtk3.22 ${PN}-qt ${PN}-sdl2"
 
 do_install:append() {
         rm -Rf ${D}/${datadir}/appdata
+        rm -Rf ${D}/${datadir}/metainfo
         rm -Rf ${D}/${datadir}/icons/hicolor/*/*/freeciv-ruledit.png
 }
 
