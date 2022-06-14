@@ -4,7 +4,7 @@ DESCRIPTION = "Freeciv is distributed under the GPL and implemented for X. \
  each player becomes leader of a civilization, fighting to obtain \
  the ultimate goal: The extinction of all other civilizations. \
  "
-HOMEPAGE = "http://www.freeciv.org/"
+HOMEPAGE = "https://www.freeciv.org/"
 
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
