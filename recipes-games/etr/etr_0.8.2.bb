@@ -11,7 +11,7 @@ SRC_URI = " \
     file://simple-configure.patch \
 "
 
-SRC_URI[sha256sum] = "92da963ed32ab9bff126346edfb9549e871d7c3cec753f4ac5098e0d53c38341"
+SRC_URI[sha256sum] = "1c874965e9e249533bf15c08dabc61e60c05bb3fd578917880117ff8a910cd4e"
 
 DEPENDS = "sfml virtual/libgl libglu"
 
@@ -20,5 +20,5 @@ B = "${WORKDIR}/build"
 inherit autotools
 
 do_install:append() {
-        rm -Rf ${D}/${datadir}/appdata
+        rm -Rf ${D}/${datadir}/metainfo
 }
