@@ -7,8 +7,4 @@ file://dummy-qtver.patch \
 file://CacheVarForGettimeofday.patch \
 "
 
-EXTRA_OECONF += "\
-ac_cv_working_gettimeofday=yes \
-"
-
 SRC_URI[sha256sum] = "7407ea1a08267b1c5ee3439dc2db5c2d7b90ece7fcc3664ca2ad594435a57175"

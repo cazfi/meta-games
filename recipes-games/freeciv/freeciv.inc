@@ -25,6 +25,7 @@ B = "${WORKDIR}/build-${PV}"
 inherit autotools pkgconfig gettext
 
 EXTRA_OECONF = "\
+ac_cv_working_gettimeofday=yes \
 --enable-patient-connect \
 --enable-shared --enable-client=${FREECIV_GUI} \
 --disable-mapimg \
