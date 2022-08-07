@@ -6,4 +6,4 @@ ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.bz2 \
 file://dummy-qtver-S2_6.patch \
 "
 
-SRC_URI[sha256sum] = "7bcfe5dd3c081122e7cde7cdb24f57c3681d6a9667496faed207a91ac3165811"
+SRC_URI[sha256sum] = "efa7618024b05edee2b9b96614a2070deecb15da7d32e534b135f75fa824f2f7"
