@@ -1,6 +1,8 @@
 DESCRIPTION = "SDL2 graphics drawing primitives and other support functions."
 SECTION = "libs"
 
+HOMEPAGE = "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
+
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e04e1feb331457e9da15e0c88d0e8097"
 
