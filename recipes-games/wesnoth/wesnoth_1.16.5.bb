@@ -15,7 +15,7 @@ SRC_URI = " \
     file://0003-Do-not-adjust-compiler-flags.patch \
 "
 
-SRC_URI[sha256sum] = "729fd0903a28af502240d08c0a27b9ff50e534677644b639d8fd33823a7a9799"
+SRC_URI[sha256sum] = "b0c6dffaa8a4a5a6534488dc6646520df73af2c8c40d4a18448bbd59978cff0a"
 
 ARM_INSTRUCTION_SET = "arm"
 

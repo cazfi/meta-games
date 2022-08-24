@@ -19,22 +19,18 @@ Fixes build errors as:
 Upstream-Status: Inappropriate Inappropriate [oe specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
----
- CMakeLists.txt | 16 ++--------------
- 1 file changed, 2 insertions(+), 14 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index aaf6923..04efa09 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -218,20 +218,8 @@ if(NOT WIN32)
+diff -Nurd wesnoth-1.16.5/CMakeLists.txt wesnoth-1.16.5/CMakeLists.txt
+--- wesnoth-1.16.5/CMakeLists.txt	2022-08-24 19:31:59.541867878 +0300
++++ wesnoth-1.16.5/CMakeLists.txt	2022-08-24 19:33:34.818527791 +0300
+@@ -218,20 +218,8 @@
  		set(COMPILER_FLAGS "${COMPILER_FLAGS} -fno-omit-frame-pointer -fno-optimize-sibling-calls")
  	endif()
  
 -### Set the final compiler flags.
- 
--	set(COMPILER_FLAGS "${COMPILER_FLAGS} ${CXX_FLAGS_USER}")
 -
+-	set(COMPILER_FLAGS "${COMPILER_FLAGS} ${CXX_FLAGS_USER}")
+ 
 -	if(NOT "${CMAKE_CXX_FLAGS}" STREQUAL "${COMPILER_FLAGS}")
 -		MESSAGE(STATUS "CMake compiler flags set to »${COMPILER_FLAGS}«")
 -		set(CMAKE_CXX_FLAGS
@@ -49,15 +45,12 @@ index aaf6923..04efa09 100644
  
  # #
  # Determine optimization level
-@@ -416,7 +404,7 @@ if(NOT WIN32)
+@@ -416,7 +404,7 @@
  # End setting profiler build options
  # #
  else()
 -	set(CMAKE_CXX_FLAGS "/W3 /WX /wd4503 /wd4351 /wd4250 /wd4244 /wd4267 /we4239 /wd4275 /EHsc /utf-8" CACHE STRING "Global flags used by the CXX compiler during all builds." FORCE)
 +	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3 /WX /wd4503 /wd4351 /wd4250 /wd4244 /wd4267 /we4239 /wd4275 /EHsc /utf-8" CACHE STRING "Global flags used by the CXX compiler during all builds." FORCE)
+ 	set(CMAKE_C_FLAGS "/WX" CACHE STRING "Global flags used by the C compiler during all builds." FORCE)
  	add_definitions(-D_WIN32_WINNT=_WIN32_WINNT_WIN7 -D_CRT_SECURE_NO_WARNINGS -D_WINSOCK_DEPRECATED_NO_WARNINGS -DNOMINMAX)
  
- 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_LUA")
--- 
-2.34.1
-
