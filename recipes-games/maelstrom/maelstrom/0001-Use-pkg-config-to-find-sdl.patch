@@ -9,26 +9,19 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [OE specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
----
- configure.in | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/configure.in b/configure.in
-index 0170f4b..a6f76ac 100644
---- a/configure.in
-+++ b/configure.in
-@@ -47,10 +47,7 @@ AC_SUBST(INETLIB)
+diff -Nurd Maelstrom-3.0.7/configure.in Maelstrom-3.0.7/configure.in
+--- Maelstrom-3.0.7/configure.in	2021-02-04 19:17:55.000000000 +0200
++++ Maelstrom-3.0.7/configure.in	2022-08-24 23:12:31.161825755 +0300
+@@ -47,10 +47,7 @@
  
  dnl Check for SDL
- SDL_VERSION=1.2.0
--AM_PATH_SDL($SDL_VERSION,
+ SDL_VERSION=2.0.14
+-AM_PATH_SDL2($SDL_VERSION,
 -            :,
 -            AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
 -)
-+PKG_CHECK_MODULES([SDL], [sdl >= $SDL_VERSION], [HAVE_SDL=yes], [AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])])
++PKG_CHECK_MODULES([SDL], [sdl2 >= $SDL_VERSION], [HAVE_SDL=yes], [AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])])
  CFLAGS="$CFLAGS $SDL_CFLAGS"
  LIBS="$LIBS $SDL_LIBS"
  
--- 
-2.20.1
-
