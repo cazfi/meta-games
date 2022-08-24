@@ -2,7 +2,7 @@ DESCRIPTION = "Pingus is a free Lemmings clone."
 DEPENDS = "virtual/libiconv boost libpng libglu libsdl-mixer libsdl-image"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
-HOMEPAGE = "http://pingus.seul.org/"
+HOMEPAGE = "https://pingus.gitlab.io/"
 
 RDEPENDS:${PN} += "libmikmod bash"
 
