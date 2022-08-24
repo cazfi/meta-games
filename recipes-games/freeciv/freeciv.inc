@@ -86,6 +86,7 @@ RDEPENDS:${PN}-gtk3.22 = "freeciv-common freeciv-client-common"
 RPROVIDES:${PN}-gtk3.22 = "freeciv-client"
 FILES:${PN}-gtk3.22 = "\
 ${bindir}/freeciv-gtk3.22 \
+${datadir}/freeciv/themes/gtk3.22 \
 ${datadir}/freeciv/themes/gui-gtk-3.22 \
 ${datadir}/freeciv/gtk3.22_menus.xml \
 "
