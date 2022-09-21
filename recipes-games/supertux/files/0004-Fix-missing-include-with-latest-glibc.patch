@@ -1,0 +1,34 @@
+From ee4ffc159acfb34dd47b1810448ee567fdfb427d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 21 Sep 2022 23:29:10 +0200
+Subject: [PATCH] Fix missing include with latest glibc
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Fixes:
+| SuperTux-v0.6.3-Source/external/partio_zip/zip_manager.hpp:70:10: error: 'unique_ptr' in namespace 'std' does not name a template type
+|    70 |     std::unique_ptr<std::ostream> Add_File(const std::string& filename,const bool binary=true);
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ external/partio_zip/zip_manager.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/external/partio_zip/zip_manager.hpp b/external/partio_zip/zip_manager.hpp
+index 666884d..5cc6ff8 100644
+--- a/external/partio_zip/zip_manager.hpp
++++ b/external/partio_zip/zip_manager.hpp
+@@ -47,6 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ #include <string>
+ #include <stdexcept>
+ #include <vector>
++#include <memory>
+ 
+ namespace Partio{
+ struct ZipFileHeader;
+-- 
+2.35.3
+

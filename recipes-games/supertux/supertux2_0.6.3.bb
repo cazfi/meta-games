@@ -20,6 +20,7 @@ SRC_URI = " \
     file://0001-CMakeLists.txt-Pin-PHYSFS_getPrefDir-autodetection-d.patch \
     file://0002-do-not-set-included-paths-as-system-causes-trouble-w.patch \
     file://0003-Set-DCMAKE_MAKE_PROGRAM-make-explicitly-for-external.patch \
+    file://0004-Fix-missing-include-with-latest-glibc.patch \
 "
 
 SRC_URI[sha256sum] = "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
