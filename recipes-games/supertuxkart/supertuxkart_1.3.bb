@@ -1,5 +1,5 @@
 DESCRIPTION = "SuperTuxKart is a kart racing game featuring Tux and his friends"
-HOMEPAGE = "http://supertuxkart.sourceforge.net"
+HOMEPAGE = "https://supertuxkart.sourceforge.net"
 SECTION = "x11/application"
 LICENSE = "GPL-2.0-only & GPL-3.0-or-later & CC-BY-SA-3.0 & CC-BY-SA-4.0 & PD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=bcfdeb69518cfe348a07845ebba5c295"
