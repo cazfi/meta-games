@@ -15,10 +15,6 @@ FREECIV_GUI = "gtk3.22,qt,sdl2"
 
 DEPENDS = "readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext qttools-native libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
-SRC_URI = "\
-file://allow-root.patch \
-"
-
 S = "${WORKDIR}/freeciv-${PV}"
 B = "${WORKDIR}/build-${PV}"
 

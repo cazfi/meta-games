@@ -3,6 +3,7 @@ require freeciv-qt5.inc
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
+file://allow-root.patch \
 file://dummy-qtver.patch \
 "
 
