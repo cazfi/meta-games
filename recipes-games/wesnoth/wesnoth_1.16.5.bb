@@ -1,5 +1,5 @@
 DESCRIPTION = "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme."
-HOMEPAGE = "http://www.wesnoth.org/"
+HOMEPAGE = "https://www.wesnoth.org/"
 SECTION = "games"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://copyright;md5=794c9526b4086a97155c27908976bbfd"
