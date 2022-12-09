@@ -1,5 +1,5 @@
 DESCRIPTION = "Simple and Fast Multimedia Library"
-HOMEPAGE = "http://www.sfml-dev.org/index.php"
+HOMEPAGE = "https://www.sfml-dev.org/"
 SECTION = "libs"
 
 LICENSE = "SFML"
