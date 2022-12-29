@@ -1,0 +1,25 @@
+diff --git a/configure.ac b/configure.ac
+index 4fa608e29b..7f4b94166b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -793,6 +793,8 @@ if test "x$emscripten" = "xyes" ; then
+   AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - emscripten])
+ fi
+ 
++AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - OpenEmbedded])
++
+ dnl Settings specific to host OS
+ case "$host_os" in
+ 
+diff --git a/meson.build b/meson.build
+index f746126902..7f50fc258e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -120,6 +120,7 @@ else
+     priv_conf_data.set('ALWAYS_ROOT', 1)
+   else
+     pub_conf_data.set('FREECIV_HAVE_PTHREAD', 1)
++    priv_conf_data.set('ALWAYS_ROOT', 1)
+     net_dep = []
+   endif
+ endif
