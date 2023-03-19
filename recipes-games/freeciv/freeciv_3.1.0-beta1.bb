@@ -1,19 +1,16 @@
 
 require freeciv-qt5.inc
 
-DEFAULT_PREFERENCE = "-2"
+DEFAULT_PREFERENCE = "-1"
 
-DEPENDS += "tolua-native lua gtk4"
+DEPENDS += "lua gtk4"
 
 SRC_URI += "\
-git://github.com/freeciv/freeciv.git;protocol=https;branch=S3_1 \
+${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 file://allow-root-S3_1.patch \
 "
 
-SRCREV="8d7cdf503164f296990c68e27a4fe3e2a87eb909"
-PN = "freeciv"
-PV = "3.1.0-alpha5"
-S = "${WORKDIR}/git"
+SRC_URI[sha256sum] = "fd8872dbacc6cf0212a44c9e703a82bae71b0741a191ee318fbefd072a1ee431"
 
 FREECIV_GUI += "gtk4"
 
