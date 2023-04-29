@@ -3,7 +3,7 @@ require freeciv-qt5.inc
 
 DEFAULT_PREFERENCE = "-1"
 
-DEPENDS += "lua gtk4"
+DEPENDS += "lua gtk4 zstd"
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
