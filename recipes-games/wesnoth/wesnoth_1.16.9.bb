@@ -4,7 +4,7 @@ SECTION = "games"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://copyright;md5=794c9526b4086a97155c27908976bbfd"
 
-DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zlib boost pango libpng"
+DEPENDS = "asio freetype libsdl2-image libsdl2-mixer libsdl2-net libsdl2-ttf zlib boost pango libpng readline"
 
 SHRT_VER = "${@oe.utils.trim_version("${PV}", 2)}"
 
@@ -13,9 +13,10 @@ SRC_URI = " \
     file://0001-Find-sdl-CFLAGS-with-pkg-config-sdl-config-is-not-us.patch \
     file://0002-Do-not-do-the-ar-ranlib-configure-dance-it-won-t-wor.patch \
     file://0003-Do-not-adjust-compiler-flags.patch \
+    file://cstdint_include.patch \
 "
 
-SRC_URI[sha256sum] = "85c5ece5eb55807b9f155d7189bad21a1bd40f055a378bfb6e4d63e22cc16e7c"
+SRC_URI[sha256sum] = "3ded6938fb24100b9884ab5a902711f6c7a25cef65aafddb3e3b8a15b7652386"
 
 ARM_INSTRUCTION_SET = "arm"
 

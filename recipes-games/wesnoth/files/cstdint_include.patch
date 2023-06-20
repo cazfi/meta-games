@@ -1,0 +1,25 @@
+
+Upstream-Status: Pending
+
+diff -Nurd wesnoth-1.16.9/src/deprecation.hpp wesnoth-1.16.9/src/deprecation.hpp
+--- wesnoth-1.16.9/src/deprecation.hpp	2023-04-16 04:16:27.000000000 +0300
++++ wesnoth-1.16.9/src/deprecation.hpp	2023-06-20 07:52:11.725014316 +0300
+@@ -15,6 +15,7 @@
+ #pragma once
+ 
+ #include <string>
++#include <cstdint>
+ 
+ /** See https://wiki.wesnoth.org/CompatibilityStandards for more info. */
+ enum class DEP_LEVEL : uint8_t { INDEFINITE = 1, PREEMPTIVE, FOR_REMOVAL, REMOVED };
+diff -Nurd wesnoth-1.16.9/src/serialization/base64.hpp wesnoth-1.16.9/src/serialization/base64.hpp
+--- wesnoth-1.16.9/src/serialization/base64.hpp	2023-04-16 04:16:27.000000000 +0300
++++ wesnoth-1.16.9/src/serialization/base64.hpp	2023-06-20 08:13:30.857173165 +0300
+@@ -17,6 +17,7 @@
+ 
+ #include <string_view>
+ #include <vector>
++#include <cstdint>
+ 
+ namespace utils
+ {
