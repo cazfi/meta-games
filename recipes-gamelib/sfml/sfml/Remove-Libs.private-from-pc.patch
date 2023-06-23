@@ -1,0 +1,35 @@
+Fix openembedded warnings about generated .pc files
+referencing TMPDIR.
+
+Upstream-status: Pending
+
+diff -Nurd SFML-2.6.0/tools/pkg-config/sfml-audio.pc.in SFML-2.6.0/tools/pkg-config/sfml-audio.pc.in
+--- SFML-2.6.0/tools/pkg-config/sfml-audio.pc.in	2023-06-21 00:44:57.000000000 +0300
++++ SFML-2.6.0/tools/pkg-config/sfml-audio.pc.in	2023-06-24 00:38:13.479694289 +0300
+@@ -10,6 +10,4 @@
+ Requires: sfml-system
+ Requires.private: openal, vorbisenc, vorbisfile, vorbis, ogg, flac
+ Libs: -L${libdir} -lsfml-audio
+-# openal may be a system framework
+-Libs.private: @OPENAL_LIBRARY@
+ Cflags: -I${includedir}
+diff -Nurd SFML-2.6.0/tools/pkg-config/sfml-graphics.pc.in SFML-2.6.0/tools/pkg-config/sfml-graphics.pc.in
+--- SFML-2.6.0/tools/pkg-config/sfml-graphics.pc.in	2023-06-21 00:44:57.000000000 +0300
++++ SFML-2.6.0/tools/pkg-config/sfml-graphics.pc.in	2023-06-24 00:38:26.547833127 +0300
+@@ -10,6 +10,4 @@
+ Requires: sfml-window
+ Requires.private: sfml-system, freetype2
+ Libs: -L${libdir} -lsfml-graphics
+-# gl may not be in pkg-config
+-Libs.private: @OPENGL_gl_LIBRARY@ @OPENGL_glu_LIBRARY@
+ Cflags: -I${includedir}
+diff -Nurd SFML-2.6.0/tools/pkg-config/sfml-window.pc.in SFML-2.6.0/tools/pkg-config/sfml-window.pc.in
+--- SFML-2.6.0/tools/pkg-config/sfml-window.pc.in	2023-06-21 00:44:57.000000000 +0300
++++ SFML-2.6.0/tools/pkg-config/sfml-window.pc.in	2023-06-24 00:38:34.723919934 +0300
+@@ -9,6 +9,4 @@
+ Version: @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
+ Requires: sfml-system
+ Libs: -L${libdir} -lsfml-window
+-# gl may not be in pkg-config
+-Libs.private: @OPENGL_gl_LIBRARY@ @OPENGL_glu_LIBRARY@
+ Cflags: -I${includedir}
