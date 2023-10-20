@@ -7,4 +7,4 @@ file://allow-root.patch \
 file://dummy-qtver-S2_6.patch \
 "
 
-SRC_URI[sha256sum] = "deb4ff4f43438f553413df8d847abb5270018155049b090976fcc835cb201ec6"
+SRC_URI[sha256sum] = "b7f5eb4cc99abeea1123614889f1432864014de4962839fabfa23fe4c64ad49d"
