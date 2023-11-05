@@ -25,6 +25,7 @@ ac_cv_working_gettimeofday=yes \
 ac_cv_func_working_vsnprintf=yes \
 --enable-patient-connect \
 --enable-shared --enable-client=${FREECIV_GUI} \
+--disable-ruledit \
 --disable-mapimg \
 --disable-sdl2test \
 --with-sqlite3-prefix=${STAGING_DIR} \
