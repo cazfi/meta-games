@@ -12,7 +12,7 @@ https://www.sfml-dev.org/files/SFML-${PV}-sources.zip \
 file://Remove-Libs.private-from-pc.patch \
 "
 
-SRC_URI[sha256sum] = "dc477fc7266641709046bd38628c909f5748bd2564b388cf6c750a9e20cdfef1"
+SRC_URI[sha256sum] = "5bf19e5c303516987f7f54d4ff1b208a0f9352ffa1cd55f992527016de0e8cb7"
 
 S = "${WORKDIR}/SFML-${PV}"
 
