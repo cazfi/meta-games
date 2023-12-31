@@ -10,7 +10,7 @@ ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 file://allow-root-S3_1.patch \
 "
 
-SRC_URI[sha256sum] = "2fc4ad1f5833b60e18286e6dc5107ef9104d6d81a0e634b5448abdb73636d54e"
+SRC_URI[sha256sum] = "2876e169cd20ba38b4ea96406e29a5268654f5042e5d93d26c87cdc199963db9"
 
 FREECIV_GUI += "gtk4"
 
