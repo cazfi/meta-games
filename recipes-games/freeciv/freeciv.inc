@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SECTION = "games"
 
-FREECIV_GUI = "gtk3.22,qt,sdl2"
+FREECIV_GUI = "gtk3.22,gtk4,qt,sdl2"
 
 DEPENDS = "readline bzip2 curl xz libsdl2-mixer gtk+3 qtbase virtual/gettext qttools-native libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
@@ -35,7 +35,7 @@ SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
 PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common \
-${PN}-gtk3.22 ${PN}-qt ${PN}-sdl2"
+${PN}-gtk3.22 ${PN}-gtk4 ${PN}-qt ${PN}-sdl2"
 
 do_install:append() {
         rm -Rf ${D}/${datadir}/appdata
@@ -87,6 +87,13 @@ ${bindir}/freeciv-gtk3.22 \
 ${datadir}/freeciv/themes/gtk3.22 \
 ${datadir}/freeciv/themes/gui-gtk-3.22 \
 ${datadir}/freeciv/gtk3.22_menus.xml \
+"
+
+RDEPENDS:${PN}-gtk4 = "freeciv-common freeciv-client-common"
+RPROVIDES:${PN}-gtk4 = "freeciv-client"
+FILES:${PN}-gtk4 = "\
+${bindir}/freeciv-gtk4 \
+${datadir}/freeciv/themes/gtk4 \
 "
 
 RDEPENDS:${PN}-qt = "freeciv-common freeciv-client-common qtbase-plugins"
