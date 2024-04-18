@@ -1,5 +1,5 @@
 
-require freeciv-qt5.inc
+require freeciv-qt6.inc
 
 DEPENDS += "lua gtk4 zstd"
 
