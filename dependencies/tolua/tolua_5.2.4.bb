@@ -23,6 +23,7 @@ SRC_URI = "\
  file://03-tolua_bnd_takeownership-prototype.patch \
  file://04-include-tolua_event.patch \
  file://05-gen-code-fix-null-dereferences.patch \
+ file://06-gen-code-no-trailing-spaces.patch \
 "
 
 B = "${S}"
