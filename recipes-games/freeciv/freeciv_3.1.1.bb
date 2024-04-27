@@ -6,7 +6,6 @@ DEPENDS += "lua gtk4 zstd"
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 file://allow-root-S3_1.patch \
-file://0015-Qt-Add-Q_OBJECT-for-fc_shortcut_popup.patch \
 "
 
-SRC_URI[sha256sum] = "d746a883937b955b0ee1d1eba8b4e82354f7f72051ac4f514de7ab308334506e"
+SRC_URI[sha256sum] = "b2bd00c0e2a6c81bcb52aa0dddf81f2f4543705bf7a9fcd5afac3f7b3fff5ef6"
