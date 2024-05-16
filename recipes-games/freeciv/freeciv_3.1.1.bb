@@ -1,7 +1,7 @@
 
 require freeciv-qt6.inc
 
-DEPENDS += "lua gtk4 zstd"
+DEPENDS += "lua"
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
