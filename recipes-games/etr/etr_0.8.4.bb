@@ -12,7 +12,7 @@ SRC_URI = " \
     file://simple-configure.patch \
 "
 
-SRC_URI[sha256sum] = "2ee42f3f5fc2f8d49aa75056eb116f6cab84d6564120e6961ae5927367245113"
+SRC_URI[sha256sum] = "fa3285cc0c755a5aff529f3f2cea3516481114c6b4b8e1ec0769feeff04773e5"
 
 DEPENDS = "sfml virtual/libgl libglu"
 
