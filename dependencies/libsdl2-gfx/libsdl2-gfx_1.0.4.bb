@@ -27,7 +27,3 @@ EXTRA_OECONF += "--disable-mmx"
 EXTRA_OECONF += "${@bb.utils.contains("TUNE_FEATURES", "m32", "--enable-mmx", "", d)}"
 EXTRA_OECONF += "${@bb.utils.contains("TUNE_FEATURES", "m64", "--enable-mmx", "", d)}"
 EXTRA_OECONF += "${@bb.utils.contains("AVAILTUNES", "powerpc", "--disable-mmx", "", d)}"
-
-do_unpack:append() {
-    os.rename("SDL2_gfx-1.0.4/acinclude", "SDL2_gfx-1.0.4/m4")
-}
