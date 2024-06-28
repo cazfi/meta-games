@@ -1,3 +1,5 @@
+Upstream-Status: Inactive-Upstream
+
 diff -Nurd SDL2_gfx-1.0.4/configure.in SDL2_gfx-1.0.4/configure.in
 --- SDL2_gfx-1.0.4/configure.in	2024-05-30 03:24:19.046203935 +0300
 +++ SDL2_gfx-1.0.4/configure.in	2024-05-30 03:25:04.462372638 +0300
