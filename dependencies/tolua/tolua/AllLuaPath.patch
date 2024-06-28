@@ -1,7 +1,8 @@
 Look for lua files from under share
 
-Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+Upstream-Status: Inappropriate
 
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
 diff -Nurd tolua-5.2.4/src/bin/tolua.c tolua-5.2.4/src/bin/tolua.c
 --- tolua-5.2.4/src/bin/tolua.c	2015-11-03 00:54:03.000000000 +0200
 +++ tolua-5.2.4/src/bin/tolua.c	2018-04-02 10:30:44.572922804 +0300

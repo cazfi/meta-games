@@ -1,3 +1,5 @@
+Upstream-Status: Inactive-Upstream
+
 diff -Nurd tolua-5.2/src/lib/tolua_event.c tolua-5.2/src/lib/tolua_event.c
 --- tolua-5.2/src/lib/tolua_event.c	2022-09-26 18:20:52.710709210 +0300
 +++ tolua-5.2/src/lib/tolua_event.c	2022-09-26 18:18:49.593511033 +0300

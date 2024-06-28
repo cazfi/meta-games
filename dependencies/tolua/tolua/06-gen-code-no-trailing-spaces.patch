@@ -1,3 +1,5 @@
+Upstream-Status: Inactive-Upstream
+
 diff -Nurd tolua-5.2/src/bin/lua/function.lua tolua-5.2/src/bin/lua/function.lua
 --- tolua-5.2/src/bin/lua/function.lua	2024-04-19 20:03:11.818328350 +0300
 +++ tolua-5.2/src/bin/lua/function.lua	2024-04-19 20:11:14.294719921 +0300

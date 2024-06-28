@@ -1,7 +1,8 @@
 Make tolua to compile on OpenEmbedded
 
-Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+Upstream-Status: Inappropriate
 
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
 diff -Nurd tolua-5.2.4/config tolua-5.2.4/config
 --- tolua-5.2.4/config	2015-11-03 00:54:03.000000000 +0200
 +++ tolua-5.2.4/config	2018-04-02 10:31:14.296753597 +0300
