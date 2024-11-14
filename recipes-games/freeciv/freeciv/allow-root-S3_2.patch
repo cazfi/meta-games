@@ -1,0 +1,27 @@
+Upstream-Status: Inappropriate
+
+diff --git a/configure.ac b/configure.ac
+index 657a3689e2..0f3e87a6a1 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -756,6 +756,8 @@ dnl Defaults to override with host specific values
+ HOST_PATH_SEPARATOR=":"
+ HOST_DIR_SEPARATOR="/"
+ 
++AC_DEFINE([ALWAYS_ROOT], [1], [Can execute program as root - OpenEmbedded])
++
+ dnl Settings specific to host OS
+ case "$host_os" in
+ 
+diff --git a/meson.build b/meson.build
+index 0fa23a94c7..6471de9f3f 100644
+--- a/meson.build
++++ b/meson.build
+@@ -312,6 +312,7 @@ else
+     priv_conf_data.set('ALWAYS_ROOT', 1)
+   else
+     pub_conf_data.set('FREECIV_HAVE_PTHREAD', 1)
++    priv_conf_data.set('ALWAYS_ROOT', 1)
+     net_dep = []
+   endif
+ endif
