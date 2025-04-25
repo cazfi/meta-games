@@ -7,7 +7,7 @@ functions, classes, and methods to Lua."
 HOMEPAGE = "http://webserver2.tecgraf.puc-rio.br/~celes/tolua/"
 SECTION = "console/utils"
 
-DEPENDS= "lua-native"
+DEPENDS = "lua-native"
 BBCLASSEXTEND = "native"
 
 LICENSE = "GPL-2.0-or-later"

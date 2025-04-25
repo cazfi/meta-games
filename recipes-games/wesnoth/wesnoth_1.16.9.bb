@@ -141,7 +141,7 @@ FILES:${PN}-l = "\
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-l.mo \
 "
 
-FILES:${PN}-low ="\
+FILES:${PN}-low = "\
 	${datadir}/wesnoth/data/campaigns/Legend_of_Wesmere \
 	${datadir}/wesnoth/translations/*/LC_MESSAGES/wesnoth-low.mo \
 "
