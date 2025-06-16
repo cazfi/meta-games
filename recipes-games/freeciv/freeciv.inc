@@ -32,6 +32,10 @@ ac_cv_func_working_vsnprintf=yes \
 SDL2_CONFIG='${STAGING_BINDIR_NATIVE}/pkg-config sdl2' \
 "
 
+EXTRANATIVEPATH = "\
+../libexec \
+"
+
 acpaths = "-I ${S}/m4 -I ${S}/dependencies/m4"
 
 PACKAGES =+ "${PN}-common ${PN}-server ${PN}-client-common \
