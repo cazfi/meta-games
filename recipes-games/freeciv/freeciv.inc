@@ -15,7 +15,7 @@ FREECIV_GUI = "gtk3.22,gtk4,qt,sdl2"
 
 DEPENDS = "readline bzip2 curl xz zstd libsdl2-mixer gtk+3 gtk4 qtbase virtual/gettext qttools-native libsdl2-image libsdl2-ttf libsdl2-gfx freetype"
 
-S = "${WORKDIR}/freeciv-${PV}"
+S = "${UNPACKDIR}/freeciv-${PV}"
 B = "${WORKDIR}/build-${PV}"
 
 inherit autotools pkgconfig gettext
