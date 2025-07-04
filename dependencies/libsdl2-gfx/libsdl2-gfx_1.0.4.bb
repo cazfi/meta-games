@@ -16,7 +16,7 @@ SRC_URI = "\
 SRC_URI[md5sum] = "15f9866c6464ca298f28f62fe5b36d9f"
 SRC_URI[sha256sum] = "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
 
-S = "${WORKDIR}/SDL2_gfx-${PV}"
+S = "${UNPACKDIR}/SDL2_gfx-${PV}"
 
 inherit autotools pkgconfig
 
