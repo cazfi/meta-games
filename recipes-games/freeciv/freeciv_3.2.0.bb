@@ -10,4 +10,4 @@ ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 file://allow-root-S3_2.patch \
 "
 
-SRC_URI[sha256sum] = "f6b7310f7838c58efe118029b606906cd83b35700c5ff25d95b7568df80a5d60"
+SRC_URI[sha256sum] = "828e831b672a46b316f6fdb23e670230b2ec9c05b6fe8c66fc9f7e1c0679fcde"
