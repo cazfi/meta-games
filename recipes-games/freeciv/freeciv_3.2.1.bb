@@ -1,13 +1,12 @@
 
 require freeciv-qt6.inc
 
-DEFAULT_PREFERENCE = "-1"
-
 DEPENDS += "lua"
 
 SRC_URI += "\
 ${SOURCEFORGE_MIRROR}/freeciv/freeciv-${PV}.tar.xz \
 file://allow-root-S3_2.patch \
+file://0019-Qt-Work-around-Qt-6.9-theming-issue.patch \
 "
 
-SRC_URI[sha256sum] = "828e831b672a46b316f6fdb23e670230b2ec9c05b6fe8c66fc9f7e1c0679fcde"
+SRC_URI[sha256sum] = "3fc01ef55bfc9b9c2d71432d22a9fc5ab5892285d15d3dc888ec4bb288d21caa"

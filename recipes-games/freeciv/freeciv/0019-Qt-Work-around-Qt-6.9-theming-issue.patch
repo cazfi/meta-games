@@ -1,0 +1,92 @@
+Upstream-Status: Backport
+
+From 48875b712fe1b5009a80a1fb4280fe1904677012 Mon Sep 17 00:00:00 2001
+From: Marko Lindqvist <cazfi74@gmail.com>
+Date: Sun, 2 Nov 2025 09:14:58 +0200
+Subject: [PATCH 19/20] Qt: Work around Qt-6.9 theming issue
+
+See RM #1697
+
+Signed-off-by: Marko Lindqvist <cazfi74@gmail.com>
+---
+ client/gui-qt/citydlg.cpp |  2 ++
+ client/gui-qt/gui_main.h  |  2 ++
+ client/gui-qt/themes.cpp  | 17 ++++++++++++++---
+ 3 files changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/client/gui-qt/citydlg.cpp b/client/gui-qt/citydlg.cpp
+index 1d569b8a8d..b2c6d5a6f7 100644
+--- a/client/gui-qt/citydlg.cpp
++++ b/client/gui-qt/citydlg.cpp
+@@ -2044,6 +2044,8 @@ city_dialog::city_dialog(QWidget *parent): qfc_dialog(parent)
+   installEventFilter(this);
+ 
+   ::city_dlg_created = true;
++
++  set_theme_style();
+ }
+ 
+ /************************************************************************//**
+diff --git a/client/gui-qt/gui_main.h b/client/gui-qt/gui_main.h
+index d825cba768..94d3a0d20f 100644
+--- a/client/gui-qt/gui_main.h
++++ b/client/gui-qt/gui_main.h
+@@ -23,4 +23,6 @@ QApplication *current_app();
+ #define CAPTURE_DEFAULT_THIS [=]
+ #endif // FREECIV_HAVE_CXX20_CAPTURE_THIS
+ 
++void set_theme_style();
++
+ #endif // FC__GUI_MAIN_H
+diff --git a/client/gui-qt/themes.cpp b/client/gui-qt/themes.cpp
+index 79092d65b2..6e4e5bdf3c 100644
+--- a/client/gui-qt/themes.cpp
++++ b/client/gui-qt/themes.cpp
+@@ -38,6 +38,8 @@ extern QString current_theme;
+ static QString def_app_style;
+ static QString stylestring;
+ 
++static QStyle *current_style = nullptr;
++
+ /*************************************************************************//**
+   Loads a qt theme directory/theme_name
+ *****************************************************************************/
+@@ -76,16 +78,17 @@ void qtg_gui_load_theme(const char *directory, const char *theme_name)
+   stylestring.replace(lnb, fake_dir + "/" + theme_name + "/");
+ 
+   if (QString(theme_name) == QString("System")) {
+-    QApplication::setStyle(QStyleFactory::create(def_app_style));
++    current_style = QStyleFactory::create(def_app_style);
+   } else {
+     QStyle *fstyle = QStyleFactory::create("Fusion");
+ 
+     if (fstyle != nullptr) {
+-      QApplication::setStyle(fstyle);
++      current_style = fstyle;
+     } else {
+-      QApplication::setStyle(QStyleFactory::create(def_app_style));
++      current_style = QStyleFactory::create(def_app_style);
+     }
+   }
++  QApplication::setStyle(current_style);
+ 
+   current_theme = theme_name;
+   QPixmapCache::clear();
+@@ -98,6 +101,14 @@ void qtg_gui_load_theme(const char *directory, const char *theme_name)
+   QApplication::setPalette(pal);
+ }
+ 
++/*************************************************************************//**
++  Set theme style again, to work around Qt theming bug.
++*****************************************************************************/
++void set_theme_style()
++{
++  QApplication::setStyle(current_style);
++}
++
+ /*************************************************************************//**
+   Clears a theme (sets default system theme)
+ *****************************************************************************/
+-- 
+2.51.0
+
