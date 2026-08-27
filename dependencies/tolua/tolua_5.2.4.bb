@@ -24,6 +24,7 @@ SRC_URI = "\
  file://04-include-tolua_event.patch \
  file://05-gen-code-fix-null-dereferences.patch \
  file://06-gen-code-no-trailing-spaces.patch \
+ file://08-gen-code-deterministic.patch \
 "
 
 B = "${S}"
