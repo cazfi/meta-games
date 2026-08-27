@@ -9,7 +9,7 @@ IMAGE_FEATURES = ""
 export IMAGE_BASENAME = "games-image-initramfs"
 IMAGE_LINGUAS = ""
 
-LICENSE = "GPL2"
+LICENSE = "GPL-2.0"
 
 IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
 inherit core-image
