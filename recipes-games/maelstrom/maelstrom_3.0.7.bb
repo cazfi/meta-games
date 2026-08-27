@@ -1,5 +1,5 @@
 SUMMARY = "Maelstrom is a GPL'd port of the shareware game for the Macintosh"
-LICENSE = "GPL-2.0-only & CC-BY-3.0"
+LICENSE = "GPL-2.0-only AND CC-BY-3.0"
 LIC_FILES_CHKSUM = "\
  file://COPYING.GPL;md5=d368405f1c604912f51ba286eed9944a \
  file://COPYING.txt;md5=1ade764d012d246f775dc01dc4f7c1af \
